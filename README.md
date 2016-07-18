@@ -1,4 +1,3 @@
-# WebsiteContent
-Website static content
+# Website Content
 
-
+Static pages
