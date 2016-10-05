@@ -1,0 +1,73 @@
+{"Looks":[
+  {
+  "_id": "1",
+  "title": "Look Title",
+  "img": "https://d117fiyhpld8f9.cloudfront.net/content-images/aw16/1200/TOAST_LateAutumn_Women_1.jpg",
+  "Products":
+  [
+    {
+    "title": "b",
+    "price": "d",
+    "desc": "f"
+  },
+    {
+    "title": "b",
+    "price": "d",
+    "desc": "f"
+  },
+    {
+   "title": "b",
+    "price": "d",
+    "desc": "f"
+  }
+  ]
+},
+{
+  "_id": "2",
+  "title": "Look Title",
+  "img": "https://d117fiyhpld8f9.cloudfront.net/content-images/aw16/1200/TOAST_LateAutumn_Women_1.jpg",
+  "Products":
+  [
+    {
+    "title": "b",
+    "price": "d",
+    "desc": "f"
+  },
+    {
+    "title": "b",
+    "price": "d",
+    "desc": "f"
+  },
+    {
+   "title": "b",
+    "price": "d",
+    "desc": "f"
+  }
+  ]
+},
+{
+  "_id": "3",
+  "title": "Look Title",
+  "img": "https://d117fiyhpld8f9.cloudfront.net/content-images/aw16/1200/TOAST_LateAutumn_Women_1.jpg",
+  "Products":
+  [
+    {
+    "title": "b",
+    "price": "d",
+    "desc": "f"
+  },
+    {
+    "title": "b",
+    "price": "d",
+    "desc": "f"
+  },
+    {
+   "title": "b",
+    "price": "d",
+    "desc": "f"
+  }
+  ]
+}
+
+]
+}

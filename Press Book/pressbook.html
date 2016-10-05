@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap 101 Template</title>
+
+
+    <link rel="stylesheet" href="http://d2xfispw8k8nwr.cloudfront.net/css/min/normalize.min.css">
+    <link rel="stylesheet" href="http://d2xfispw8k8nwr.cloudfront.net/css/min/toast-framework.min.css">
+    <link rel="stylesheet" href="http://d2xfispw8k8nwr.cloudfront.net/css/min/product.min.css">
+    <link rel="stylesheet" href="http://d2xfispw8k8nwr.cloudfront.net/css/min/main.min.css">
+    <link rel="stylesheet" href="http://d2xfispw8k8nwr.cloudfront.net/css/min/landing-page.css">
+    <link rel="stylesheet" href="http://d2xfispw8k8nwr.cloudfront.net/css/min/outfitpage.min.css">
+    <link rel="stylesheet" href="http://d2xfispw8k8nwr.cloudfront.net/css/min/fixedbs-grid-min.css">
+
+
+
+   <style>
+   .pb_openingTile {background: url(https://d117fiyhpld8f9.cloudfront.net/content-images/aw16/768/TOAST_Winter_Women_1.jpg); display: block; width: 100%; padding-top: 128%; margin-bottom: 20px; background-size: 100% 100%; position: relative; color:#ffffff;}
+   .pb_openingTileText {position: absolute; width: 100%; text-align: center; top:40%;}
+   .pb_openingTile h1 {font-size: 26px; letter-spacing: 3px; margin-bottom: 10px}
+   .pb_openingTileLink {font-size: 14px; letter-spacing: 1px; padding-bottom: 3px; border-bottom: 1px solid #ffffff; color:#ffffff; text-transform: uppercase; padding-top: 20px}
+
+   .pb_openingText {text-align: center;; width: 100%; font-size: 16px; margin: 20px 0; line-height: 24px}
+
+   .pb_Lightbox {background-color:rgba(0, 0, 0, 0.6); position: absolute; top:0; left:0; height: 500px; width: 100%; z-index: 10; display: none}
+   .pb_passwordBox {position: absolute; top: 200px; left:0; width: 100%; text-align: center;}
+   .pb_passwordWhiteBox {margin: 0 auto; width: 500px; height: 230px; background-color: #ffffff; padding: 10px 10px 50px 10px}
+   .pb_hiddenHTML {display: none}
+   .pb_passwordBoxText {width: 100%; margin: 0 0 20px 0; font-size: 16px}
+   .pb_passwordBox input {width: 70%; padding: 8px}
+   .pb_passwordSubmit {font-size: 16px; }
+   .pb_submit {text-align: right; margin-bottom: 15px}
+   .pb_submitFeedback {height: 20px; margin: 10px 0; width: 100%; color:  #dd4b39}
+
+   .pb_title {width: 100%; font-size: 36px}
+   .pb_subRight {text-align: right}
+   .pb_mainContent h1 {font-size: 22px; letter-spacing: 2px; margin-bottom: 30px}
+   .pb_mainContent h2 {font-size: 16px; letter-spacing: 1px}
+
+   .pb_imageRepeater {width: 25%; position: relative; display: block}
+   .pb_imageHover {position: absolute; width: 100%; height: 200px;background-color:rgba(0, 0, 0, 0.6); display: none}
+
+
+   </style>
+
+  </head>
+  <body>
+  <div class="container">
+    <div class="visibleContent">
+      <div class="introArea">
+        <div class="col-md-6 col-md-offset-3">
+          <div class="pb_openingTile">
+            <div class="pb_openingTileText">
+              <h1 class="textSemibold">Press Access</h1>
+              <a class="sansBook pb_openingTileLink" href="javascript:openPasswordField()">Enter</a>
+            </div>
+          </div>
+        </div>
+
+      <div class="col-md-8 col-md-offset-2">
+      <div class="pb_openingText">
+      To request press access, please contact <a href="mailto:robinsonc@toa.st">robinsonc@toa.st</a><br>
+          For further press information and sample requests, contact Modus Publicity on 0207 331 1433
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pb_hiddenHTML">
+
+  <!-- password box -->
+    <div class="passwordBox">
+      <div class="pb_passwordWhiteBox">
+      <div class="pb_submit"><a href="javascript:closePasswordBox()"><img src="https://toast-images.s3.amazonaws.com/content-images/development/jersey/OurJersey_Close.png" alt="Close" width="32px" /></a></div>
+          <div class="pb_passwordBoxText sansBook">
+          Please enter your press password below.
+          </div>
+          <input type="password" id="passsWordField">
+          <div class="pb_submitFeedback"></div>
+          <div class="pb_passwordSubmit sansBold"><a href="javascript:submitPassword()">Submit</a></div>
+      </div>
+    </div>
+
+    <!-- presbook items -->
+
+    <div class="pressBookContent">
+    <div class="pb_mainContent">
+      <h1 class="pb_title textBold">SS17 Pressbook</h1>
+      <div class="row">
+        <div class="col-sm-6"><h2 class="pb_sub textSemibold">Pre Collection / January</h2></div>
+        <div class="col-sm-6"><h2 class="pb_subRight textSemibold">Wilder</h2></div>
+      </div>
+      <div class="row">
+      <div class="pb_imageRepeater" id="1">
+        <div class="pb_imageHover"> 01 </div>
+        <div class="pb_imageHolder"><img src="https://d117fiyhpld8f9.cloudfront.net/content-images/aw16/768/TOAST_Winter_Women_1.jpg" alt="test image" class="img-responsive" /> </div>
+      </div>
+      </div>
+    </div>
+    </div>
+
+  </div>
+
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+  <script>
+    function createLightBox() {
+      $('body').prepend('<div class="pb_Lightbox"></div>')
+      $('.pb_Lightbox').height($(document).height())
+    }
+
+    function openPasswordField() {
+      $('.pb_Lightbox').html('<div class="pb_passwordBox">'+$(".passwordBox").html()+'</div>')
+      $('.pb_Lightbox').fadeIn()
+    }
+
+    function submitPassword() {
+      if ($('#passsWordField').val() == "a") {
+        $('.pb_Lightbox').fadeOut()
+        $(".visibleContent").html($(".pressBookContent").html())
+      } else if ( $('#passsWordField').val() == "") {
+        $('.pb_submitFeedback').html("Please enter a password")
+      }
+      else {
+         $('.pb_submitFeedback').html("Incorrect password")
+      }
+    }
+
+    function closePasswordBox(){
+      $('.pb_Lightbox').fadeOut()
+      $('.pb_Lightbox').html('')
+    }
+
+   
+
+    $( document ).ready(function() {
+
+      globalID = ""
+      // temp jump to images //
+      $(".visibleContent").html($(".pressBookContent").html())
+      
+      createLightBox()
+       $('.pb_imageRepeater').mouseover(function() {
+          $('#' +  this.id + ' .pb_imageHover').fadeIn()
+          globalID = this.id
+
+          $('#' + globalID + ' .pb_imageHover').mouseout(function() {
+            $('#' + globalID + ' .pb_imageHover').fadeOut()
+          });
+
+      });
+
+     
+
+    });
+
+
+
+  </script>
+
+  </body>
+</html>

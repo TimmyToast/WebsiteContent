@@ -1,0 +1,210 @@
+<style>
+
+  .mainVideo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  width: 100%;
+ }
+
+.videoHolder {
+  width: 100%;
+  position: relative;
+  background-color: #141a1c;
+  height: 180px;
+  display: block; }
+
+.backgroundVideo {
+  width: 100%; }
+
+  #youtubeBackground {
+  width: 100%; }
+
+.mb20 {margin-bottom: 20px}
+
+.animators div {
+    -webkit-transition: width 0.3s ease, margin 0.3s ease;
+    -moz-transition: width 0.3s ease, margin 0.3s ease;
+    -o-transition: width 0.3s ease, margin 0.3s ease;
+    transition: width 0.3s ease, margin 0.3s ease;
+}
+
+.lightBox {background-color:rgba(0, 0, 0, 0.5); width: 100%; height: 500px; position: absolute; top:0; left:0; display: block; z-index: 1020}
+.lighboxContent {max-width: 1100px; margin: 0 auto; background-color: #454545; height: 500px}
+
+</style>
+ 
+<div id="toastFont" class="landingPage grid-container grid-100 tablet-grid-100 mobile-grid-100 grid-parent sale no-border-right no-border-left">
+  
+   <a href="javascript:switchToThumbs()">Toggle this</a>.
+   <div class="row">
+       <div class="col-xs-12 mb20">
+       <div class="videoHolder">
+           <div class="mainVideo">
+<iframe id="youtubeBackground" width="100%" frameborder="0"></iframe>
+</div></div>
+
+       </div>
+</div>
+
+
+
+  <div class="row animators">
+       <div class="col-md-6 mb20">
+
+       <img src="https://d117fiyhpld8f9.cloudfront.net/content-images/aw16/1200/TOAST_LateAutumn_Women_1.jpg" class="img-responsive" />
+
+       </div>
+
+       <div class="col-md-6 mb20">
+
+       <img src="https://d117fiyhpld8f9.cloudfront.net/content-images/aw16/1200/TOAST_LateAutumn_Women_3.jpg" class="img-responsive" />
+
+       
+       </div>
+
+       <div class="col-md-6 mb20">
+
+       <img src="https://d117fiyhpld8f9.cloudfront.net/content-images/aw16/1200/TOAST_LateAutumn_Women_2_New.jpg" class="img-responsive" />
+
+       
+       </div>
+
+       <div class="col-md-6 mb20">
+
+       <img src="https://d117fiyhpld8f9.cloudfront.net/content-images/aw16/1200/TOAST_LateAutumn_Women_4.jpg" class="img-responsive" />
+
+       
+       </div>
+
+
+       <div class="col-md-6 mb20">
+
+       <img src="https://d3c707rd4l0ogp.cloudfront.net/global/C1GAC/S1/1200/Artist-Denim-Tunic-Dress.jpg" class="img-responsive" />
+
+       
+       </div>
+
+
+       <div class="col-md-6 mb20">
+
+       <img src="https://d3c707rd4l0ogp.cloudfront.net/global/C1GAO/S1/1200/Denim-Shirt-Dress.jpg" class="img-responsive" />
+
+       
+       </div>
+
+
+       </div>
+
+         <div class="row">
+
+       <div class="col-md-6 mb20" >
+
+
+      <img src="https://d117fiyhpld8f9.cloudfront.net/content-images/aw16/1200/TOAST_HolyVariety_3_New.jpg" class="img-responsive" />
+
+       </div>
+
+       <div class="col-md-6 mb20">
+
+
+      <img src="https://i.giphy.com/3POCHLgzvzMGs.gif" class="img-responsive" width="565" height="330" />
+
+       </div>
+
+       </div>
+
+         <div class="row">
+
+       <div class="col-md-4 mb20" >
+
+
+      <img src="https://d117fiyhpld8f9.cloudfront.net/content-images/aw16/1200/TOAST_LateAutumn_HouseandHome_4.jpg" class="img-responsive" />
+
+       </div>
+
+       <div class="col-md-4 mb20">
+
+
+      <img src="https://d117fiyhpld8f9.cloudfront.net/content-images/aw16/1200/TOAST_LateAutumn_HouseandHome_1.jpg" class="img-responsive" />
+
+       </div>
+
+       <div class="col-md-4 mb20">
+
+
+      <img src="https://d117fiyhpld8f9.cloudfront.net/content-images/aw16/1200/TOAST_LateAutumn_HouseandHome_1.jpg" class="img-responsive" />
+
+       </div>
+</div>
+
+
+
+
+   </div>
+
+
+  </div>
+
+    <script>
+
+view = "wide";
+
+function switchToThumbs(){
+  if (view == "wide"){
+     $('.animators div').attr("class","col-md-2 mb20");
+     view = "thumbs";
+   } else {
+    $('.animators div').attr("class","col-md-6 mb20");
+     view = "wide";
+
+   }
+};
+
+
+var home_video_aspect_ratio = 0.33333333
+var $video_div = jQuery("#youtubeBackground");
+var $video_holderdiv = jQuery(".videoHolder");
+
+    if($(window).width() < 760  ) {
+      $(".mainVideo").remove()
+      $video_div.height("140px");
+      $video_holderdiv.height("140px");
+    } else {
+      $(".mainVideo").html ('<iframe id="youtubeBackground" type="text/html" src="https://www.youtube.com/embed/AC1ofJ0Ft2A?autoplay=1&loop=1&rel=0&showinfo=0&controls=0&origin=http://toa.st&wmode=transparent" frameborder="0" wmode="opaque"/>')
+      $(".videoHolder").height( $(".videoHolder").width() * home_video_aspect_ratio + parseInt($(".mainVideo").css("marginTop")));
+      $("#youtubeBackground").height( $("#youtubeBackground").width() * home_video_aspect_ratio + parseInt($(".mainVideo").css("marginTop")));
+    }
+
+
+
+function setVideoIframeHeight(){
+
+  if (document.body.clientWidth < 768) {
+    $(".mainVideo iframe").height("350px")
+  }
+}
+
+jQuery(window).resize(function() {
+
+  setVideoIframeHeight();
+      var $channel_video_div = jQuery("#zanochannel");
+
+    $(".videoHolder").height( $(".videoHolder").width() * home_video_aspect_ratio + parseInt($(".mainVideo").css("marginTop")));
+  $("#youtubeBackground").height( $("#youtubeBackground").width() * home_video_aspect_ratio + parseInt($(".mainVideo").css("marginTop")));
+
+    $channel_video_div.height( $channel_video_div .width() *  channel_video_aspect_ratio );
+});
+
+$( window ).load(function() {
+  // Run code
+});
+
+
+$( document ).ready(function() {
+  
+});
+
+
+    </script>​
