@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Swatch Demo</title>
+
+    <link rel="stylesheet" href="http://d2xfispw8k8nwr.cloudfront.net/css/min/main.min.css">
+    <link rel="stylesheet" href="http://d2xfispw8k8nwr.cloudfront.net/css/min/fixedbs-grid-min.css">
+
+
+
+   <style>
+   .productHolder {width: 100%}
+   .productImage {position: relative; width: 100%; float: left; padding-top: 126%; overflow: hidden}
+   .productImageHolder {position: absolute; left:0; topindex:0; width: 100%;}
+   .productInfo {text-align: center; float: left; width: 100%}
+   .productTitle {font-size: 16px; margin: 20px 0 0 0; text-transform: uppercase;}
+   .productPrice {font-size: 16px; margin: 0 0 5px 0; text-transform: uppercase;}
+   .productReviewStars {font-size: 14px}
+   .productSwatches {text-align: center; margin-top: 10px}
+   .productSwatch {width: 24px; height: 24px; display: inline-block;  margin: 6px 3px 0px 3px; padding: 3px; border: 1px solid #cccccc;}
+   .productSelected {border-color: #000000}
+
+   </style>
+
+  </head>
+  <body>
+  <div class="container">
+  
+
+    <div class="col-md-4 col-md-offset-4">
+      <div class="productHolder">
+
+          <div class="productImage" id="C1GCCK">
+          
+            <div class="productImageHolder">
+            <a href="https://www.toa.st/uk/product/c1gcc/needlecord+dress.htm?clr=c1gcc_darkslategreen&gclid=CLSdhqm5w88CFSYz0wodGUEPHQ&gclsrc=aw.ds">
+              <img src="https://d117fiyhpld8f9.cloudfront.net/product/c1gcc/d2/750/Needlecord-Dress.jpg" class="img-responsive" alt="Needlecord dress" />
+              <img src="C1GCCK_DarkSlateGreen_Cutout.jpg" class="img-responsive" alt="Needlecord dress" />
+              </a>
+            </div>
+          </div>
+
+          <div class="productInfo" id="C1GCCK">
+              <div class="productTitle sansBook">Needlecord Dress</div>
+              <div class="productPrice sansBook">£145</div>
+              <div class="productReviewStars">★★★★★</div>
+              <div class="productSwatches">
+                <a href="#" class="productSwatch" id="C1GCCK_DarkSlateGreen_Swatch"><img src="C1GCCK_swatch2.jpg" class="img-responsive"/> </a>
+                <a href="#" class="productSwatch" id="C1GCCK_Auburn_Swatch"><img src="C1GCCK_swatch1.jpg" class="img-responsive"/> </a>
+              </div>
+          </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script>
+
+  activeSwatch = false
+
+    $('.productImage').mouseover(function() {
+      if (!activeSwatch) {
+        $("#" + this.id + " .productImageHolder").css("top", "-100%")
+      }
+    });
+
+     $('.productImage').mouseout(function() {
+      $("#" + this.id + " .productImageHolder").css("top", "0")
+    });
+
+
+    $( ".productSwatch" ).click(function() {
+
+      passedID = this.id.substring(0,6)
+      
+
+      if ($("#"+this.id).hasClass("productSelected")) {
+          activeSwatch = false
+          $("#"+passedID + " .productSwatch").removeClass("productSelected");
+          $(".productImageHolder").html('<img src="https://d117fiyhpld8f9.cloudfront.net/product/c1gcc/d2/750/Needlecord-Dress.jpg" class="img-responsive" alt="Needlecord dress" /><img src="C1GCCK_DarkSlateGreen_Cutout.jpg" class="img-responsive" alt="Needlecord dress" />')
+      } else
+      {
+        activeSwatch = true
+        $(".productImageHolder").html("<img src='"+this.id.slice(0,-7)+"_Cutout.jpg' class='img-responsive' />")
+        $("#"+passedID + " .productSwatch").removeClass("productSelected");
+        $("#"+this.id).addClass("productSelected");
+      }
+      
+      
+
+
+    });
+
+
+
+  </script>
+ 
+
+  </body>
+</html>

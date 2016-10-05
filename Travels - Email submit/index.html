@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Swatch Demo</title>
+
+    <link rel="stylesheet" href="http://d2xfispw8k8nwr.cloudfront.net/css/min/fixedbs-grid-min.css">
+
+
+
+   <style>
+
+
+   </style>
+
+  </head>
+  <body>
+  <div class="container">
+  
+  <div class="emailSubmitHolder">
+<h2>Newsletter Signup</h2>
+<h3>To keep abreast of our latest articles and news sign up here...</h3>
+<label>Email</label>
+  <input type="text" id="signupEmail" name="signupEmail" onfocus="if (this.value == '') {this.value = '';}" onblur="if (this.value == '') {this.value = '';}"> 
+  <a href="javascript:submitEmail()"><input type="submit" value="Submit"></a>
+  <div class="submitErrors"></div>
+
+  </div>
+
+
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script>
+
+
+    function isEmail(email) {
+  var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+  return regex.test(email);
+}
+
+  function submitEmail() {
+
+
+      submitedEmailAddress = $("#signupEmail").val()
+
+      if (isEmail(submitedEmailAddress)) {
+
+        $.ajax({
+        type: "GET",
+        url: "https://post.toast.co.uk/automated/action.jsp?action=updateRecipientNoMsg&errorPage=/automated/action.jsp&gid=750148124&uemail=apitoast@api.com&psw=Api321$123&pemail="+submitedEmailAddress+"&self=true&namedattr_NewsletterOptin=TRUE&namedattr_SignupSource=Toast_Travels&callback=?",
+         dataType: "jsonp",
+    error: function (xhr, ajaxOptions, thrownError) {
+
+    }
+})
+
+
+      } else {
+        $(".submitErrors").html("Invalid email address.")
+      }
+
+   
+
+     
+
+  }
+
+
+
+  </script>
+ 
+
+  </body>
+</html>
