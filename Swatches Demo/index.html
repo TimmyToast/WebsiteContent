@@ -11,16 +11,16 @@
 
 
    <style>
-   .productHolder {width: 100%; background-color: #ffffff}
-   .productImage {position: relative; width: 100%; float: left; padding-top: 126%; overflow: hidden; cursor: pointer; border: none;background-color: #ffffff}
-   .productImageHolder {position: absolute; left:0; top:0; width: 100%;  border: none; background-color: #ffffff}
-   .productInfo {text-align: center; float: left; width: 100%; background-color: #ffffff}
-   .productTitle {font-size: 16px; margin: 20px 0 5px 0; text-transform: uppercase;}
-   .productPrice {font-size: 16px; margin: 0 0 5px 0; text-transform: uppercase;}
-   .productReviewStars {font-size: 14px}
-   .productSwatches {text-align: center; margin-top: 10px}
-   .productSwatch {width: 24px; height: 24px; display: inline-block;  margin: 6px 3px 0px 3px; padding: 3px; border: 1px solid #cccccc;  cursor: pointer;}
-   .productSelected {border-color: #000000}
+  .productHolder {width: 100%; background-color: #ffffff}
+  .productImage {position: relative; width: 100%; float: left; padding-top: 124.933333333333%; overflow: hidden; cursor: pointer; border: none;background-color: #ffffff}
+  .productImageHolder {position: absolute; left:0; top:0; width: 100%;  border: none; background-color: #ffffff}
+  .productInfo {text-align: center; float: left; width: 100%; background-color: #ffffff}
+  .productTitle {font-size: 16px; margin: 20px 0 5px 0; text-transform: uppercase;}
+  .productPrice {font-size: 16px; margin: 0 0 5px 0; text-transform: uppercase;}
+  .productReviewStars {font-size: 14px}
+  .productSwatches {text-align: center; margin-top: 10px}
+  .productSwatch {width: 24px; height: 24px; display: inline-block;  margin: 6px 3px 0px 3px; padding: 3px; border: 1px solid #cccccc;  cursor: pointer;}
+  .productSelected {border-color: #000000}
   
   .sansBook {font-family: "freight-sans-pro", sans-serif; font-weight:300}
   .sansMedium {font-family: "freight-sans-pro", sans-serif; font-weight: 500}
@@ -74,9 +74,9 @@ $('.productImage img').css('cursor', 'pointer');
 
     $('.productImage').mouseover(function() {
       $(this).css('cursor','pointer');
-      if (!activeSwatch) {
+     
         $("#" + this.id + " .productImageHolder").css("top", "-100%")
-      }
+      
     });
 
      $('.productImage').mouseout(function() {
@@ -90,7 +90,19 @@ $('.productImage img').css('cursor', 'pointer');
       passedID = this.id.substring(0,5)
       passedIDUrlParam = this.id.substr(0,this.id.length-7)
 
-      console.log(passedIDUrlParam)
+      $("#"+passedID + " .productSwatch").removeClass("productSelected");
+      $("#"+this.id).addClass("productSelected");
+  
+
+      if ( $(this).index() != 0){
+       
+        $(".productImageHolder").html("<a href='https://www.toa.st/uk/product/c1gcc/needlecord+dress.htm?clr="+passedIDUrlParam+"'><img src='"+this.id.slice(0,-7)+"_Cutout.jpg' class='img-responsive' /><a href='https://www.toa.st/uk/product/c1gcc/needlecord+dress.htm?clr=C1GCC_DarkSlateGreen'><img src='C1GCC_DarkSlateGreen_D1.jpg' class='img-responsive' alt='Needlecord dress' /></a>")
+
+      } else {
+       
+        $(".productImageHolder").html('<a href="https://www.toa.st/uk/product/c1gcc/needlecord+dress.htm?clr=C1GCC_DarkSlateGreen"><img src="C1GCC_DarkSlateGreen_D1.jpg" class="img-responsive" alt="Needlecord dress" /><img src="C1GCC_DarkSlateGreen_Cutout.jpg" class="img-responsive" alt="Needlecord dress" /></a>')
+      }
+     
       
 
       // if ($("#"+this.id).hasClass("productSelected")) {
@@ -99,10 +111,8 @@ $('.productImage img').css('cursor', 'pointer');
       //     $(".productImageHolder").html('<a href="https://www.toa.st/uk/product/c1gcc/needlecord+dress.htm?clr=C1GCC_DarkSlateGreen"><img src="C1GCC_DarkSlateGreen_D1.jpg" class="img-responsive" alt="Needlecord dress" /><img src="C1GCC_DarkSlateGreen_Cutout.jpg" class="img-responsive" alt="Needlecord dress" /></a>')
       // } else
       // {
-        activeSwatch = true
-        $(".productImageHolder").html("<a href='https://www.toa.st/uk/product/c1gcc/needlecord+dress.htm?clr="+passedIDUrlParam+"'><img src='"+this.id.slice(0,-7)+"_Cutout.jpg' class='img-responsive' /></a>")
-        $("#"+passedID + " .productSwatch").removeClass("productSelected");
-        $("#"+this.id).addClass("productSelected");
+        
+        
       // }
       
       

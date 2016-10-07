@@ -41,7 +41,14 @@
    .pb_mainContent h2 {font-size: 16px; letter-spacing: 1px}
 
    .pb_imageRepeater {width: 25%; position: relative; display: block}
-   .pb_imageHover {position: absolute; width: 100%; height: 200px;background-color:rgba(0, 0, 0, 0.6); display: none}
+   .pb_HoverHolder {position: absolute; width: 100%; padding-top:128.255208333333%; background-color:rgba(0, 0, 0, 0.6); top: 0; left:0; z-index: 1; display: none }
+   .pb_imageHover {position: absolute; width: 100%; padding-top:128.255208333333%; background-color:rgba(0, 0, 0, 0.6);  top: 0; left:0; z-index: 1; display: none}
+   .pb_interactArea {position: absolute; width: 100%; padding-top:128.255208333333%; background-color:rgba(0, 0, 0, 0.6);  top: 0; left:0; z-index: 5; }
+   .pb_imageHoverContent {position: absolute; width: 100%; color: #ffffff; text-align: center; font-size: 100px; top:0; left:0; z-index: 2; font-size: 14px; height: 100% }
+   .pb_lookNumber {padding-top: 50%}
+   .pb_viewLook, .pb_viewLink {padding-top: 5%}
+   .pb_imageHoverContent a {padding-top: 5%; color: #ffffff; text-decoration: underline;}
+
 
 
    </style>
@@ -95,8 +102,19 @@
       </div>
       <div class="row">
       <div class="pb_imageRepeater" id="1">
-        <div class="pb_imageHover"> 01 </div>
+      <div class="pb_HoverHolder">
+      <div class="pb_imageHover">
+      </div>
+        <div class="pb_imageHoverContent">
+            <div class="pb_lookNumber">01</div>
+            <div class="pb_viewLook"><a href="#">View</a></div>
+            <div class="pb_viewLink">
+              <a href="#"><img src="download.png" alt="Download"/></a>
+            </div>
+        </div>
+      </div>
         <div class="pb_imageHolder"><img src="https://d117fiyhpld8f9.cloudfront.net/content-images/aw16/768/TOAST_Winter_Women_1.jpg" alt="test image" class="img-responsive" /> </div>
+        
       </div>
       </div>
     </div>
@@ -114,6 +132,24 @@
       $('.pb_Lightbox').height($(document).height())
     }
 
+    function setHoverState(){
+
+      $('.pb_imageRepeater').mouseover(function() {
+
+
+
+          $('#' +  this.id + " .pb_HoverHolder").fadeIn()
+          globalID = this.id
+
+          $('#' + globalID + ' .pb_imageHoverContent').mouseleave(function() {
+
+            $('#' + globalID + ' .pb_HoverHolder').fadeOut()
+          });
+
+      });
+
+    }
+
     function openPasswordField() {
       $('.pb_Lightbox').html('<div class="pb_passwordBox">'+$(".passwordBox").html()+'</div>')
       $('.pb_Lightbox').fadeIn()
@@ -123,6 +159,7 @@
       if ($('#passsWordField').val() == "a") {
         $('.pb_Lightbox').fadeOut()
         $(".visibleContent").html($(".pressBookContent").html())
+        setHoverState()
       } else if ( $('#passsWordField').val() == "") {
         $('.pb_submitFeedback').html("Please enter a password")
       }
@@ -143,17 +180,13 @@
       globalID = ""
       // temp jump to images //
       $(".visibleContent").html($(".pressBookContent").html())
+      setHoverState()
+
+
+
       
       createLightBox()
-       $('.pb_imageRepeater').mouseover(function() {
-          $('#' +  this.id + ' .pb_imageHover').fadeIn()
-          globalID = this.id
 
-          $('#' + globalID + ' .pb_imageHover').mouseout(function() {
-            $('#' + globalID + ' .pb_imageHover').fadeOut()
-          });
-
-      });
 
      
 
