@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div clas="pb_productInfo">
+
+	<div class="pb_productText">
+
+	</div>
+
+	<div class="pb_productImages">
+		<ul>	
+
+		</ul>
+	</div>
+
+</div>
+    <script>
+        
+        function getObjects(obj, key, val) {
+            var objects = [];
+            for (var i in obj) {
+                if (!obj.hasOwnProperty(i)) continue;
+                if (typeof obj[i] == 'object') {
+                    objects = objects.concat(getObjects(obj[i], key, val));
+                } else if (i == key && obj[key] == val) {
+                    objects.push(obj);
+                }
+            }
+            return objects;
+        }
+        $(document).ready(function () {
+            function getJson(passedID) {
+                passedID = 1;
+                
+                var root = 'dpb.json';
+
+                $.ajax({
+                    url: root, 
+                    error: function(error){alert('an error has occured in retrieving the feed, please check the feed source.')},
+                    method: 'GET'
+                }).done(function (data) {
+                    
+
+                    initObj = getObjects(data, 'look', passedID);
+if(passedID <= 0 || passedID > data.length){
+    alert('incorrect ID passed.');
+}
+                    imageObject = initObj[0].lkimages;
+                    $.each(imageObject, function (index, data) {
+              
+                        $('.pb_productImages ul').append('<li><img src="//d117fiyhpld8f9.cloudfront.net/content-images/aw16/768/' + imageObject[index].Path + '"</li>');
+                    });
+                    productObject = initObj[0].products;
+                    $.each(productObject, function (index, data) {
+                        
+                        $('.pb_productText').append('<div class="pb_productRepeater"><div class="pb_productTitle">' + productObject[index].title + '</div><div class="pb_productPriceCode">' + productObject[index].price + '</div><div class="pb_productColour">' + productObject[index].colour + '</div></div>');
+                       
+                    });
+                })
+            }
+            getJson();
+        })
+    </script>
+</body>
+</html>

@@ -54,8 +54,8 @@
               <div class="productPrice sansBook">£145</div>
               <div class="productReviewStars">★★★★★</div>
               <div class="productSwatches">
-                <a href="#" class="productSwatch productSelected" id="C1GCC_DarkSlateGreen_Swatch"><img src="C1GCC_swatch2.jpg" class="img-responsive"/> </a>
-                <a href="#" class="productSwatch" id="C1GCC_Auburn_Swatch"><img src="C1GCC_swatch1.jpg" class="img-responsive"/> </a>
+                <a href="javascript:void" class="productSwatch productSelected" id="C1GCC_DarkSlateGreen_Swatch"><img src="C1GCC_swatch2.jpg" class="img-responsive"/> </a>
+                <a href="javascript:void" class="productSwatch" id="C1GCC_Auburn_Swatch"><img src="C1GCC_swatch1.jpg" class="img-responsive"/> </a>
               </div>
           </div>
 
@@ -68,20 +68,24 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script>
 
-  activeSwatch = false
+  activeSwatch = true
 
 $('.productImage img').css('cursor', 'pointer');
 
     $('.productImage').mouseover(function() {
+      if (activeSwatch) {
       $(this).css('cursor','pointer');
      
         $("#" + this.id + " .productImageHolder").css("top", "-100%")
+      }
       
     });
 
      $('.productImage').mouseout(function() {
+       if (activeSwatch) {
       $(this).css('cursor','auto');
       $("#" + this.id + " .productImageHolder").css("top", "0")
+    }
     });
 
 
@@ -96,11 +100,15 @@ $('.productImage img').css('cursor', 'pointer');
 
       if ( $(this).index() != 0){
        
-        $(".productImageHolder").html("<a href='https://www.toa.st/uk/product/c1gcc/needlecord+dress.htm?clr="+passedIDUrlParam+"'><img src='"+this.id.slice(0,-7)+"_Cutout.jpg' class='img-responsive' /><a href='https://www.toa.st/uk/product/c1gcc/needlecord+dress.htm?clr=C1GCC_DarkSlateGreen'><img src='C1GCC_DarkSlateGreen_D1.jpg' class='img-responsive' alt='Needlecord dress' /></a>")
+        $(".productImageHolder").html("<a href='https://www.toa.st/uk/product/c1gcc/needlecord+dress.htm?clr="+passedIDUrlParam+"'><img src='"+this.id.slice(0,-7)+"_Cutout.jpg' class='img-responsive' /></a>")
+
+        activeSwatch = false
 
       } else {
        
         $(".productImageHolder").html('<a href="https://www.toa.st/uk/product/c1gcc/needlecord+dress.htm?clr=C1GCC_DarkSlateGreen"><img src="C1GCC_DarkSlateGreen_D1.jpg" class="img-responsive" alt="Needlecord dress" /><img src="C1GCC_DarkSlateGreen_Cutout.jpg" class="img-responsive" alt="Needlecord dress" /></a>')
+
+        activeSwatch = true
       }
      
       

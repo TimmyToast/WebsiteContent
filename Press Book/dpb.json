@@ -1,0 +1,25 @@
+[
+{"look": "1",
+"imagePath": "//d117fiyhpld8f9.cloudfront.net/content-images/aw16/1200/TOAST_Web_WinterRefresh_Women_1.jpg",
+"lkimages":[
+{"Path": "TOAST_Web_WinterRefresh_Women_1.jpg"}
+],"id": "1",
+"products":[
+{"title": "winter jumper",
+"price": "235",
+"colour": "grey"},
+{"title": "skirt",
+"price": "500",
+"colour": "offwhite"}]},{"look": "2",
+"imagePath": "//d117fiyhpld8f9.cloudfront.net/content-images/aw16/1200/TOAST_Web_WinterRefresh_Women_2.jpg",
+"lkimages":[
+{"Path": "TOAST_Web_WinterRefresh_Women_2.jpg"},
+{"Path": "TOAST_Web_WinterRefresh_Women_3.jpg"}
+],"id": "2",
+"products":[
+{"title": "dress",
+"price": "150",
+"colour": "navy"},
+{"title": "coat",
+"price": "350",
+"colour": "navyBrown"}]}]
