@@ -34,35 +34,7 @@
             return objects;
         }
         $(document).ready(function () {
-            function getJson(passedID) {
-                passedID = 1;
-                
-                var root = 'dpb.json';
-
-                $.ajax({
-                    url: root, 
-                    error: function(error){alert('an error has occured in retrieving the feed, please check the feed source.')},
-                    method: 'GET'
-                }).done(function (data) {
-                    
-
-                    initObj = getObjects(data, 'look', passedID);
-if(passedID <= 0 || passedID > data.length){
-    alert('incorrect ID passed.');
-}
-                    imageObject = initObj[0].lkimages;
-                    $.each(imageObject, function (index, data) {
-              
-                        $('.pb_productImages ul').append('<li><img src="//d117fiyhpld8f9.cloudfront.net/content-images/aw16/768/' + imageObject[index].Path + '"</li>');
-                    });
-                    productObject = initObj[0].products;
-                    $.each(productObject, function (index, data) {
-                        
-                        $('.pb_productText').append('<div class="pb_productRepeater"><div class="pb_productTitle">' + productObject[index].title + '</div><div class="pb_productPriceCode">' + productObject[index].price + '</div><div class="pb_productColour">' + productObject[index].colour + '</div></div>');
-                       
-                    });
-                })
-            }
+           
             getJson();
         })
     </script>

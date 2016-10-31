@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap 101 Template</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+    .productImage {width: 250px; height:320px;float: left}
+    .content .mix{
+    display: none;
+}
+
+li {width: 250px; float: left; list-style: none}
+.filterType {width: 100px; float: left}
+    </style> 
+
+  </head>
+  <body ng-app="productFilter">
+    <div class="controls">
+<div ng-controller="productsCTRL">
+
+
+<!--
+<ul>
+  <li ng-repeat="x in filteredProducts ">
+    {{x.sizes}}
+  </li>
+</ul>
+-->
+
+
+ 
+    <div class="filterType" ng-model="search">
+        <input type="radio" name="sizes" ng-click="size = 06"/> 06</br/>
+        <input type="radio" name="sizes" ng-click="size = 08"/> 08</br/>
+        <input type="radio" name="sizes" ng-click="size = 10"/> 10</br/>
+        <input type="radio" name="sizes" ng-click="size = 12"/> 12</br/>
+        <input type="radio" name="sizes" ng-click="size = 14"/> 14</br/>
+        <input type="radio" name="sizes" ng-click="size = 16"/> 16</br/>
+        <input type="radio" name="sizes" ng-click="size = 18"/> 18</br/>
+        <input type="radio" name="sizes" ng-click="size = 20"/> 20</br/>
+        <input type="radio" name="sizes" ng-click="size = ''"/> All</br/>
+       
+</div>
+
+ <div class="filterType">
+        <input type="radio" name="colour" ng-click="colour = 'BLACK'"/> Black</br/>
+        <input type="radio" name="colour" ng-click="colour = 'BLUE'"/> Blue</br/>
+        <input type="radio" name="colour" ng-click="colour = 'GREY'"/> Grey</br/>
+        <input type="radio" name="colour" ng-click="colour = 'BROWN'"/> Brown</br/>
+        <input type="radio" name="colour" ng-click="colour = 'GREEN'"/> Green</br/>
+        <input type="radio" name="colour" ng-click="colour = 'MULTI'"/> Multi</br/>
+        <input type="radio" name="colour" ng-click="colour = ''"/> All</br/>
+       
+</div>
+ Number of filtered items: {{filteredProducts.length}}
+
+ <!--The sizes: {{filteredProducts['sizes']}}-->
+
+ <ul>
+            <li ng-repeat="product in filteredProducts = (theProducts | filter : {sizes: size, base_colors: colour}) ">
+    <img src="{{product.product_image[0]}}" /> {{product.product_image[0]}} {{product.sizes}}
+
+    {{thesizes = product.sizes}}
+            
+            </li>
+        </ul>
+      
+ 
+</div>
+
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://newsroom.carmarthenshire.gov.uk/scripts/angular.min.js"></script>
+  <script>
+
+
+  var app = angular.module('productFilter', []);
+
+  /**
+ * Filters out all duplicate items from an array by checking the specified key
+ * @param [key] {string} the name of the attribute of each object to compare for uniqueness
+ if the key is empty, the entire object will be compared
+ if the key === false then no filtering will be performed
+ * @return {array}
+ */
+angular.module('productFilter').filter('unique', function () {
+
+  return function (items, filterOn) {
+
+    if (filterOn === false) {
+      return items;
+    }
+
+    if ((filterOn || angular.isUndefined(filterOn)) && angular.isArray(items)) {
+      var hashCheck = {}, newItems = [];
+
+      var extractValueToCompare = function (item) {
+        if (angular.isObject(item) && angular.isString(filterOn)) {
+          return item[filterOn];
+        } else {
+          return item;
+        }
+      };
+
+      angular.forEach(items, function (item) {
+        var valueToCheck, isDuplicate = false;
+
+        for (var i = 0; i < newItems.length; i++) {
+          if (angular.equals(extractValueToCompare(newItems[i]), extractValueToCompare(item))) {
+            isDuplicate = true;
+            break;
+          }
+        }
+        if (!isDuplicate) {
+          newItems.push(item);
+        }
+
+      });
+      items = newItems;
+    }
+    return items;
+  };
+});
+
+filteredProducts = []
+
+app.controller('productsCTRL', function($http, $scope) {
+
+    $http({
+            method: 'GET',
+            url: "products.json",
+            }).then(function successCallback(data) {
+
+
+            $scope.theProducts = data.data.items;
+          })
+
+           
+    
+            
+})
+
+
+
+</script>
+    
+  </body>
+</html>
