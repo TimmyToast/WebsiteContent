@@ -4,20 +4,18 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap 101 Template</title>
+    <title>Press Book</title>
 
-
-  <link rel="stylesheet" href="http://d2xfispw8k8nwr.cloudfront.net/css/min/normalize.min.css">
-  <link rel="stylesheet" href="http://d2xfispw8k8nwr.cloudfront.net/css/min/toast-framework.min.css">
-  <link rel="stylesheet" href="http://d2xfispw8k8nwr.cloudfront.net/css/min/product.min.css">
-  <link rel="stylesheet" href="http://d2xfispw8k8nwr.cloudfront.net/css/min/main.min.css">
-  <link rel="stylesheet" href="http://d2xfispw8k8nwr.cloudfront.net/css/min/landing-page.css">
-  <link rel="stylesheet" href="http://d2xfispw8k8nwr.cloudfront.net/css/min/outfitpage.min.css">
-  <link rel="stylesheet" href="http://d2xfispw8k8nwr.cloudfront.net/css/min/fixedbs-grid-min.css">
-
-
+    <link rel="stylesheet" href="http://d2xfispw8k8nwr.cloudfront.net/css/min/normalize.min.css">
+    <link rel="stylesheet" href="http://d2xfispw8k8nwr.cloudfront.net/css/min/toast-framework.min.css">
+    <link rel="stylesheet" href="http://d2xfispw8k8nwr.cloudfront.net/css/min/product.min.css">
+    <link rel="stylesheet" href="http://d2xfispw8k8nwr.cloudfront.net/css/min/main.min.css">
+    <link rel="stylesheet" href="http://d2xfispw8k8nwr.cloudfront.net/css/min/landing-page.css">
+    <link rel="stylesheet" href="http://d2xfispw8k8nwr.cloudfront.net/css/min/outfitpage.min.css">
+    <link rel="stylesheet" href="http://d2xfispw8k8nwr.cloudfront.net/css/min/fixedbs-grid-min.css">
 
   <style>
+
     .unslider {overflow:auto;margin:0;padding:0}
     .unslider-wrap{position:relative}
     .unslider-wrap.unslider-carousel>li{float:left}
@@ -27,14 +25,14 @@
     .unslider-fade .unslider-wrap li{position:absolute;left:0;top:0;right:0;z-index:8}
     .unslider-fade .unslider-wrap li.unslider-active{z-index:10}
     .unslider li,.unslider ol,.unslider ul{list-style:none;margin:0;padding:0;border:none}
-    .unslider-arrow{position:absolute;left:20px;z-index:2;cursor:pointer}
-    .unslider-arrow.next {position: absolute; top: 100px; left: 95%; z-index: 10}
+    .unslider-arrow{position:absolute; left: 20px;top: 40% ; z-index:2;cursor:pointer; background: url(https://d117fiyhpld8f9.cloudfront.net/content-images/pressbook/1000/TOAST_Arrows.png);width: 17px; height: 25px; display: block; background-size:  35px 25px}
+    .unslider-arrow.next {position: absolute; top: 40%; left: 100% ; z-index: 10; background: url(https://d117fiyhpld8f9.cloudfront.net/content-images/pressbook/1000/TOAST_Arrows.png); width: 17px; height: 25px; display: block; background-size:  35px 25px; background-position: 17px 0; margin-left: -40px}
+    .unslider-nav {display: none}
 
     .pb_openingTile {background: url(https://d117fiyhpld8f9.cloudfront.net/content-images/aw16/768/TOAST_Winter_Women_1.jpg); display: block; width: 100%; padding-top: 128%; margin-bottom: 20px; background-size: 100% 100%; position: relative; color:#ffffff;}
     .pb_openingTileText {position: absolute; width: 100%; text-align: center; top:40%;}
     .pb_openingTile h1 {font-size: 26px; letter-spacing: 3px; margin-bottom: 10px}
     .pb_openingTileLink {font-size: 14px; letter-spacing: 1px; padding-bottom: 3px; border-bottom: 1px solid #ffffff; color:#ffffff; text-transform: uppercase; padding-top: 20px}
-
     .pb_openingText {text-align: center;; width: 100%; font-size: 16px; margin: 20px 0; line-height: 24px}
 
     .pb_Lightbox {background-color:rgba(0, 0, 0, 0.6); position: absolute; top:0; left:0; height: 500px; width: 100%; z-index: 10; display: none}
@@ -44,7 +42,8 @@
     .pb_passwordBoxText {width: 100%; margin: 0 0 20px 0; font-size: 16px}
     .pb_passwordBox input {width: 70%; padding: 8px}
     .pb_passwordSubmit {font-size: 16px; }
-    .pb_submit {text-align: right; margin-bottom: 15px}
+    .pb_submitClose {text-align: right; margin-bottom: 15px; width: 100%; height: 30px}
+    .pb_submitClose img {float: right;}
     .pb_submitFeedback {height: 20px; margin: 10px 0; width: 100%; color:  #dd4b39}
 
     .pb_title {width: 100%; font-size: 36px}
@@ -52,31 +51,34 @@
     .pb_mainContent h1 {font-size: 22px; letter-spacing: 2px; margin-bottom: 30px}
     .pb_mainContent h2 {font-size: 16px; letter-spacing: 1px}
 
-    .pb_imageRepeater {width: 25%; position: relative; display: block}
-    .pb_HoverHolder {position: absolute; width: 100%; padding-top:128.255208333333%; background-color:rgba(0, 0, 0, 0.6); top: 0; left:0; z-index: 1; display: none }
-    .pb_imageHover {position: absolute; width: 100%; padding-top:128.255208333333%; background-color:rgba(0, 0, 0, 0.6);  top: 0; left:0; z-index: 1; display: none}
-    .pb_interactArea {position: absolute; width: 100%; padding-top:128.255208333333%; background-color:rgba(0, 0, 0, 0.6);  top: 0; left:0; z-index: 5; }
+    .pb_imageRepeater {position: relative; margin-bottom: 20px}
+    .pb_productClose {text-align: right; margin-bottom: 15px; width: 50%; height: 30px; float: right}
+    .pb_productClose img {float: right;}
+    .pb_productIntroText {width: 50%; height: 30px; margin-bottom: 15px}
+    .pb_HoverHolder {position: absolute; width: 100%; padding-top:149.967804249839%; background-color:rgba(0, 0, 0, 0.6); top: 0; left:0; z-index: 1; display: none }
+    .pb_imageHover {position: absolute; width: 100%; padding-top:149.967804249839%; background-color:rgba(0, 0, 0, 0.6);  top: 0; left:0; z-index: 1; display: none}
+    .pb_interactArea {position: absolute; width: 100%; padding-top:149.967804249839%; background-color:rgba(0, 0, 0, 0.6);  top: 0; left:0; z-index: 5; }
     .pb_imageHoverContent {position: absolute; width: 100%; color: #ffffff; text-align: center; font-size: 100px; top:0; left:0; z-index: 2; font-size: 14px; height: 100% }
     .pb_lookNumber {padding-top: 50%}
     .pb_viewLook, .pb_viewLink {padding-top: 5%}
     .pb_imageHoverContent a {padding-top: 5%; color: #ffffff; text-decoration: underline;}
-    .pb_productHolder {background-color: #ffffff; float: left; margin: 60px 0;}
-
+    .pb_productHolder {background-color: #ffffff; float: left; margin: 60px 0; width: 100%; padding-bottom: 10px}
     .pb_productTitle {font-size: 16px; font-weight: 600}
-
     .pb_imageSlider {position: relative;}
     .pb_productInfo {padding: 10px; font-size: 16px}
     .pb_productRepeater {margin: 10px 0}
 
-
-
-     @media only screen and (max-width: 430px) 
-    { 
-      .pb_passwordBoxText {font-size: 14px}
-
+    .smallTile { width: 12.5%; float:left;}
+    
+    @media only screen and (max-width: 1024px) 
+    {
+      .smallTile { width: 50%; float:left;}
     }
 
-
+    @media only screen and (max-width: 430px) 
+    { 
+      .pb_passwordBoxText {font-size: 14px}
+    }
 
    </style>
 
@@ -97,7 +99,7 @@
           <div class="col-md-8 col-md-offset-2">
             <div class="pb_openingText">
               To request press access, please contact <a href="mailto:robinsonc@toa.st">robinsonc@toa.st</a><br>
-              For further press information and sample requests, contact Modus Publicity on 0207 331 1433
+              For further press information and sample requests, contact Modus Publicity on 0207 331 1433 
             </div>
           </div>
         </div>
@@ -112,68 +114,315 @@
             <div class="col-md-12">
 
               <div class="pb_productInfo">
-
-              <div class="pb_productIntroText sansBook">
-                  Download .ZIP
+               <div class="pb_productClose"><a href="javascript:closePasswordBox()"><img src="https://toast-images.s3.amazonaws.com/content-images/development/jersey/OurJersey_Close.png" class="img-responsive" alt="Close" width="32px" /></a></div>
+               <div class="pb_productIntroText sansBook">
+                <span class="pb_productID"></span>Download .ZIP
               </div>
 
-                <div class="pb_productText row">
+              <div class="pb_productText row">
 
-                </div>
+              </div>
 
-                <div class="pb_imageSlider">
-                  <div class="pb_imageSlides">
-                    <ul>
+              <div class="pb_imageSlider">
+                <div class="pb_imageSlides">
+                  <ul>
 
-                    </ul>
-                  </div>
-
+                  </ul>
                 </div>
 
               </div>
+
             </div>
           </div>
         </div>
       </div>
+    </div>
 
-      <!-- password box -->
-      <div class="passwordBox">
-        <div class="pb_passwordWhiteBox">
-          <div class="pb_submit"><a href="javascript:closePasswordBox()"><img src="https://toast-images.s3.amazonaws.com/content-images/development/jersey/OurJersey_Close.png" class="img-responsive" alt="Close" width="32px" /></a></div>
-          <div class="pb_passwordBoxText sansBook">
-            Please enter your press password below.
-          </div>
-          <input type="password" id="passsWordField">
-          <div class="pb_submitFeedback"></div>
-          <div class="pb_passwordSubmit sansBold"><a href="javascript:submitPassword()">Submit</a></div>
+    <!-- password box -->
+    <div class="passwordBox">
+      <div class="pb_passwordWhiteBox">
+        <div class="pb_submitClose"><a href="javascript:closePasswordBox()"><img src="https://toast-images.s3.amazonaws.com/content-images/development/jersey/OurJersey_Close.png" class="img-responsive" alt="Close" width="32px" /></a></div>
+        <div class="pb_passwordBoxText sansBook">
+          Please enter your press password below.
         </div>
+        <input type="password" id="passsWordField">
+        <div class="pb_submitFeedback"></div>
+        <div class="pb_passwordSubmit sansBold"><a href="javascript:submitPassword()">Submit</a></div>
       </div>
+    </div>
 
-      <!-- presbook items -->
+    <!-- presbook items -->
 
-      <div class="pressBookContent">
-        <div class="pb_mainContent">
-          <h1 class="pb_title textBold">SS17 Pressbook</h1>
-          <div class="row">
-            <div class="col-sm-6"><h2 class="pb_sub textSemibold">Pre Collection / January</h2></div>
-            <div class="col-sm-6"><h2 class="pb_subRight textSemibold">Wilder</h2></div>
-          </div>
-          <div class="row">
-            <div class="pb_imageRepeater" id="1">
+    <div class="pressBookContent">
+      <div class="pb_mainContent">
+        <h1 class="pb_title textBold">SS17 Pressbook</h1>
+        <div class="row">
+          <div class="col-sm-6"><h2 class="pb_sub textSemibold">Pre Collection / January</h2></div>
+          <div class="col-sm-6"><h2 class="pb_subRight textSemibold">Wilder</h2></div>
+        </div>
+        <div class="row">
+          <!-- row 1 -->
+          <div class="pb_imageRepeater col-md-6 col-sm-12 " id="1">
+            <div class="col-md-12">
               <div class="pb_HoverHolder">
                 <div class="pb_imageHover">
                 </div>
                 <div class="pb_imageHoverContent">
                   <div class="pb_lookNumber">01</div>
-                  <div class="pb_viewLook"><a href="javascript:viewProduct(2)">View</a></div>
+                  <div class="pb_viewLook"><a href="javascript:viewProduct(1)">View</a></div>
                   <div class="pb_viewLink">
                     <a href="#"><img src="download.png" alt="Download"/></a>
                   </div>
                 </div>
               </div>
-              <div class="pb_imageHolder"><img src="https://d117fiyhpld8f9.cloudfront.net/content-images/aw16/768/TOAST_Winter_Women_1.jpg" alt="test image" class="img-responsive" /> </div>
-
             </div>
+            <div class="pb_imageHolder"><img src="https://d117fiyhpld8f9.cloudfront.net/content-images/pressbook/1024/testimage.jpgg" alt="test image" class="img-responsive" /> </div>
+          </div>
+
+          <div class="pb_imageRepeater col-md-6 col-sm-12" id="2">
+           <div class="col-md-12">
+            <div class="pb_HoverHolder">
+              <div class="pb_imageHover">
+              </div>
+              <div class="pb_imageHoverContent">
+                <div class="pb_lookNumber">02</div>
+                <div class="pb_viewLook"><a href="javascript:viewProduct(2)">View</a></div>
+                <div class="pb_viewLink">
+                  <a href="#"><img src="download.png" alt="Download"/></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="pb_imageHolder"><img src="https://d117fiyhpld8f9.cloudfront.net/content-images/pressbook/1024/testimage.jpgg" alt="test image" class="img-responsive" /> </div>
+        </div>
+
+        <!-- row 2 -->
+        <div class="pb_imageRepeater col-md-6 col-sm-12 " id="3">
+          <div class="col-md-12">
+            <div class="pb_HoverHolder">
+              <div class="pb_imageHover">
+              </div>
+              <div class="pb_imageHoverContent">
+                <div class="pb_lookNumber">03</div>
+                <div class="pb_viewLook"><a href="javascript:viewProduct(3)">View</a></div>
+                <div class="pb_viewLink">
+                  <a href="#"><img src="download.png" alt="Download"/></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="pb_imageHolder"><img src="https://d117fiyhpld8f9.cloudfront.net/content-images/pressbook/1024/testimage.jpgg" alt="test image" class="img-responsive" /> </div>
+        </div>
+
+        <div class="pb_imageRepeater col-md-6 col-sm-12" id="4">
+         <div class="col-md-12">
+          <div class="pb_HoverHolder">
+            <div class="pb_imageHover">
+            </div>
+            <div class="pb_imageHoverContent">
+              <div class="pb_lookNumber">04</div>
+              <div class="pb_viewLook"><a href="javascript:viewProduct(4)">View</a></div>
+              <div class="pb_viewLink">
+                <a href="#"><img src="download.png" alt="Download"/></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="pb_imageHolder"><img src="https://d117fiyhpld8f9.cloudfront.net/content-images/pressbook/1024/testimage.jpgg" alt="test image" class="img-responsive" /> </div>
+      </div>
+
+      <!-- row 3 -->
+      <div class="pb_imageRepeater col-md-6 col-sm-12 " id="5">
+        <div class="col-md-12">
+          <div class="pb_HoverHolder">
+            <div class="pb_imageHover">
+            </div>
+            <div class="pb_imageHoverContent">
+              <div class="pb_lookNumber">05</div>
+              <div class="pb_viewLook"><a href="javascript:viewProduct(5)">View</a></div>
+              <div class="pb_viewLink">
+                <a href="#"><img src="download.png" alt="Download"/></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="pb_imageHolder"><img src="https://d117fiyhpld8f9.cloudfront.net/content-images/pressbook/1024/testimage.jpgg" alt="test image" class="img-responsive" /> </div>
+      </div>
+
+      <div class="pb_imageRepeater col-md-6 col-sm-12" id="6">
+       <div class="col-md-12">
+        <div class="pb_HoverHolder">
+          <div class="pb_imageHover">
+          </div>
+          <div class="pb_imageHoverContent">
+            <div class="pb_lookNumber">06</div>
+            <div class="pb_viewLook"><a href="javascript:viewProduct(6)">View</a></div>
+            <div class="pb_viewLink">
+              <a href="#"><img src="download.png" alt="Download"/></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pb_imageHolder"><img src="https://d117fiyhpld8f9.cloudfront.net/content-images/pressbook/1024/testimage.jpgg" alt="test image" class="img-responsive" /> </div>
+    </div>
+
+    <div class="smallTileRow">
+      <!-- tile -->
+      <div class="smallTile">
+        <div class="col-md-12">
+          <div class="pb_imageRepeater" id="7">
+            <div class="pb_HoverHolder">
+              <div class="pb_imageHover">
+              </div>
+              <div class="pb_imageHoverContent">
+                <div class="pb_lookNumber">07</div>
+                <div class="pb_viewLook"><a href="javascript:viewProduct(7)">View</a></div>
+                <div class="pb_viewLink">
+                  <a href="#"><img src="download.png" alt="Download"/></a>
+                </div>
+              </div>
+            </div>
+            <div class="pb_imageHolder"><img src="https://d117fiyhpld8f9.cloudfront.net/content-images/pressbook/650/testimage.jpgg" alt="test image" class="img-responsive" /> </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- tile -->
+      <div class="smallTile">
+        <div class="col-md-12">
+          <div class="pb_imageRepeater" id="8">
+            <div class="pb_HoverHolder">
+              <div class="pb_imageHover">
+              </div>
+              <div class="pb_imageHoverContent">
+                <div class="pb_lookNumber">08</div>
+                <div class="pb_viewLook"><a href="javascript:viewProduct(8)">View</a></div>
+                <div class="pb_viewLink">
+                  <a href="#"><img src="download.png" alt="Download"/></a>
+                </div>
+              </div>
+            </div>
+            <div class="pb_imageHolder"><img src="https://d117fiyhpld8f9.cloudfront.net/content-images/pressbook/650/testimage.jpgg" alt="test image" class="img-responsive" /> </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- tile -->
+      <div class="smallTile">
+        <div class="col-md-12">
+          <div class="pb_imageRepeater" id="9">
+            <div class="pb_HoverHolder">
+              <div class="pb_imageHover">
+              </div>
+              <div class="pb_imageHoverContent">
+                <div class="pb_lookNumber">09</div>
+                <div class="pb_viewLook"><a href="javascript:viewProduct(9)">View</a></div>
+                <div class="pb_viewLink">
+                  <a href="#"><img src="download.png" alt="Download"/></a>
+                </div>
+              </div>
+            </div>
+            <div class="pb_imageHolder"><img src="https://d117fiyhpld8f9.cloudfront.net/content-images/pressbook/650/testimage.jpgg" alt="test image" class="img-responsive" /> </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- tile -->
+      <div class="smallTile">
+        <div class="col-md-12">
+          <div class="pb_imageRepeater" id="10">
+            <div class="pb_HoverHolder">
+              <div class="pb_imageHover">
+              </div>
+              <div class="pb_imageHoverContent">
+                <div class="pb_lookNumber">10</div>
+                <div class="pb_viewLook"><a href="javascript:viewProduct(10)">View</a></div>
+                <div class="pb_viewLink">
+                  <a href="#"><img src="download.png" alt="Download"/></a>
+                </div>
+              </div>
+            </div>
+            <div class="pb_imageHolder"><img src="https://d117fiyhpld8f9.cloudfront.net/content-images/pressbook/650/testimage.jpgg" alt="test image" class="img-responsive" /> </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- tile -->
+      <div class="smallTile">
+        <div class="col-md-12">
+          <div class="pb_imageRepeater" id="11">
+            <div class="pb_HoverHolder">
+              <div class="pb_imageHover">
+              </div>
+              <div class="pb_imageHoverContent">
+                <div class="pb_lookNumber">11</div>
+                <div class="pb_viewLook"><a href="javascript:viewProduct(11)">View</a></div>
+                <div class="pb_viewLink">
+                  <a href="#"><img src="download.png" alt="Download"/></a>
+                </div>
+              </div>
+            </div>
+            <div class="pb_imageHolder"><img src="https://d117fiyhpld8f9.cloudfront.net/content-images/pressbook/650/testimage.jpgg" alt="test image" class="img-responsive" /> </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- tile -->
+      <div class="smallTile">
+        <div class="col-md-12">
+          <div class="pb_imageRepeater" id="12">
+            <div class="pb_HoverHolder">
+              <div class="pb_imageHover">
+              </div>
+              <div class="pb_imageHoverContent">
+                <div class="pb_lookNumber">12</div>
+                <div class="pb_viewLook"><a href="javascript:viewProduct(12)">View</a></div>
+                <div class="pb_viewLink">
+                  <a href="#"><img src="download.png" alt="Download"/></a>
+                </div>
+              </div>
+            </div>
+            <div class="pb_imageHolder"><img src="https://d117fiyhpld8f9.cloudfront.net/content-images/pressbook/650/testimage.jpgg" alt="test image" class="img-responsive" /> </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- tile -->
+      <div class="smallTile">
+        <div class="col-md-12">
+          <div class="pb_imageRepeater" id="13">
+            <div class="pb_HoverHolder">
+              <div class="pb_imageHover">
+              </div>
+              <div class="pb_imageHoverContent">
+                <div class="pb_lookNumber">13</div>
+                <div class="pb_viewLook"><a href="javascript:viewProduct(13)">View</a></div>
+                <div class="pb_viewLink">
+                  <a href="#"><img src="download.png" alt="Download"/></a>
+                </div>
+              </div>
+            </div>
+            <div class="pb_imageHolder"><img src="https://d117fiyhpld8f9.cloudfront.net/content-images/pressbook/650/testimage.jpgg" alt="test image" class="img-responsive" /> </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- tile -->
+      <div class="smallTile">
+        <div class="col-md-12">
+          <div class="pb_imageRepeater" id="14">
+            <div class="pb_HoverHolder">
+              <div class="pb_imageHover">
+              </div>
+              <div class="pb_imageHoverContent">
+                <div class="pb_lookNumber">14</div>
+                <div class="pb_viewLook"><a href="javascript:viewProduct(14)">View</a></div>
+                <div class="pb_viewLink">
+                  <a href="#"><img src="download.png" alt="Download"/></a>
+                </div>
+              </div>
+            </div>
+            <div class="pb_imageHolder"><img src="https://d117fiyhpld8f9.cloudfront.net/content-images/pressbook/650/testimage.jpgg" alt="test image" class="img-responsive" /> </div>
           </div>
         </div>
       </div>
@@ -181,10 +430,15 @@
     </div>
 
   </div>
+</div>
+</div>
+</div>
+</div>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="unslider-min.js"></script>
-  <script>
+<script>
+
     function createLightBox() {
       $('body').prepend('<div class="pb_Lightbox"></div>')
       $('.pb_Lightbox').height($(document).height())
@@ -197,7 +451,7 @@
           globalID = this.id
 
           $('#' + globalID + ' .pb_imageHoverContent').mouseleave(function() {
-            $('#' + globalID + ' .pb_HoverHolder').fadeOut()
+            $('.pb_HoverHolder').fadeOut()
           });
       });
     }
@@ -206,18 +460,17 @@
       $('.pb_Lightbox').html('<div class="pb_passwordBox">'+ $(".passwordBox").html() +'</div>')
       $('.pb_Lightbox').fadeIn()
     }
-
   
     function submitPassword() {
       if ($('#passsWordField').val() == "a") {
         $('.pb_Lightbox').fadeOut()
-        $(".visibleContent").html($(".pressBookContent").html())
+        $('.visibleContent').html($('.pressBookContent').html())
         setHoverState()
       } else if ( $('#passsWordField').val() == "") {
-        $('.pb_submitFeedback').html("Please enter a password")
+        $('.pb_submitFeedback').html('Please enter a password')
       }
       else {
-         $('.pb_submitFeedback').html("Incorrect password")
+         $('.pb_submitFeedback').html('Incorrect password')
       }
     }
 
@@ -228,14 +481,13 @@
 
 
     function productsReady() {
-      
       $('.pb_Lightbox').fadeIn()
-      $('.pb_Lightbox').height($(document).height())
     }
 
     function viewProduct(passedID) {
 
-       $('.pb_Lightbox').html($(".pb_productContent").html())
+       $('.pb_Lightbox').html($('.pb_productContent').html())
+       $('.pb_productHolder').css('margin-top', $('body').scrollTop()+50+'px');
        getJson(passedID)
        
     }
@@ -254,16 +506,20 @@
     }
 
      function getJson(passedID) {
-        var dataPath = 'dpb.json'
+        var dataPath = 'dpb-new.json'
         var imageCounter = 0
+      
+        $('.pb_imageSlider').html('<div class="pb_imageSlides"><ul></ul></div>')
+        $('.pb_productText').html('')
 
-         $('.pb_productIntroText').prepend(passedID + " ")
+         $('.pb_productID').html(passedID + ' ')
 
         $.ajax({
             url: dataPath, 
-            error: function(error){alert('an error has occured in retrieving the feed, please check the feed source.')},
+            error: function(error){alert('An error has occured in retrieving the feed, please check the feed source.')},
             method: 'GET'
                 }).done(function (data) {
+
                   initObj = getObjects(data, 'look', passedID)
                   if(passedID <= 0 || passedID > data.length){
                       alert('incorrect ID passed.')
@@ -271,7 +527,7 @@
 
                   imageObject = initObj[0].lkimages
                   $.each(imageObject, function (index, data) {
-                    $('.pb_imageSlides ul').append('<li><img src="//d117fiyhpld8f9.cloudfront.net/content-images/aw16/1200/' + imageObject[index].Path + '" class="img-responsive" /></li>')
+                    $('.pb_imageSlides ul').append('<li><img src="'+ imageObject[index].Path + '" class="img-responsive" /></li>')
                     imageCounter++
                   })
 
@@ -280,26 +536,26 @@
                     $('.pb_productText').append('<div class="pb_productRepeater col-md-2 col-sm-4 col-xs-6"><div class="pb_productTitle textSemibold">' + productObject[index].title + '</div><div class="pb_productPriceCode">' + productObject[index].price + '</div><div class="pb_productColour">' + productObject[index].colour + '</div></div>')
                    })
 
+                  console.log()
+
                   if (imageCounter > 1 ) {
                     $('.pb_imageSlides').unslider()
                   }
 
                   productsReady() 
+                  $('.pb_Lightbox').height($(document).height())
                     
            })
     }
 
     $( document ).ready(function() {
-      globalID = ""
+      globalID = ''
       // temp jump to images //
-      $(".visibleContent").html($(".pressBookContent").html())
+      $('.visibleContent').html($('.pressBookContent').html())
       setHoverState()
       createLightBox()
-    });
+    })
 
-
-
-  </script>
-
-  </body>
+</script>
+</body>
 </html>

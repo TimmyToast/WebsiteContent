@@ -1,11 +1,11 @@
 // Legacy
 var _gaq = _gaq || [];
 var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+_gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+_gaq.push(['_setAccount', 'UA-1341106-1']);
 _gaq.push(['_addIgnoredRef', 'travels.toa.st']); 
 _gaq.push(['_addIgnoredRef', 'display.ugc.bazaarvoice.com']); 
 _gaq.push(['_addIgnoredRef', 'paypal.com']); 
-_gaq.push(['_require', 'inpage_linkid', pluginUrl]);
-_gaq.push(['_setAccount', 'UA-1341106-1']);
 _gaq.push(['_trackPageview']);
 
 (function() {
