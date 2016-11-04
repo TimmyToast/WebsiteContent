@@ -59,7 +59,7 @@
     }
 
     function startVideo(){
-      $(".pb_videoHolder").prepend('<iframe class="youtubeBackground" type="text/html" src="http://www.youtube.com/embed/L5HSvcEqHnQ?autoplay=1&loop=1&rel=0&showinfo=0&controls=0&playlist=L5HSvcEqHnQ&origin=http://toa.st&wmode=transparent" frameborder="0" style="width:100%" wmode="opaque"/>')
+      $(".pb_videoHolder").prepend('<iframe class="youtubeBackground" type="text/html" src="https://www.youtube.com/embed/L5HSvcEqHnQ?autoplay=1&loop=1&rel=0&showinfo=0&controls=0&playlist=L5HSvcEqHnQ&origin=http://toa.st&wmode=transparent" frameborder="0" style="width:100%" wmode="opaque"/>')
 
      setHeaderRatios()
     }
@@ -151,7 +151,7 @@
     }
 
      function getJson(passedID) {
-        var dataPath = 'dpb-new.json'
+        var dataPath = 'https://d2xfispw8k8nwr.cloudfront.net/js/min/pressbook/dpb-new.json'
         var imageCounter = 0
       
         $('.pb_imageSlider').html('<div class="pb_imageSlides"><ul></ul></div>')
