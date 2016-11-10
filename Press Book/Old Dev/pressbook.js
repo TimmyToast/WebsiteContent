@@ -1,6 +1,7 @@
+
     home_video_aspect_ratio = 0.56347826086957
     pb_termsAgreed = false
-    baseZIPURL = 'https://toast-production.s3-eu-west-1.amazonaws.com/js/min/pressbook/'
+    baseZIPURL = '/zips/'
 
     function lightboxInteractionInit() {
 
@@ -22,9 +23,15 @@
 
     function setVideoIframeHeight(){
       if (document.body.clientWidth < 768) {
-        $('.mainVideo iframe').height('350px')
+        $(".mainVideo iframe").height("350px")
       }
     }
+
+    jQuery(window).resize(function() {
+      setVideoIframeHeight()
+        $(".pb_videoHolder").height( $(".pb_videoHolder").width() * home_video_aspect_ratio )
+        $(".youtubeBackground").height( $(".pb_videoHolder").width() * home_video_aspect_ratio )
+    })
 
     function createLightBox() {
       $('body').prepend('<div class="pb_Lightbox"></div>')
@@ -34,8 +41,8 @@
     function setHoverState(){
       $('.pb_imageRepeater').mouseover(function() {
 
-          $('#' +  this.id + ' .pb_HoverHolder').height($('#' +  this.id + ' .pb_imageHolder img').height())
-          $('#' +  this.id + ' .pb_HoverHolder').fadeIn()
+          $('#' +  this.id + " .pb_HoverHolder").height($('#' +  this.id + " .pb_imageHolder img").height())
+          $('#' +  this.id + " .pb_HoverHolder").fadeIn()
             globalID = this.id
 
           $('#' + globalID + ' .pb_imageHoverContent').mouseleave(function() {
@@ -46,23 +53,20 @@
     }
 
     function setHeaderRatios(){
-      $('.pb_videoHolder').height( $('.pb_videoHolder').width() * home_video_aspect_ratio - 1)
-      $('.pb_videoText').height( $('.pb_videoHolder').width() * home_video_aspect_ratio )
-      $('.youtubeBackground').height( $('.pb_videoHolder').width() * home_video_aspect_ratio )
+      $(".pb_videoHolder").height( $(".pb_videoHolder").width() * home_video_aspect_ratio )
+      $(".pb_videoText").height( $(".pb_videoHolder").width() * home_video_aspect_ratio )
+      $(".youtubeBackground").height( $(".pb_videoHolder").width() * home_video_aspect_ratio )
     }
 
     function startVideo(){
-      $(".pb_videoHolder").prepend('<iframe class="youtubeBackground" type="text/html" src="https://www.youtube.com/embed/36lsvqHADGo?autoplay=1&loop=1&rel=0&showinfo=0&controls=0&playlist=36lsvqHADGo&origin=http://toa.st&wmode=transparent" frameborder="0" style="width:100%" wmode="opaque"/>')
+      $(".pb_videoHolder").prepend('<iframe class="youtubeBackground" type="text/html" src="https://www.youtube.com/embed/L5HSvcEqHnQ?autoplay=1&loop=1&rel=0&showinfo=0&controls=0&playlist=L5HSvcEqHnQ&origin=http://toa.st&wmode=transparent" frameborder="0" style="width:100%" wmode="opaque"/>')
 
      setHeaderRatios()
     }
 
     function openSmallTermsBox(passedID) {
-
-      scrollTopGap = window.pageYOffset || document.documentElement.scrollTop
-
-      $('.pb_Lightbox').html('<div class="pb_passwordBox">'+ $('.smallTermsBox').html() +'</div>')
-      $('.pb_termsWhiteBox').css('margin-top', scrollTopGap +90+'px')
+      $('.pb_Lightbox').html('<div class="pb_passwordBox">'+ $(".smallTermsBox").html() +'</div>')
+      $('.pb_termsWhiteBox').css('margin-top', $('body').scrollTop()+50+'px')
       setLightBoxHeight()
       $('.pb_termsTarget button').attr('id', passedID)
       lightboxInteractionInit()
@@ -70,19 +74,13 @@
     }
 
     function openPasswordField() {
-      $('.pb_Lightbox').html('<div class="pb_passwordBox">'+ $('.passwordBox').html() +'</div>')
+      $('.pb_Lightbox').html('<div class="pb_passwordBox">'+ $(".passwordBox").html() +'</div>')
       setLightBoxHeight()
       $('.pb_Lightbox').fadeIn()
-
-      $("#passsWordField").keyup(function(event){
-        if(event.keyCode == 13){
-            submitPassword()
-        }
-      })
     }
   
     function submitPassword() {
-      if ($('#passsWordField').val() == 'TOAST_17') {
+      if ($('#passsWordField').val() == "TOAST_17") {
         $('.pb_Lightbox').fadeOut()
         $('.visibleContent').html($('.pressBookContent').html())
 
@@ -90,7 +88,7 @@
           startVideo()
         } else {
           setHeaderRatios()
-      }
+        }
         
         setHoverState()
       } else if ( $('#passsWordField').val() == "") {
@@ -109,17 +107,8 @@
 
     function downloadZIP(passedID) {
       if (pb_termsAgreed) {
-
-        if (passedID == 'all') {
-            window.open(baseZIPURL + 'TOAST_Pressbook_SS17_All.zip','_blank' )
-            closePasswordBox()
-        } else {
-            window.open(baseZIPURL + passedID + ".zip",'_blank' )
-            closePasswordBox()
-        }
-
+        location.href = baseZIPURL + passedID + ".zip"
       } else {
-
         if ($(".pb_productInfo").is(":visible")) {
           $(".pb_productTerms").fadeIn()
         } else {
@@ -128,25 +117,13 @@
       }
     }
 
-    function setLightboxWidth(){
-
-      if ($(window).width() > 1024){ 
-         lightboxRatioHeight = $(window).height() * 1.29
-          $(".lighboxWidth").width($(window).height() * 0.8)
-      } else{
-         $(".lighboxWidth").css('width', '')
-      }
-    }
-
     function productsReady() {
-      setLightboxWidth()
       $('.pb_Lightbox').fadeIn()
     }
 
     function viewProduct(passedID) {
-      scrollTopGap = window.pageYOffset || document.documentElement.scrollTop
        $('.pb_Lightbox').html($('.pb_productContent').html())
-       $('.pb_productHolder').css('margin-top', scrollTopGap +90+'px')
+       $('.pb_productHolder').css('margin-top', $('body').scrollTop()+50+'px')
        $(".pb_productTerms button").attr('id', passedID)
        $('.pb_downloadLink').attr('href', 'javascript:downloadZIP('+passedID+')')
        getJson(passedID)
@@ -157,16 +134,16 @@
     }
 
     function getObjects(obj, key, val) {
-      var objects = []
+      var objects = [];
         for (var i in obj) {
-                if (!obj.hasOwnProperty(i)) continue
+                if (!obj.hasOwnProperty(i)) continue;
                 if (typeof obj[i] == 'object') {
-                    objects = objects.concat(getObjects(obj[i], key, val))
+                    objects = objects.concat(getObjects(obj[i], key, val));
                 } else if (i == key && obj[key] == val) {
-                    objects.push(obj)
+                    objects.push(obj);
                 }
             }
-        return objects
+        return objects;
     }
 
     function setLightBoxHeight(){
@@ -174,65 +151,67 @@
     }
 
      function getJson(passedID) {
-        var dataPath = 'https://toast-webfonts.s3-eu-west-1.amazonaws.com/dpb-new.json'
+        var dataPath = 'https://d2xfispw8k8nwr.cloudfront.net/js/min/pressbook/dpb-new.json'
         var imageCounter = 0
+      
         $('.pb_imageSlider').html('<div class="pb_imageSlides"><ul></ul></div>')
         $('.pb_productText').html('')
+
         passedInteger = parseInt(passedID)
+
         $('.pb_productID').html( $('.pb_mainContent #'+passedInteger + ' .pb_lookNumber').html() + ' ')
 
         $.ajax({
             url: dataPath, 
-            error: function(error){alert('An error has occurred in retrieving the data feed.')},
+            error: function(error){alert('An error has occured in retrieving the feed, please check the feed source.')},
             method: 'GET'
                 }).done(function (data) {
-
-                  data = JSON.parse(data)
 
                   initObj = getObjects(data, 'look', passedID)
                   if(passedID <= 0 || passedID > data.length){
                       alert('incorrect ID passed.')
                   }
 
-                  var imagePostFix = ['a', 'b', 'c']
+                  var imagePostFix = ["a", "b", "c"]
 
-                  if (initObj[0].imagecount > 1 ) {
-                    for (i = 0; i < initObj[0].imagecount; i++) { 
-                        $('.pb_imageSlides ul').append('<li><img src="https://d117fiyhpld8f9.cloudfront.net/content-images/pressbook17/1290/'+ passedID + imagePostFix[i] + '.jpg" class="img-responsive" /></li>')
-                    }
+                  // imageObject = initObj[0].lkimages
+                  // $.each(imageObject, function (index, data) {
+                  //   $('.pb_imageSlides ul').append('<li><img src="'+ imageObject[index].Path + '" class="img-responsive" /></li>')
+                  //   imageCounter++
+                  // })
+                  // $('.pb_imageSlides ul').append('<li><img src="/carouselImages/'+ passedID + 'a.jpg" class="img-responsive" /></li>')
+                  // $('.pb_imageSlides ul').append('<li><img src="/carouselImages/'+ passedID + 'b.jpg" class="img-responsive" /></li>')
+                  
+
+                  for (i = 0; i < initObj[0].imagecount; i++) { 
+                      $('.pb_imageSlides ul').append('<li><img src="http://toasttest.co.uk.s16804.gridserver.com/PressBook/carouselImages/'+ passedID + imagePostFix[i] + '.jpg" class="img-responsive" /></li>')
                   }
 
                   productObject = initObj[0].products
                   $.each(productObject, function (index, data) {
-                    $('.pb_productText').append('<div class="pb_productRepeater col-md-3 col-sm-6 col-xs-6"><div class="pb_productTitle sansSemi">' + productObject[index].title + '</div><div class="pb_productPriceCode sansBook">£' + productObject[index].price + '. ' + productObject[index].sku  + '.</div><div class="pb_productColour sansBook">' + productObject[index].colour + '.</div></div>')
+                    $('.pb_productText').append('<div class="pb_productRepeater col-md-3 col-sm-4 col-xs-6"><div class="pb_productTitle sansBold">' + productObject[index].title + '</div><div class="pb_productPriceCode sansBook">£' + productObject[index].price + '. ' + productObject[index].sku  + '.</div><div class="pb_productColour sansBook">' + productObject[index].colour + '.</div></div>')
                    })
 
+                  console.log()
 
-                  
-                  $('.pb_imageSlides ul').prepend('<li><img src="https://d117fiyhpld8f9.cloudfront.net/content-images/pressbook17/1290/'+ passedID +'.jpg" class="img-responsive" /></li>')
+                  if (initObj[0].imagecount > 1 ) {
+                    $('.pb_imageSlides ul').prepend('<li><img src="http://toasttest.co.uk.s16804.gridserver.com/PressBook/landingImages/'+ passedID +'.jpg" class="img-responsive" /></li>')
+                    $('.pb_imageSlides').unslider()
+                  }
 
-                    if (initObj[0].imagecount > 1 ) {
-                       $('.pb_imageSlides').unslider()
-                    }
-                                      
                   productsReady() 
                   setLightBoxHeight()
                     
            })
     }
 
-    jQuery(window).resize(function() {
-
-      setLightboxWidth()
-      setVideoIframeHeight()
-      $('.pb_videoHolder').height( $('.pb_videoHolder').width() * home_video_aspect_ratio)
-      $('.youtubeBackground').height( $('.pb_videoHolder').width() * home_video_aspect_ratio)
-
-    })
-
     $( document ).ready(function() {
 
       globalID = ''
+      // temp jump to images //
+      //$('.visibleContent').html($('.pressBookContent').html())
+      //setHoverState()
+
       createLightBox()  
 
     })
