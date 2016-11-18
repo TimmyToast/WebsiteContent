@@ -86,6 +86,8 @@
         $('.pb_Lightbox').fadeOut()
         $('.visibleContent').html($('.pressBookContent').html())
 
+         _gaq.push(["_trackEvent", "Pressbook - Logged in successfully", "Click", "Success"])
+
         if ($(window).width() > 768) {
           startVideo()
         } else {
@@ -206,6 +208,8 @@
                   $.each(productObject, function (index, data) {
                     $('.pb_productText').append('<div class="pb_productRepeater col-md-3 col-sm-6 col-xs-6"><div class="pb_productTitle sansSemi">' + productObject[index].title + '</div><div class="pb_productPriceCode sansBook">£' + productObject[index].price + '. ' + productObject[index].sku  + '.</div><div class="pb_productColour sansBook">' + productObject[index].colour + '.</div></div>')
                    })
+
+                  _gaq.push(["_trackEvent", "Pressbook - Open", "Click", "Look ID: " + passedID])
 
 
                   
