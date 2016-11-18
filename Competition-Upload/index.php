@@ -209,16 +209,6 @@ if ($imagesOK == "yes") {
 
 
 
-$servername = "internal-db.s16804.gridserver.com";
-$username = "db16804";
-$password = "n3334s1arSTA!!";
-$dbname = "db16804_toastUploaded";
-
-// $servername = "internal-db.s16804.gridserver.com";
-// $username = "db16804";
-// $password = "n3334s1arSTA!!";
-// $dbname = "db16804_toastUploaded";
-
 $passedFirstName =  filter_var($_POST["name"], FILTER_SANITIZE_STRING);
 $passedEmail =  filter_var($_POST["email"], FILTER_SANITIZE_STRING);
 $passedAddress1 =  filter_var($_POST["website"], FILTER_SANITIZE_STRING);
