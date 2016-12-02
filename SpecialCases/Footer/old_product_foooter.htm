@@ -1,0 +1,94 @@
+<script src="//s3-eu-west-1.amazonaws.com/toast-web-content-staging/js/unisex-array.js"></script>
+<script src="/js/min/product.min.js"></script>
+
+<script type="text/javascript">    
+  // Range pages config
+  /*var rangeConfig = {
+    summerDresses: {
+      title: "Summer Dresses",
+      description: "Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum ",
+      products: [
+        {
+          id:"C1EAW",
+          colour: "MazarineDelphiniumDoveMulti"
+        },
+        {
+          id: "C1EAJ",
+          colour: "Natural",
+        },
+        {
+          id: "C1EAI",
+          colour: "MazarineCobaltGreenSoftYellowMulti",
+        },
+        {
+          id: "C1EAG",
+          colour: "AubergineBlackDove"
+        }
+      ]
+    }
+  };*/    
+  
+  $(document).ready(function() {  
+    
+    /*var rangeHtml = "";
+    if ($("span[data-range]").length > 0 && typeof rangeConfig[$("span[data-range]").data("range")] !== "undefined") {
+      var thisRange = rangeConfig[$("span[data-range]").data("range")];
+      var rangeProducts = thisRange.products;
+      var i=0;
+      rangeHtml += [
+        '<div class="grid-100 tablet-grid-100 mobile-grid-100 grid-parent center template-buy-off upper-group">',
+        '<h1 class="range-title">' + thisRange.title + '</h1>',
+        '<p class="range-description">' + thisRange.description + '</p>',
+      ].join("");
+      
+      for(i;i<rangeProducts.length;i++) {
+        var thisProd = rangeProducts[i];
+        var thisHtml = "<a href=\"/product/"+thisProd.id+"/"+thisProd.id+".htm\"><img class=\"range-image\" src=\"http://d3c707rd4l0ogp.cloudfront.net/product/"+thisProd.id+"/"+thisProd.colour+"/250/.jpg\"></a>";
+        rangeHtml+=thisHtml;
+      }
+      
+      rangeHtml += "</div>";
+    }
+    $(".nav-wrapper").after(rangeHtml);
+    
+    $(".upper-group").css({
+      marginBottom: "15px",
+      paddingBottom: "15px",
+      borderBottom: "solid 1px #ddd"
+    });
+    
+    $(".range-image").css({
+      maxHeight: "200px",
+      marginTop: "10px"
+    });*/
+    
+    /*** HIDE BUY SECTION ON KERRY SEATON 5 GOLD RINGS ***/
+    if (typeof(universal_variable.product !== "undefined") && (universal_variable.product.id === "FJCDG" || universal_variable.product.id === "FJCDF")) {
+      $(".product-label-colour").parent().remove();
+      $(".product-swatches").parent().remove();
+      $(".product-size-charts").parent().remove();
+      $("#ctab-1, #addedtToBasket, .add-to-bag, .add-wishlist-item-wrapper, remove-wishlist-item-wrapper, .checkout, .product-sizes, .stock-message, .product-qty").remove();
+    }
+    /*** END HIDE KERRY SEATON BUY SECTION ***/
+    
+    
+    if($('#productId').val().toLowerCase() === "ffcaf") {
+      $('#product-acc-desc .details').before("<p><strong>Colour exclusive to Toast</strong></p>");
+    }
+    
+    // Hide this model description message on archive products
+    if(universal_variable.page.subcategory === "archive sale") {
+      var matchModelDesc = "Studio/video model is";
+      for (var i = $('.product-accordion .content ul li').length - 1; i >= 0; i--) {
+        if($($('.product-accordion .content ul li')[i]).text().toLowerCase().indexOf(matchModelDesc.toLowerCase()) != -1) {
+          $($('.product-accordion .content ul li')[i]).hide();
+        }
+      };
+    }
+  });
+  
+</script>
+
+
+
+​

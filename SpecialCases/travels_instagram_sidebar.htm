@@ -1,0 +1,13 @@
+	<article id="pins-widget" class="quickLink grid-100 tablet-grid-100 mobile-grid-100 grid-parent hide-on-mobile">
+		<a href="http://instagram.com/toast" target="_blank">
+			<h2>Latest Instagram</h2>
+			<?php 
+				$json = json_decode(file_get_contents("https://api.instagram.com/v1/users/3351257/media/recent/?client_id=b0ed2bbc7a3f4432bc2ca0b4c896289c"));
+				$link = $json->data[0]->link;
+				$url = $json->data[0]->images->standard_resolution->url;
+
+				echo "<img src='{$url}' class='grid-image'/>";
+			?>
+			<p>Follow us on Instagram.</p>
+		</a>
+	</article>

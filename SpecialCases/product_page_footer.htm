@@ -1,0 +1,27 @@
+<script type="text/javascript">    
+    
+  $(document).ready(function() {  
+
+    if (typeof(universal_variable.product !== "undefined") && (universal_variable.product.id === "FJCDG" || universal_variable.product.id === "FJCDF")) {
+      $(".product-label-colour").parent().remove();
+      $(".product-swatches").parent().remove();
+      $(".product-size-charts").parent().remove();
+      $("#ctab-1, #addedtToBasket, .add-to-bag, .add-wishlist-item-wrapper, remove-wishlist-item-wrapper, .checkout, .product-sizes, .stock-message, .product-qty").remove();
+    }
+    
+    if($('#productId').val().toLowerCase() === "ffcaf") {
+      $('#product-acc-desc .details').before("<p><strong>Colour exclusive to Toast</strong></p>");
+    }
+    
+    if(universal_variable.page.subcategory === "archive sale") {
+      var matchModelDesc = "Studio/video model is";
+      for (var i = $('.product-accordion .content ul li').length - 1; i >= 0; i--) {
+        if($($('.product-accordion .content ul li')[i]).text().toLowerCase().indexOf(matchModelDesc.toLowerCase()) != -1) {
+          $($('.product-accordion .content ul li')[i]).hide();
+        }
+      };
+    }
+  });
+  
+</script>
+​
