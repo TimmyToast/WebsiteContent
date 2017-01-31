@@ -1,0 +1,32 @@
+<script>
+
+
+function get_cookies_array() {
+
+	//importedCookies = $("#cookiePasteBin").val()
+
+	importedCookies = "PRUM_EPISODES=s=yes&r=https%3A//www.toa.st/uk/category/womens+denim/womens+denim.htm; Commerce_TestPersistentCookie=TestCookie; Commerce_TestSessionCookie=TestCookie; MSCSProfile=1D3D06FBE7C3B4A12BF6B506208442D2059C1F24C8189D2CD56650223C6FC2D4F226E449B39ED86B5BD82E6E485A699483307CB959633C5C3CB11A2C87BBEF3980286879E87242086A2658542A2480583CF455676CCBC8A89B6CFFC9FDE963E2694AED08916F3402263414D569CA05329F0EB3C4110C5F61729E16845B34102FFC3A8427A41EB322; basketCookieTOAST_UK_R=basketItems=0&basketSubtotal=0; BVImplMain%20Site=15494; cookie-banner-dismissed17=true; _qst_s=1; _qsst_s=1485437018936; x_qtag_841844=EY1485437018938*womens+denim*Vtoa.st@*a*Qsc*Q*j1*C*B1*C*P1*5-@0-*4-www.toa.st/uk/category/@1-/@1-.htm*Y*9-*@2-/uk/*Y*A@0-*b*E*C*F*Q*@2-/uk/*Y*Q__v*z; SLIBeacon_139133529=rE759AAAC946C46A1BDCFE8E3BE6F67; __utmt=1; __utma=73633175.1866936742.1485437019.1485437019.1485437019.1; __utmb=73633175.1.10.1485437019; __utmc=73633175; __utmz=73633175.1485437019.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none); qbef=%7B%22cc%22%3A0%2C%22sc%22%3A0%7D; _qubitTracker=qe755bxf7a8-0iyeeuk8i-x4vyykg; _qst=%5B1%2C1%5D; _qPageNum_toast_new=0; _qsst=1485437020248; V1v4=9902636586672; V2v4=9902636586672; V3v4=0; qb_permanent=qe755bxf7a8-0iyeeuk8i-x4vyykg:1:1:1:1:0::0:1:0:BYifhd:BYifhd:::::217.158.170.242:swansea:35507:united%20kingdom:GB:51.648:-3.92403:itv%20west:826047:swansea:25525::BzHq=Dq=B=xMN=Mh::Vna8iuu:Vna8iuk; qb_session=1:1:7:BzHq=B:0:Vna8iuk:0; tms_VisitorID=k9qqteulfb; tms_wsip=1; __insp_wid=338975463; __insp_slim=1485437022805; __insp_nv=true; __insp_targlpu=https%3A%2F%2Fwww.toa.st%2Fuk%2F; __insp_targlpt=TOAST%20%7C%20Women%E2%80%99s%20Clothing%2C%20Loungewear%20%26%20Functional%20Homeware; __insp_norec_sess=true"
+
+    var readCookies = { }
+
+    if (importedCookies!= '') {
+        var split = importedCookies.split(';')
+        for (var i = 0; i < split.length; i++) {
+            var name_value = split[i].split("=")
+            name_value[0] = name_value[0].replace(/^ /, '')
+
+            readCookies[decodeURIComponent(name_value[0])] = decodeURIComponent(name_value[1])
+            document.cookie = decodeURIComponent(name_value[0])+ "=" + decodeURIComponent(name_value[1])
+
+
+        }
+    }
+
+    return readCookies;
+   
+}
+
+
+
+
+ </script>
