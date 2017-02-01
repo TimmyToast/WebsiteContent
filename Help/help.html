@@ -3,6 +3,8 @@
 .visible {display: block;}
 .margintop {margin-top: 30px}
 .navItems li ul {margin: 10px;}
+.helpContentArea h1 {margin: 30px 0 0 0 text-transform: uppercase;}
+.helpContentArea h2 {width: 100%; border-bottom: 1px solid #222222; text-transform: uppercase; margin: 30px 0 0 0}
 
 </style>
 <script type="text/javascript" src="http://d2xfispw8k8nwr.cloudfront.net/js/min/jquery.min.js"></script>
@@ -17,8 +19,14 @@ function loadNav(navItem){
 }
 
 function loadContent(contentFile) {
+
 	$(".helpContentArea").html("Loading")
-	$(".helpContentArea").load( contentFile + ".html" )
+
+	 $(".helpContentArea").load(contentFile + ".html", function(responseTxt, statusTxt, xhr){
+        if(statusTxt == "error") {
+	 		$(".helpContentArea").html("Error loading content: " + xhr.status + ": " + xhr.statusText)
+          }
+    });
 }
 </script>
 
