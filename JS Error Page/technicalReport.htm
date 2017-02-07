@@ -1,16 +1,17 @@
 
     <style>
     .logo {margin: 40px auto 20px auto; width: 146px}
-    .textError {text-align: center; }
-    .errorHolder {font-size: 10px; margin-top: 40px;     overflow-wrap: break-word; height: 500px}
+    .textError {text-align: center; text-transform: uppercase; font-size: 18px; margin-bottom: 30px  }
+    .textErrorDetailsLink {text-align: center; text-transform: uppercase; font-size: 13px; margin-bottom: 30px; text-decoration: underline;  }
+    .errorHolder {font-size: 11px; margin-top: 40px; overflow-wrap: break-word; height: 500px; display:none;}
     </style>
 
   <div class="container">
   <div class="col-md-12">
 <div class="col-md-2 col-md-offset-5"><div class="logo"><img src="https://d1kh76s6bjh8ww.cloudfront.net/img/logo-mobile.png"></div></div>
-  <div class="col-md-8 col-md-offset-2"><div class="textError">TECHNICAL ERROR REPORT. </div></div>
+  <div class="col-md-8 col-md-offset-2 sansMedium "><div class="textError">Sorry, a techincal error occured. </div><div class="textErrorDetailsLink"><a href="javascript:showError()">Show error diagnosis</a> </div></div>
 
-  	<div class="col-md-8 col-md-offset-2"><div class="errorHolder">Error details:<br><br></div></div>
+  	<div class="col-md-8 col-md-offset-2"><div class="errorHolder">Error details:<br><br>Server time: {server date}<br><br></div></div>
 
   </div>
   </div>
@@ -33,6 +34,10 @@ _gaq.push(['_trackEvent', 'Technical Error', 'View']);
   var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 })();
 
+function showError(){
+  $(".errorHolder").fadeIn()
+  $(".textErrorDetailsLink").fadeOut()
+}
 
 var nVer = navigator.appVersion;
 var nAgt = navigator.userAgent;

@@ -1,68 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="//d2xfispw8k8nwr.cloudfront.net/css/min/toast-framework-cmd.min.css">
+<link rel="stylesheet" href="//d2xfispw8k8nwr.cloudfront.net/css/min/main.css">
+
+
+    </head>
+
+
+
+
 <style>
 .subnav {display: none}
 .visible {display: block;}
-.margintop {margin-top: 30px}
-.navItems li ul {margin: 10px;}
-.helpContentArea h1 {margin: 30px 0 0 0 text-transform: uppercase;}
-.helpContentArea h2 {width: 100%; border-bottom: 1px solid #222222; text-transform: uppercase; margin: 30px 0 0 0}
+.margintop {margin-top: 30px;}
+.navItems {font-size:15px; letter-spacing:1px}
+.navItems li ul {margin: 10px}
+.helpContentArea {min-height: 600px; margin-top: 20px}
+.helpContentArea h1 {margin: 30px 0 0 0 text-transform: uppercase; font-family: "freight-sans-pro", sans-serif; font-weight:400; font-size: 15px; letter-spacing: 1px}
+.helpContentArea h2 {width: 100%; border-bottom: 1px solid #222222; text-transform: uppercase; margin: 30px 0 0 0; font-family: "freight-sans-pro", sans-serif; font-weight:400; font-size: 15px; letter-spacing: 1px}
+.helpContentArea p {font-size: 15px; margin-left: 10px}
+.active {color: #aaaaaa}
+.errorText {font-size:15px}
+.helpTitleItem {margin:20px 0 10px 0; font-size: 16px}
+
+.parent {background: url(arrow.gif) no-repeat right 6px; background-size: 6px 6px}
+li.legal {margin-top: 30px}
+
+
+@media only screen and (max-width: 768px) {
+
+	.navItems li {margin: 10px; width: 92%; }
+	.navItems li li {margin: 10px; width: 92%; border-bottom: none; }
+	.helpTitleItem {display: none}
+
+	.legalNav  {display: none}
+	li.legal {margin-top: 30px}
+}
+
+
 
 </style>
-<script type="text/javascript" src="http://d2xfispw8k8nwr.cloudfront.net/js/min/jquery.min.js"></script>
+
+<script type="text/javascript" src="//d2xfispw8k8nwr.cloudfront.net/js/min/jquery.min.js"></script>
+ <body>
+<div class="container">
+<div class="row ">
+  <div class="col-md-12 margintop">
+    <div class="col-sm-3 navItems">
+      <ul>
+        <li class="parent deliver-info sansMedium"><a href="#deliver-info" >Delivery &amp; Returns</a>
+          <ul class="subnav textBook">
+            <li class="link deliver-info"><a href="#deliver-info" class="active">Delivery Information</a></li>
+            <li class="link deliver-charges"><a href="#deliver-charges">Delivery Charges</a></li>
+            <li class="link deliver-exclusions"><a href="#deliver-exclusions">Delivery - Postcode Excusions</a></li>
+            <li class="link deliver-ship-exclusions"><a href="#deliver-ship-exclusions" >Delivery - Item Excusions</a></li>
+            <li class="link deliver-returns"><a href="#deliver-returns" >Returns Information</a></li>
+          </ul>
+        </li>
+        <li class="link faqs sansMedium"><a href="#faqs" >Frequently Asked Questions</a></li>
+        <li class="link product-care sansMedium"><a href="#product-care" >Product Care Information</a></li>
+        <li class="link gift-wrapping sansMedium"><a href="#gift-wrapping" >Gift Wrapping</a></li>
+        <li class="parent size-fit sansMedium"><a href="#size-fit">Size</a>
+          <ul class="subnav textBook">
+            <li class="link size-fit"><a href="#size-fit">Size &amp; Fit</a></li>
+            <li class="link size-fitted"><a href="#size-fitted">Fitted Sizes</a></li>
+            <li class="link size-easy"><a href="#size-easy">Easy Sizes</a></li>
+            <li class="link size-shoes"><a href="#size-shoes">Shoes Sizes</a></li>
+            <li class="link size-bedlinen"><a href="#size-bedlinen">Bedlined Sizes</a></li>
+            <li class="link size-ring"><a href="#size-ring">Ring Size Chart</a></li>
+          </ul>
+        </li>
+        <li class="parent legal-privacy sansMedium"><a href="#legal-privacy">Legal</a>
+        	<ul class="subnav textBook">
+	            <li class="link legal-privacy"><a href="#legal-privacy">Privacy Policy</a></li>
+	            <li class="link legal-cookies"><a href="#legal-cookies">Cookies</a></li>
+	            <li class="link legal-terms"><a href="#legal-terms">Terms &amp; Conditions</a></li>
+	            <li class="link legal-ethical"><a href="#legal-ethical">Ethical Policy</a></li>
+            </ul>
+        </li>
+
+      </ul>
+
+    </div>
+
+    <div class="col-sm-9 helpContentArea textBook">
+    
+
+    </div>
+  </div>
+</div>
+
+</div>
+
+              
 <script>
+
 function loadNav(navItem){
-	if ( !$("."+navItem + " .subvav").is(":visible")) {
-			 $(".subnav").not(this).removeClass('visible')
-			 $("."+navItem + " .subnav").addClass('visible')
-			 loadContent($("."+navItem + " .subnav a").first().attr("href").slice(24,-2))
-	}
+	$(".parent").css("background-image", "url(arrow.gif)"); 
+	$("."+navItem).css("background-image", "url(down_arrow.gif)"); 
+
+  	if ( !$("."+navItem + " .subvav").is(":visible")) {
+    	$(".subnav").not(this).removeClass('visible')
+        $("."+navItem + " .subnav").addClass('visible')
+        // load content of first child
+        loadContent($("."+navItem + " .subnav li").first().attr("class").split(" ")[1])
+  	} 
 
 }
+
+$(document).on("click",".navItems li a", function () {
+
+   parentClassArray = ($(this.parentElement).attr("class").split(" "))
+
+   if ($(this.parentNode.parentNode.childElementCount)[0] > 7){
+   		$(".subnav").not(this).removeClass('visible')
+   }
+
+   if (parentClassArray[0] == "link") {
+     loadContent(parentClassArray[1])
+   } else {
+     loadNav(parentClassArray[1])
+   }
+  
+});
 
 function loadContent(contentFile) {
 
-	$(".helpContentArea").html("Loading")
+  	$(".helpContentArea").html("Loading")
 
-	 $(".helpContentArea").load(contentFile + ".html", function(responseTxt, statusTxt, xhr){
+  	$(".navItems a").removeClass("active")
+  	$("."+contentFile + " a").addClass("active")
+
+   //$(".helpContentArea").load("https://s3.eu-west-2.amazonaws.com/toast-help-files/" + contentFile + ".htm", function(responseTxt, statusTxt, xhr){
+   	$(".helpContentArea").load(contentFile + ".htm", function(responseTxt, statusTxt, xhr){
+    	if(statusTxt == "error") {
+       		$(".helpContentArea").html("<div class='errorText'>Error loading content: " + contentFile  + " Error cause: " + xhr.status + ": " + xhr.statusText + "</div>")
+        }
+    })
+}
+
+$( document ).ready(function() {
+
+  if(window.location.hash) {
+     $("."+window.location.hash.substring(1)).parent().addClass("visible")
+     $("."+window.location.hash.substring(1)).parent().css("background-image", "url(down_arrow.gif)")
+
+     loadContent(window.location.hash.substring(1))
+ } else {
+   	$(".delivery ul").addClass("visible")
+     //$(".helpContentArea").load("https://s3.eu-west-2.amazonaws.com/toast-help-files/deliver-info.htm", function(responseTxt, statusTxt, xhr){
+    $(".helpContentArea").load("deliver-info.htm", function(responseTxt, statusTxt, xhr){
+    	$(".delivery").css("background-image", "url(down_arrow.gif)"); 
         if(statusTxt == "error") {
-	 		$(".helpContentArea").html("Error loading content: " + xhr.status + ": " + xhr.statusText)
+           $(".helpContentArea").html("Error loading content: " + xhr.status + ": " + xhr.statusText)
           }
     });
-}
-</script>
+ }
+});
+  
+ 
+</script>​
 
-<link rel="stylesheet" href="http://d2xfispw8k8nwr.cloudfront.net/css/min/toast-framework-cmd.min.css">
-
-<div class="container margintop">
-	<div class="col-md-12">
-		<div class="col-md-2 navItems">
-			<ul>
-				<li class="delivery"><a href="javascript:loadNav('delivery')" >Delivery</a>
-					<ul class="subnav">
-						<li><a href="javascript:loadContent('deliverInfo')">Delivery Information</a></li>
-						<li><a href="javascript:loadContent('deliverCharges')">Delivery Charges</a></li>
-						<li><a href="javascript:loadContent('deliverExclusions')">Delivery Excusions</a></li>
-					</ul>
-				</li>
-				<li class="returns"><a href="javascript:loadNav('returns')" >Returns</a></li>
-				<li class="faq"><a href="javascript:loadNav('faqs')" >Frequently Asked Questions</a></li>
-				<li class="gift"><a href="javascript:loadNav('giftWrapping')" >Gift Wrapping</a></li>
-				<li class="size"><a href="javascript:loadNav('size')">Size</a>
-					<ul class="subnav">
-						<li><a href="javascript:loadContent('sizeFit')">Size &amp; Fit</a></li>
-						<li><a href="javascript:loadContent('shoeSizes')">Shoes Sizes</a></li>
-						<li><a href="javascript:loadContent('ringSizeChart')">Ring Size Chart</a></li>
-						<li><a href="javascript:loadContent('fittedSizes')">Fitted Sizes</a></li>
-						<li><a href="javascript:loadContent('easySizes')">Easy Sizes</a></li>
-						<li><a href="javascript:loadContent('bedlinedSizes')">Bedlined Sizes</a></li>
-					</ul>
-				</li>
-			</ul>
-
-		</div>
-
-		<div class="col-md-10 helpContentArea">
-		
-
-		</div>
-	</div>
-</div>
+ </body>
+</html>
