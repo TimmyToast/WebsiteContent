@@ -19,26 +19,32 @@
 .margintop {margin-top: 30px;}
 .navItems {font-size:15px; letter-spacing:1px}
 .navItems li ul {margin: 10px}
-.helpContentArea {min-height: 600px; margin-top: 20px}
-.helpContentArea h1 {margin: 30px 0 0 0 text-transform: uppercase; font-family: "freight-sans-pro", sans-serif; font-weight:400; font-size: 15px; letter-spacing: 1px}
+.helpContentArea {min-height: 600px; margin-top: 50px}
+.helpContentArea h1 {text-transform: uppercase; font-family: "freight-sans-pro", sans-serif; font-weight:600; font-size: 15px; letter-spacing: 1px; }
 .helpContentArea h2 {width: 100%; border-bottom: 1px solid #222222; text-transform: uppercase; margin: 30px 0 0 0; font-family: "freight-sans-pro", sans-serif; font-weight:400; font-size: 15px; letter-spacing: 1px}
 .helpContentArea p {font-size: 15px; margin-left: 10px}
 .active {color: #aaaaaa}
 .errorText {font-size:15px}
 .helpTitleItem {margin:20px 0 10px 0; font-size: 16px}
 
-.parent {background: url(arrow.gif) no-repeat right 6px; background-size: 6px 6px}
-li.legal {margin-top: 30px}
+.parent {background: url(https://d2xfispw8k8nwr.cloudfront.net/images/arrow.gif) no-repeat right 9px; background-size: 8px 8px}
+li.legal {margin-top: 20px; }
 
 
 @media only screen and (max-width: 768px) {
+  .parent {background-position:  right 7px;}
+  .navItems {font-size:14px; letter-spacing:1px}
+	.navItems li {margin: 8px 0; width: 92%; }
 
-	.navItems li {margin: 10px; width: 92%; }
-	.navItems li li {margin: 10px; width: 92%; border-bottom: none; }
-	.helpTitleItem {display: none}
-
-	.legalNav  {display: none}
 	li.legal {margin-top: 30px}
+}
+
+@media only screen and (max-width: 320px) {
+
+  .navItems li {margin: 4px 0; width: 92%; }
+  .helpContentArea p {font-size: 18px; margin: 20px 0 0 0}
+
+  li.legal {margin-top: 20px}
 }
 
 
@@ -52,7 +58,7 @@ li.legal {margin-top: 30px}
   <div class="col-md-12 margintop">
     <div class="col-sm-3 navItems">
       <ul>
-        <li class="parent deliver-info sansMedium"><a href="#deliver-info" >Delivery &amp; Returns</a>
+        <li class="parent delivery sansMedium"><a href="#deliver-info" >Delivery &amp; Returns</a>
           <ul class="subnav textBook">
             <li class="link deliver-info"><a href="#deliver-info" class="active">Delivery Information</a></li>
             <li class="link deliver-charges"><a href="#deliver-charges">Delivery Charges</a></li>
@@ -64,7 +70,7 @@ li.legal {margin-top: 30px}
         <li class="link faqs sansMedium"><a href="#faqs" >Frequently Asked Questions</a></li>
         <li class="link product-care sansMedium"><a href="#product-care" >Product Care Information</a></li>
         <li class="link gift-wrapping sansMedium"><a href="#gift-wrapping" >Gift Wrapping</a></li>
-        <li class="parent size-fit sansMedium"><a href="#size-fit">Size</a>
+        <li class="parent size sansMedium"><a href="#size-fit">Size</a>
           <ul class="subnav textBook">
             <li class="link size-fit"><a href="#size-fit">Size &amp; Fit</a></li>
             <li class="link size-fitted"><a href="#size-fitted">Fitted Sizes</a></li>
@@ -74,7 +80,7 @@ li.legal {margin-top: 30px}
             <li class="link size-ring"><a href="#size-ring">Ring Size Chart</a></li>
           </ul>
         </li>
-        <li class="parent legal-privacy sansMedium"><a href="#legal-privacy">Legal</a>
+        <li class="parent legal sansMedium"><a href="#legal-privacy">Legal</a>
         	<ul class="subnav textBook">
 	            <li class="link legal-privacy"><a href="#legal-privacy">Privacy Policy</a></li>
 	            <li class="link legal-cookies"><a href="#legal-cookies">Cookies</a></li>
@@ -100,8 +106,8 @@ li.legal {margin-top: 30px}
 <script>
 
 function loadNav(navItem){
-	$(".parent").css("background-image", "url(arrow.gif)"); 
-	$("."+navItem).css("background-image", "url(down_arrow.gif)"); 
+	$(".parent").css("background-image", "url(https://d2xfispw8k8nwr.cloudfront.net/images/arrow.gif)"); 
+	$("."+navItem).css("background-image", "url(https://d2xfispw8k8nwr.cloudfront.net/images/down_arrow.gif)"); 
 
   	if ( !$("."+navItem + " .subvav").is(":visible")) {
     	$(".subnav").not(this).removeClass('visible')
@@ -116,7 +122,9 @@ $(document).on("click",".navItems li a", function () {
 
    parentClassArray = ($(this.parentElement).attr("class").split(" "))
 
-   if ($(this.parentNode.parentNode.childElementCount)[0] > 7){
+   
+
+   if ($(this.parentNode.parentNode).attr("class") == null){
    		$(".subnav").not(this).removeClass('visible')
    }
 
@@ -147,14 +155,14 @@ $( document ).ready(function() {
 
   if(window.location.hash) {
      $("."+window.location.hash.substring(1)).parent().addClass("visible")
-     $("."+window.location.hash.substring(1)).parent().css("background-image", "url(down_arrow.gif)")
+     $("."+window.location.hash.substring(1)).parent().parent().css("background-image", "url(https://d2xfispw8k8nwr.cloudfront.net/images/down_arrow.gif)")
 
      loadContent(window.location.hash.substring(1))
  } else {
    	$(".delivery ul").addClass("visible")
      //$(".helpContentArea").load("https://s3.eu-west-2.amazonaws.com/toast-help-files/deliver-info.htm", function(responseTxt, statusTxt, xhr){
     $(".helpContentArea").load("deliver-info.htm", function(responseTxt, statusTxt, xhr){
-    	$(".delivery").css("background-image", "url(down_arrow.gif)"); 
+    $(".delivery").css("background-image", "url(https://d2xfispw8k8nwr.cloudfront.net/images/down_arrow.gif)"); 
         if(statusTxt == "error") {
            $(".helpContentArea").html("Error loading content: " + xhr.status + ": " + xhr.statusText)
           }
