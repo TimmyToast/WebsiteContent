@@ -18,6 +18,10 @@
 .helpContentArea p, .helpContentArea li {font-size: 15px;}
 .helpContentArea ul {margin: 0 0 0 20px}
 .helpContentArea li {list-style: disc}
+.helpContentArea table {margin: 20px 0}
+.helpContentArea td {height: 40px; vertical-align:middle; font-size: 15px; text-align: center;}
+.helpContentArea tr:nth-child(odd)   { background-color:#f5f5f5; }
+.helpContentArea tr:nth-child(even)    { background-color:#fff; }
 
 .active {color: #aaaaaa}
 .errorText {font-size:15px}
@@ -158,8 +162,8 @@ function loadContent(contentFile) {
       
       
 
-   $(".helpContentArea").load("https://s3.eu-west-2.amazonaws.com/toast-help-files/" + contentFile + ".htm", function(responseTxt, statusTxt, xhr){
-   //$(".helpContentArea").load(contentFile + ".htm", function(responseTxt, statusTxt, xhr){
+   //$(".helpContentArea").load("https://s3.eu-west-2.amazonaws.com/toast-help-files/" + contentFile + ".htm", function(responseTxt, statusTxt, xhr){
+   $(".helpContentArea").load(contentFile + ".htm", function(responseTxt, statusTxt, xhr){
       if(statusTxt == "error") {
            $(".helpContentArea").html("<div class='errorText'>Error loading content: " + contentFile  + " Error cause: " + xhr.status + ": " + xhr.statusText + "</div>")
         }
@@ -183,8 +187,8 @@ $( document ).ready(function() {
     loadContent(window.location.hash.substring(1))
 } else {
    $(".delivery ul").addClass("visible")
-   $(".helpContentArea").load("//s3.eu-west-2.amazonaws.com/toast-help-files/deliver-info.htm", function(responseTxt, statusTxt, xhr){
-   //$(".helpContentArea").load("deliver-uk.htm", function(responseTxt, statusTxt, xhr){
+   //$(".helpContentArea").load("//s3.eu-west-2.amazonaws.com/toast-help-files/deliver-info.htm", function(responseTxt, statusTxt, xhr){
+  $(".helpContentArea").load("deliver-uk.htm", function(responseTxt, statusTxt, xhr){
    $(".delivery").css("background-image", "url(//d2xfispw8k8nwr.cloudfront.net/images/down_arrow.gif)");
        if(statusTxt == "error") {
           $(".helpContentArea").html("Error loading content: " + xhr.status + ": " + xhr.statusText)
