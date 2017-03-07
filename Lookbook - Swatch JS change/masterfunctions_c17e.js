@@ -11788,7 +11788,7 @@ var helpModule = function() {
                 for (var t = 0; t < i.length; t++) {
                     var c = i[t],
                         h = c.upImg.replace(sizeRegex, "/250/").replace("gift_clear", "gift/clear"),
-                        p = $('<li class="grid-15 tablet-grid-15 mobile-grid-15 swatch"><img src="' + h + '" id="' + c.prodId + '" class="grid-image product-swatch" alt="' + c.colour + '" title="' + c.colour + '" data-tab-index="' + t + '" base-colour="' + c.baseColour.toLowerCase() + '"></li>');
+                        p = $('<li class="swatch"><img src="' + h + '" id="' + c.prodId + '" class="grid-image product-swatch" alt="' + c.colour + '" title="' + c.colour + '" data-tab-index="' + t + '" base-colour="' + c.baseColour.toLowerCase() + '"></li>');
                     if ($(".group-buy-off .product-swatches").append(p), !d && e.length > 0 && e.attr("prod-code").toLowerCase() === c.prodId.toLowerCase()) p.find("img").addClass("selected-swatch"), currentIndividualObj = c, $(".colour-showing").text(c.colour);
                     else if (d && 0 == u.length && e.length > 0 && e.attr("prod-code").toLowerCase() === c.prodId.toLowerCase() && e.attr("item-colour").toLowerCase() == c.colour.toLowerCase()) p.find("img").addClass("selected-swatch"), currentIndividualObj = c, $(".colour-showing").text(c.colour), u = c.baseColour.toLowerCase();
                     else if (d && u.length > 0 && e.attr("item-colour").toLowerCase() === c.colour.toLowerCase())
@@ -11861,11 +11861,8 @@ var helpModule = function() {
           
             	 $('.product-swatches img').each(function () {
             	 if ($(this).attr('src').indexOf("_sw") > 0){
-
 						thisURL = $(this).attr('src').split( '/' )
-						console.log("4" + thisURL[4] + " 5:" + thisURL[5].slice(0, -3))
 						newURL = 'https://d117fiyhpld8f9.cloudfront.net/global/'+thisURL[4]+'/'+thisURL[5].slice(0, -3)+'/700/'+thisURL[7]
-						console.log(newURL)
 						$(this).attr("src", newURL);
 					}
 				})
@@ -11979,7 +11976,6 @@ var helpModule = function() {
                     opacity: 1
                 }), $(this).hasClass("selected-range-product") || (u = "", $(".selected-range-product").removeClass("selected-range-product"), $(this).addClass("selected-range-product"), f = 0, setCurrentObj(!1), isLookBook && (C(), k()), P(), "undefined" != typeof wishlistModule.updateAddRemoveWishlistButton && wishlistModule.updateAddRemoveWishlistButton()), reviewDisplayModule.callReviews()
             }), $(".group-buy-off").on("click", ".product-swatch", function() {
-            	console.log("this click")
                 if (!$(this).hasClass("selected-swatch")) {
                     var e = $(".buy-off-container");
                     u = $(this).attr("base-colour"), e.find(".product-swatch").removeClass("selected-swatch"), $(this).addClass("selected-swatch");
