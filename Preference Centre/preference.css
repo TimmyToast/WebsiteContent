@@ -1,0 +1,23 @@
+.preferenceContent p {font-size: 14px}
+.preferenceContent a {text-decoration: underline}
+.preferenceContent h1 {font-size: 26px; font-family: "freight-text-pro", serif; font-weight: 600; margin:20px 0; letter-spacing: 2px}
+.preferenceContent h2 {font-size: 16px; margin: 60px 0 0 0 ; letter-spacing: 1px}
+.preferenceContent h3 {font-size: 13px; margin: 60px 0 20px 0; letter-spacing: 1px}
+.preferenceContent {text-align: center;}
+.preferenceContent .preferenceThreeCol {font-size: 14px; width: 33%; float: left; text-align: left}
+.preferenceContent .preferenceTwoCol {font-size: 14px; width: 50%; float: left; text-align: left}
+.preferenceContent label {margin:0 0 0 4px;}
+.perferenceIntro p {font-size: 16px; font-family: "freight-text-pro", serif; font-weight: 400;}
+.preferenceTerms label {font-size: 14px}
+.preferenceContent input {top:5px; position: relative; width:16px; height:16px; min-width:initial}
+.preferenceTerms {margin: 60px 0}
+.preferenceContent input[type="submit"] {width:auto;background-color: #000000 ; color: #ffffff ; padding: 20px 20px 35px 20px; margin-bottom: 20px; text-transform: uppercase;}
+
+@media only screen and (max-width: 767px){
+	.preferenceContent .preferenceThreeCol {width: 50%}
+ 	.preferenceContent input {width:20px; height:20px;}
+ }
+ 
+@media only screen and (max-width: 450px){
+	.preferenceContent .preferenceThreeCol, .preferenceContent .preferenceTwoCol  {width: 80%; margin-left: 20%}
+ }
