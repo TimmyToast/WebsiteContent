@@ -1,0 +1,131 @@
+<head>
+  <title>Help | Toast</title>
+  <meta name="description" content="Information on shipping, delivery and other frequently asked questions">
+</head>
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+
+<link rel="stylesheet" href="//d2xfispw8k8nwr.cloudfront.net/css/min/toast-framework-rng_sldr.min.css" />
+<link rel="stylesheet" href="//d2xfispw8k8nwr.cloudfront.net/css/min/main.css">
+<script type="text/javascript" src="//d2xfispw8k8nwr.cloudfront.net/js/min/jquery.min.js"></script>
+<script type="text/javascript" src="//maps.googleapis.com/maps/api/js?v=3"></script> 
+<script type="text/javascript" src="markerclusterer.js"></script>
+<style>
+
+#map_canvas {height: 700px; width: 100%}
+
+
+@media only screen and (max-width: 768px) 
+{
+#map_canvas {height: 400px; width: 100%}
+}
+</style>
+<div class="container">
+
+<div class="grid-100 mobile-grid-100 tablet-grid-100 grid-parent helpSection">
+  <nav id="breadcrumb" class="hide-on-tablet hide-on-mobile grid-60 grid-parent">
+    <ul>
+      <li><a href="/"><span>HOME</span></a></li>
+      <li><span>HELP</span></li>
+    </ul>
+  </nav>
+<div class="row ">
+  <div class="col-md-12 margintop">
+    <div class="col-sm-3 col-md-2 navItems">
+      <ul>
+       <li class="link map sansMedium"><a href="#map" >Map</a></li>
+        <li class="link bath sansMedium"><a href="#bath" >Bath</a></li>
+        <li class="link brighton sansMedium"><a href="#brighton" >Brighton</a></li>
+        <li class="ink chelsea sansMedium"><a href="#chelsea">Chelsea</a>
+        <li class="link cheltenham sansMedium"><a href="#cheltenham">Cheltenham</a></li>
+        <li class="link harrogate sansMedium"><a href="#harrogate">Harrogate</a></li>
+        <li class="link islington sansMedium"><a href="#islington">Islington</a></li>
+        <li class="link kilver sansMedium"><a href="#kilver">Kilver</a></li>
+        <li class="link llandeilo sansMedium"><a href="#llandeilo">Llandeilo</a></li>
+        <li class="link marylebone sansMedium"><a href="#marylebone">Marylebone</a></li>
+        <li class="link westbournegrove sansMedium"><a href="#westbournegrove">Westbourne Grove</a></li>
+        <li class="link oxfordsansMedium"><a href="#oxford">Oxford</a></li>
+      </ul>
+    </div>
+    <div class="col-sm-9 col-md-10 col-xs-12 helpContentArea textBook"></div>
+  </div>
+</div>
+</div>
+     </div> 
+<script>
+jQuery.support.cors = true
+function loadNav(navItem) {
+    $(".parent").css("background-image", "url(//d2xfispw8k8nwr.cloudfront.net/images/arrow.gif)")
+    $("." + navItem).css("background-image", "url(//d2xfispw8k8nwr.cloudfront.net/images/down_arrow.gif)")
+    if (!$("." + navItem + " .subvav").is(":visible")) {
+        $(".subnav").not(this).removeClass('visible')
+        $("." + navItem + " .subnav").addClass('visible')
+        loadContent($("." + navItem + " .subnav li").first().attr("class").split(" ")[1])
+    }
+}
+function loadExclusions() {
+   $(".helpContentArea").load(contentFile + ".htm", function(responseTxt, statusTxt, xhr) {
+    //$(".helpContentArea").load("https://s3.eu-west-2.amazonaws.com/toast-help-files/" + contentFile + ".htm", function(responseTxt, statusTxt, xhr) {
+      if (statusTxt == "error") {
+        $(".helpContentArea").html("Error loading content: " + xhr.status + ": " + xhr.statusText)
+      }
+    })
+}
+
+function loadContent(contentFile) {
+    $(".helpContentArea").html("Loading")
+    $(".navItems a").removeClass("active")
+    $("." + contentFile + " a").addClass("active")
+    $(".helpContentArea").load(contentFile + ".htm", function(responseTxt, statusTxt, xhr) {
+    //$(".helpContentArea").load("https://s3.eu-west-2.amazonaws.com/toast-help-files/" + contentFile + ".htm", function(responseTxt, statusTxt, xhr) {
+        if (statusTxt == "error") {
+            $(".helpContentArea").html("<div class='errorText'>Error loading content: " + contentFile + " Error cause: " + xhr.status + ": " + xhr.statusText + "</div>")
+        }
+    })
+}
+
+function internalContent(passedHash) {
+    $(".parent").css("background-image", "url(//d2xfispw8k8nwr.cloudfront.net/images/arrow.gif)");
+    $(".subnav").removeClass('visible')
+    window.location.hash = passedHash
+    if (window.location.hash) {
+        $("." + window.location.hash.substring(1)).parent().addClass("visible")
+
+        if ($("." + window.location.hash.substring(1)).parent().attr('class') != "visible") {
+            $("." + window.location.hash.substring(1)).parent().parent().css("background-image", "url(//d2xfispw8k8nwr.cloudfront.net/images/down_arrow.gif)")
+        }
+    loadContent(window.location.hash.substring(1))
+    }
+}
+function doThisWhenTheHashChanges(){
+   internalContent(window.location.href.substring(window.location.href.indexOf('#') + 1))
+}
+window.addEventListener("hashchange", doThisWhenTheHashChanges, false)
+
+$(document).on("click", ".helpContentArea a", function() {
+    hashURL = $(this).attr('href')
+    contentHash = hashURL.substring(hashURL.indexOf('#') + 1)
+    if ($(this).attr('href').indexOf('help.htm') > 10) {
+        event.preventDefault()
+        internalContent(contentHash)
+    }
+})
+
+$(document).ready(function() {
+    if (window.location.hash) {
+        $("." + window.location.hash.substring(1)).parent().addClass("visible")
+
+        if ($("." + window.location.hash.substring(1)).parent().attr('class') != "visible") {
+            $("." + window.location.hash.substring(1)).parent().parent().css("background-image", "url(//d2xfispw8k8nwr.cloudfront.net/images/down_arrow.gif)")
+        }
+        loadContent(window.location.hash.substring(1))
+    } else {
+        $(".delivery ul").addClass("visible")
+        $(".helpContentArea").load("map.htm", function(responseTxt, statusTxt, xhr) {
+            $(".delivery").css("background-image", "url(//d2xfispw8k8nwr.cloudfront.net/images/down_arrow.gif)")
+            if (statusTxt == "error") {
+                $(".helpContentArea").html("Error loading content: " + xhr.status + ": " + xhr.statusText)
+            }
+        })
+    }
+})
+</script>    ​

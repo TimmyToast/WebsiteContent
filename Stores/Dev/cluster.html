@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Marker Clustering</title>
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+
+      function initMap() {
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 7,
+          center: {lat: 51.385655, lng: -2.361707}
+        });
+
+        // Create an array of alphabetical characters used to label the markers.
+        var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+        // Add some markers to the map.
+        // Note: The code uses the JavaScript Array.prototype.map() method to
+        // create an array of markers based on a given "locations" array.
+        // The map() method here has nothing to do with the Google Maps API.
+
+           // Add a marker clusterer to manage the markers.
+     
+
+
+        var markers = locations.map(function(location, i) {
+          return new google.maps.Marker({
+            position:  {lat: locations[1], lng: locations[2]},
+            label: locations[0]
+          });
+        });
+   var markerCluster = new MarkerClusterer(map, markers,
+            {imagePath: 'https://cdn1.iconfinder.com/data/icons/morning-routine-filled-icons/100/b10-128.png'});
+
+
+    google.maps.event.addListener(markers, "click", function () {
+                //alert(this.html);
+                infowindow.setContent(this.html);
+                infowindow.open(map, this);
+            });
+      }
+      var locations = [
+        ['Bath', 51.385655, -2.361707], //Bath
+        ['Brighton', 50.822316, -0.142128], //Brighton
+        ["Chelsea", 51.487054, -0.169798], //Chelsea
+        ["Harrogate", 53.992978, -1.544687], //Harrogate
+        ["Cheltenham", 51.898939, -2.077045], //Cheltenham
+        ["Islington", 51.539154, -0.102360], //Islington
+        ["Kilver", 51.190792, -2.536376], //Kilver
+        ["Llandeilo", 51.882577, -3.994105], //Llandeilo
+        ["Marylebone", 51.521358, -0.151707], //Marylebone
+        ["Westbourne Grove", 51.514515, -0.198427], //Westbourne Grove
+        ["Oxford", 51.752331, -1.254184] //Oxford
+      ]
+     
+    </script>
+    <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcZXaghv8MPwN6pSiFO8K5OYtc57mAitI&callback=initMap">
+    </script>
+  </body>
+</html>
+
