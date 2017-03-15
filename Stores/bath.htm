@@ -1,5 +1,11 @@
 
 <script type="text/javascript"> 
+
+ markers = [
+    ['Bath', 51.385655, -2.361707], //Bath
+  ]
+
+  
 var gmarkers = []
 var map = null
 var markerclusterer = null
@@ -43,11 +49,23 @@ function initialize() {
   map = new google.maps.Map(document.getElementById("map_canvas_shop"), myOptions)
 
 
-  var markers = [
+  markers = [
     ['Bath', 51.385655, -2.361707], //Bath
   ]
 
-
+  for (var i = 0; i < markers.length; i++) {
+    var sites = markers[i]
+    var lat = sites[1]
+    var lng = sites[2]
+    var point = new google.maps.LatLng(lat,lng)
+    var id = sites[0]
+    //var country = "Some stuff"
+    var html= id
+    var marker = createMarker(point,id,html)
+  }
+  markerCluster = new MarkerClusterer(map, gmarkers, {imagePath: '//s3.eu-west-2.amazonaws.com/toast-stores-files/images/'})  
+}
+ 
 
 $( document ).ready(function() {
     initialize()
@@ -58,22 +76,7 @@ $( document ).ready(function() {
 <h1>Bath</h1>
 
 <h2>Bath Title</h2>
-
-<div class="col-md-6">
-
-
-</div>
-
-<div class="col-md-6">
-
-
-</div>
-
-
-
-
-
-<p><a href="javascript:showHideMap()" clas="pdf-link margin-top-5 sansBook">View Map</a></p>
+<p><a href="javascript:showHideMap()" class="pdf-link margin-top-5 sansBook">Toggle Map</a></p>
     <div class="col-md-12">
         <div id="map_canvas_shop" ></div>
     </div> 
