@@ -3,11 +3,7 @@
 var gmarkers = []
 var map = null
 var markerclusterer = null
-var image = '/images/TOAST_Pin.png'
-
-
-
-
+var image = '//s3.eu-west-2.amazonaws.com/toast-stores-files/images/TOAST_Pin.png'
 
 function createMarker(latlng, name, html) {
     var contentString = html;
@@ -22,7 +18,7 @@ function createMarker(latlng, name, html) {
         infowindow.setContent(contentString)
         infowindow.open(map,marker)
 
-        internalContent(contentString)
+        internalContent(contentString.toLowerCase())
     })
 
     gmarkers.push(marker)
@@ -343,7 +339,7 @@ function initialize() {
     var html= id
     var marker = createMarker(point,id,html)
   }
-  markerCluster = new MarkerClusterer(map, gmarkers)  
+  markerCluster = new MarkerClusterer(map, gmarkers, {imagePath: '//s3.eu-west-2.amazonaws.com/toast-stores-files/images/'})  
 }
  
 var infowindow = new google.maps.InfoWindow(
@@ -357,8 +353,7 @@ $( document ).ready(function() {
 
 </script> 
 <div class="row">
-<div class="col-md-12">
-    <div id="map_canvas" ></div>
-</div> 
+    <div class="col-md-12">
+        <div id="map_canvas" ></div>
+    </div> 
 </div>
-

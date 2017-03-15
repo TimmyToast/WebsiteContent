@@ -2,13 +2,9 @@
   <title>Find Your Nearest Store | Toast</title>
   <meta name="description" content="Information on shipping, delivery and other frequently asked questions">
 </head>
-<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
 
-<link rel="stylesheet" href="//d2xfispw8k8nwr.cloudfront.net/css/min/toast-framework-rng_sldr.min.css" />
-<link rel="stylesheet" href="//d2xfispw8k8nwr.cloudfront.net/css/min/main.css">
-<script type="text/javascript" src="//d2xfispw8k8nwr.cloudfront.net/js/min/jquery.min.js"></script>
 <script type="text/javascript" src="//maps.googleapis.com/maps/api/js?v=3"></script> 
-<script type="text/javascript" src="markerclusterer.js"></script>
+<script type="text/javascript" src="//d2xfispw8k8nwr.cloudfront.net/js/min/markerclusterer.js"></script>
 <style>
 
 #map_canvas {height: 700px; width: 100%}
@@ -19,7 +15,7 @@
 #map_canvas {height: 400px; width: 100%}
 }
 </style>
-<div class="container">
+
 
 <div class="grid-100 mobile-grid-100 tablet-grid-100 grid-parent helpSection">
   <nav id="breadcrumb" class="hide-on-tablet hide-on-mobile grid-60 grid-parent">
@@ -49,7 +45,7 @@
     <div class="col-sm-9 col-md-10 col-xs-12 helpContentArea textBook"></div>
   </div>
 </div>
-</div>
+
      </div> 
 <script>
 jQuery.support.cors = true
@@ -63,8 +59,8 @@ function loadNav(navItem) {
     }
 }
 function loadExclusions() {
-   $(".helpContentArea").load(contentFile + ".htm", function(responseTxt, statusTxt, xhr) {
-    //$(".helpContentArea").load("https://s3.eu-west-2.amazonaws.com/toast-help-files/" + contentFile + ".htm", function(responseTxt, statusTxt, xhr) {
+   //$(".helpContentArea").load(contentFile + ".htm", function(responseTxt, statusTxt, xhr) {
+    $(".helpContentArea").load("https://s3.eu-west-2.amazonaws.com/toast-stores-files/" + contentFile + ".htm", function(responseTxt, statusTxt, xhr) {
       if (statusTxt == "error") {
         $(".helpContentArea").html("Error loading content: " + xhr.status + ": " + xhr.statusText)
       }
@@ -75,8 +71,8 @@ function loadContent(contentFile) {
     $(".helpContentArea").html("Loading")
     $(".navItems a").removeClass("active")
     $("." + contentFile + " a").addClass("active")
-    $(".helpContentArea").load(contentFile + ".htm", function(responseTxt, statusTxt, xhr) {
-    //$(".helpContentArea").load("https://s3.eu-west-2.amazonaws.com/toast-help-files/" + contentFile + ".htm", function(responseTxt, statusTxt, xhr) {
+    //$(".helpContentArea").load(contentFile + ".htm", function(responseTxt, statusTxt, xhr) {
+    $(".helpContentArea").load("https://s3.eu-west-2.amazonaws.com/toast-stores-files/" + contentFile + ".htm", function(responseTxt, statusTxt, xhr) {
         if (statusTxt == "error") {
             $(".helpContentArea").html("<div class='errorText'>Error loading content: " + contentFile + " Error cause: " + xhr.status + ": " + xhr.statusText + "</div>")
         }
@@ -120,7 +116,7 @@ $(document).ready(function() {
         loadContent(window.location.hash.substring(1))
     } else {
         $(".delivery ul").addClass("visible")
-        $(".helpContentArea").load("map.htm", function(responseTxt, statusTxt, xhr) {
+        $(".helpContentArea").load("https://s3.eu-west-2.amazonaws.com/toast-stores-files/map.htm", function(responseTxt, statusTxt, xhr) {
             $(".delivery").css("background-image", "url(//d2xfispw8k8nwr.cloudfront.net/images/down_arrow.gif)")
             if (statusTxt == "error") {
                 $(".helpContentArea").html("Error loading content: " + xhr.status + ": " + xhr.statusText)
