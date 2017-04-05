@@ -4,8 +4,8 @@
       <div class="elb_submitClose"><a href="javascript:closeemailBox()"><img src="https://toast-images.s3.amazonaws.com/content-images/development/jersey/OurJersey_Close.png" class="img-responsive" alt="Close" width="32px" /></a></div>
       <div class="elb_emailBoxText">
        <h2 class="sansBook">Welcome to our</h2>
-       <h3 class="sansMedium">SPRING TREAT</h3>
-       <p class="textBook">Join our newsletter to hear about our Summer Sale <span class="hidden-xs"><br></span>and to keep abreast of other TOAST news.</p>
+       <h3 class="sansMedium">SUMMER COLLECTION</h3>
+       <p class="textBook">Join our newsletter to hear about each new collection  <span class="hidden-xs"><br></span>and to keep abreast of other TOAST news.</p>
      </div>
      <div class="emailSender">
       <!--<label class="sansBook">Email</label>-->
@@ -18,15 +18,18 @@
 </div>
 
 <div class="col-xs-12 col-sm-6 col-sm-push-3 landingBSIntro">
-            <h1>Spring Treat</h1>
+           <h1>Women’s Spring</h1>
 
-            <p class="newProductDescription" >20% off selected TOAST pieces - Kerry Seaton jewellery, striped linen shirt dresses, silk khadi tunic dresses and merino sweaters. For a limited time only - until midnight Sunday. Prices include discount.</p>
-      </div>
+           <p class="newProductDescription">Easy drawstring shapes and textural volume in yarn-dyed linens, ticking stripes and quiet checks. Slate blues, grey chambrays and parchment.</p>
+ <a href="/content/lookbook/women/ss17/spring.htm" class="newProductLBLink sansMedium">View Lookbook</a>
+     </div>
 
 <script>
 
 
 //document.cookie = "name=value; expires=" + now.toUTCString() + "; path=/";
+
+
 
 
 function triggerEmailPopup() {
@@ -63,7 +66,7 @@ function isEmail(email) {
 }
 
 function sendGAevent(){
- _gaq.push(["_trackEvent","Sale page email submit","Click","Sale page email submit"])
+ _gaq.push(["_trackEvent","New Collection email submit","Click","Sale page email submit"])
 }
 
 function submitEmail() {
@@ -71,7 +74,7 @@ function submitEmail() {
     if (isEmail(submitedEmailAddress)) {
         $.ajax({
             type: "GET",
-            url: "https://post.toast.co.uk/automated/action.jsp?action=updateRecipientNoMsg&errorPage=/automated/action.jsp&gid=750148124&uemail=apitoast@api.com&psw=Api321$123&pemail=" + submitedEmailAddress + "&self=true&namedattr_NewsletterOptin=TRUE&namedattr_SignupSource=Spring_Sale_Overlay",
+            url: "https://post.toast.co.uk/automated/action.jsp?action=updateRecipientNoMsg&errorPage=/automated/action.jsp&gid=750148124&uemail=apitoast@api.com&psw=Api321$123&pemail=" + submitedEmailAddress + "&self=true&namedattr_NewsletterOptin=TRUE&namedattr_SignupSource=New_Collection_Overlay",
             dataType: "jsonp",
             error: function(xhr, ajaxOptions, thrownError) {
                 $(".emailSender").html("<p>Thanks, we have received your email address.</p>")
