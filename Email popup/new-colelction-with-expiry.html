@@ -38,8 +38,8 @@ function triggerEmailPopup() {
     var time = now.getTime();
     time += 3600 * 1000;
     now.setTime(time);
-    if ((thisHref.indexOf("Master+Group") == -1) && (!$.cookie("emailClickUser"))) {
-    document.cookie = "emailClickUser=true; expires=" + now.toUTCString() + "; path=/";
+    if ((thisHref.indexOf("Master+Group") == -1) && (!$.cookie("emailClickUserSpring"))) {
+    document.cookie = "emailClickUserSpring=true; expires=" + now.toUTCString() + "; path=/";
         openSignupField()
     }
 }
