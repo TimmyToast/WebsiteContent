@@ -4,7 +4,7 @@
       <div class="elb_submitClose"><a href="javascript:closeemailBox()"><img src="https://toast-images.s3.amazonaws.com/content-images/development/jersey/OurJersey_Close.png" class="img-responsive" alt="Close" width="32px" /></a></div>
       <div class="elb_emailBoxText">
        <h2 class="sansBook">Welcome to our</h2>
-       <h3 class="sansMedium">SUMMER COLLECTION</h3>
+       <h3 class="sansMedium">SPRING COLLECTION</h3>
        <p class="textBook">Join our newsletter to hear about each new collection  <span class="hidden-xs"><br></span>and to keep abreast of other TOAST news.</p>
      </div>
      <div class="emailSender">
@@ -34,6 +34,8 @@
 
 function triggerEmailPopup() {
     thisHref = window.location.href;
+    var now = new Date()
+    now.setTime(now.getTime() + 1 * 3600 * 1000)
     if ((thisHref.indexOf("Master+Group") == -1) && (!$.cookie("emailClickUser"))) {
         $.cookie("emailClickUser", "true", {expires: now.toUTCString(),path: "/"})
         openSignupField()
@@ -88,8 +90,7 @@ function submitEmail() {
 }
 
 $(document).ready(function() {
-	var now = new Date()
-	now.setTime(now.getTime() + 1 * 3600 * 1000)
+
     $('body').prepend('<div class="elb_Lightbox"></div>')
     setTimeout(triggerEmailPopup, 15000);
 
