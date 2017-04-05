@@ -4,7 +4,7 @@
       <div class="elb_submitClose"><a href="javascript:closeemailBox()"><img src="https://toast-images.s3.amazonaws.com/content-images/development/jersey/OurJersey_Close.png" class="img-responsive" alt="Close" width="32px" /></a></div>
       <div class="elb_emailBoxText">
        <h2 class="sansBook">Welcome to our</h2>
-       <h3 class="sansMedium">SPRING COLLECTION</h3>
+       <h3 class="sansMedium">SUMMER COLLECTION</h3>
        <p class="textBook">Join our newsletter to hear about each new collection  <span class="hidden-xs"><br></span>and to keep abreast of other TOAST news.</p>
      </div>
      <div class="emailSender">
@@ -38,8 +38,8 @@ function triggerEmailPopup() {
     var time = now.getTime();
     time += 3600 * 1000;
     now.setTime(time);
-    if ((thisHref.indexOf("Master+Group") == -1) && (!$.cookie("emailClickUserSpring"))) {
-    document.cookie = "emailClickUserSpring=true; expires=" + now.toUTCString() + "; path=/";
+    if ((thisHref.indexOf("Master+Group") == -1) && (!$.cookie("emailClickUserSummer"))) {
+    document.cookie = "emailClickUserSummer=true; expires=" + now.toUTCString() + "; path=/";
         openSignupField()
     }
 }
@@ -70,7 +70,7 @@ function isEmail(email) {
 }
 
 function sendGAevent(){
- _gaq.push(["_trackEvent","New Collection email submit","Click","Sale page email submit"])
+ _gaq.push(["_trackEvent","Spring Collection email submit","Click","Sale page email submit"])
 }
 
 function submitEmail() {
