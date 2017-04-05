@@ -1,7 +1,11 @@
 var gmarkers = []
 var map = null
 var markerclusterer = null
+<<<<<<< Updated upstream
 var image = '//s3.eu-west-2.amazonaws.com/toast-stores-files/images/TOAST_Standalone.png'
+=======
+var image = '//s3.eu-west-2.amazonaws.com/toast-stores-files/images/TOAST_Pin.png'
+>>>>>>> Stashed changes
 
 function showHideMap(){
 
@@ -10,12 +14,15 @@ function showHideMap(){
   });
 }
 
+<<<<<<< Updated upstream
 function showStoreMap(){
    $(".mapLink").hide();
    $(".hiddenMap").css('height', '400px');
    initialize()
 }
 
+=======
+>>>>>>> Stashed changes
 function createMarker(latlng, name, html) {
     var contentString = html;
     var marker = new google.maps.Marker({
@@ -168,7 +175,11 @@ function initialize() {
             //imagePath: 'https://googlemaps.github.io/js-marker-clusterer/images/m',
           styles:[{
           
+<<<<<<< Updated upstream
           url: "https://s3.eu-west-2.amazonaws.com/toast-stores-files/images/TOAST_Standalone.png",
+=======
+          url: "https://s3.eu-west-2.amazonaws.com/toast-stores-files/images/TOAST_Pin.png",
+>>>>>>> Stashed changes
                 width: 40,
                 height:40,
                 fontFamily:"arial",

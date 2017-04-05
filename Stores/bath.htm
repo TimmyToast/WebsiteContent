@@ -1,83 +1,62 @@
 
-<script type="text/javascript"> 
-
- markers = [
-    ['Bath', 51.385655, -2.361707], //Bath
-  ]
-
-  
-var gmarkers = []
-var map = null
-var markerclusterer = null
-var image = '//s3.eu-west-2.amazonaws.com/toast-stores-files/images/TOAST_Pin.png'
-
-
-function showHideMap(){
-
-   $( "#map_canvas_shop" ).slideToggle( "slow", function() {
-    // Animation complete.
-  });
-}
-
-function createMarker(latlng, name, html) {
-    var contentString = html;
-    var marker = new google.maps.Marker({
-        position: latlng,
-        icon:  image,
-        zIndex: Math.round(latlng.lat()*-100000)<<5
-    })
-
-    gmarkers.push(marker)
-}
-
-function initialize() {
-
-  if (window.innerWidth < 769) {
-    zoomLevel = 17
-  } else {
-    zoomLevel = 17
-  }
-
-  var myOptions = {
-    zoom: zoomLevel,
-    center: new google.maps.LatLng(51.385655, -2.361707),
-    mapTypeControl: true,
-    mapTypeControlOptions: {style: google.maps.MapTypeControlStyle.DROPDOWN_MENU},
-    navigationControl: true,
-    mapTypeId: google.maps.MapTypeId.ROADMAP,
-  }
-  map = new google.maps.Map(document.getElementById("map_canvas_shop"), myOptions)
-
-
-  markers = [
-    ['Bath', 51.385655, -2.361707], //Bath
-  ]
-
-  for (var i = 0; i < markers.length; i++) {
-    var sites = markers[i]
-    var lat = sites[1]
-    var lng = sites[2]
-    var point = new google.maps.LatLng(lat,lng)
-    var id = sites[0]
-    //var country = "Some stuff"
-    var html= id
-    var marker = createMarker(point,id,html)
-  }
-  markerCluster = new MarkerClusterer(map, gmarkers, {imagePath: '//s3.eu-west-2.amazonaws.com/toast-stores-files/images/'})  
-}
- 
-
-$( document ).ready(function() {
+<script type="text/javascript">
+   markers = [51.385655, -2.361707]
+</script>
+<script>
+function showStoreMap(){
+    $(".mapLink").hide();
+    $(".hiddenMap").css('height', '400px');
     initialize()
-});
-
-</script> 
+}
+</script>
+<script src="https://s3.eu-west-2.amazonaws.com/toast-stores-files/js/standaloneStore.js" type="text/javascript"></script>
 <div class="row">
-<h1>Bath</h1>
+   <div class="col-sm-12 storePage">
+       <div class="col-sm-12">
+        <h1>Bath</h1>
+       </div>
+        <div class="col-sm-6">
+    <img src="//d3c707rd4l0ogp.cloudfront.net/content-images/ss17/1200/TOAST_SS17_WEB_Shops_Bath_1.jpg" class="img-responsive" alt="">
+       </div>
+       <div class="col-sm-6 hidden-xs">
+         <img src="//d3c707rd4l0ogp.cloudfront.net/content-images/ss17/1200/TOAST_SS17_WEB_Shops_Bath_2.jpg" class="img-responsive" alt="">
+     </div>
+       <div class="col-sm-6">
+         <div class="col-sm-12">
+           <p class="textBook">7 Bartlett Street, Bath, BA1 2QZ<br />Telephone: 01225 335 023</p>
+       <a href="javascript:showStoreMap()" class="sansMedium mapLink">VIEW ON MAP</a>
+       </div>
+         </div>
 
-<h2>Bath Title</h2>
-<p><a href="javascript:showHideMap()" class="pdf-link margin-top-5 sansBook">Toggle Map</a></p>
-    <div class="col-md-12">
-        <div id="map_canvas_shop" ></div>
-    </div> 
+              <div class="col-sm-6 openingHrs">
+               <div class="col-sm-12">
+           <h3 class="textSemibold">Opening Hours</h3>
+           <p class="textBook">Monday to Saturday: 10.00am-6.00pm,<br /> Sunday: 11.00am-5.00pm</p>
+       </div>
+                </div>
+
+                
+       <div class="col-xs-12 mainShopMap hiddenMap"><div class="col-xs-12" id="map_canvas_shop"></div></div>
+      
+
+<div class="col-sm-6 moreStoreInfo">
+    <h2 class="sansMedium">MORE INFO</h2>
+     <div class="col-xs-12 infoLink">
+    <p class="textBook">Tucked away from the hustle and bustle of the high street and with beautiful high ceilings and a mezzanine area, Toast Bath is a spacious store housing the complete collection for Women and House&Home.</p>
+    <h3 class="textSemibold">Store Manager</h3>
+    <p class="textBook">Verity Germer</p>
+    <h3 class="textSemibold">Accessibility</h3>
+    <p class="textBook">There is an easy access for wheelchairs.</p>
+</div>
+      </div>
+<div class="col-sm-6 shopEventLink">
+    <h2 class="sansMedium">SHOP EVENTS</h2>
+  <div class="col-xs-12 shopEvents">
+    <p class="textBook">Saturday 8th April. Summer Launch.</p>
+    <p class="textBook finalLine">Serving an elderflower cocktail & seeded flapjacks.</p>
+    <a href="#" class="textSemibold readMore">Read More</a>
+</div>
+      </div>
+</div>
+   
 </div>
