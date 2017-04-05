@@ -67,9 +67,9 @@ function createMarker(latlng, name, html) {
     })
 
     google.maps.event.addListener(marker, 'click', function() {
-        //infowindow.setContent(contentString)
-        //infowindow.open(map,marker)
-        window.location.href = "/shops/"+contentString.toLowerCase()+".htm"
+        infowindow.setContent(contentString)
+        infowindow.open(map,marker)
+        //window.location.href = "/shops/"+contentString.toLowerCase()+".htm"
     })
 
     gmarkers.push(marker)
@@ -110,7 +110,7 @@ function initialize() {
   })
 
   var markers = [
-    ['Bath', 51.385655, -2.361707], //Bath
+    ['<b>Bath</b><br>Full collection', 51.385655, -2.361707], //Bath
     ['Brighton', 50.822316, -0.142128], //Brighton
     ["Chelsea", 51.487054, -0.169798], //Chelsea
     ["Harrogate", 53.992978, -1.544687], //Harrogate

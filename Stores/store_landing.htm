@@ -5,6 +5,17 @@
 
 <script type="text/javascript" src="//maps.googleapis.com/maps/api/js?v=3"></script> 
 <script type="text/javascript" src="//d2xfispw8k8nwr.cloudfront.net/js/min/markerclusterer.js"></script>
+<style>
+
+#map_canvas {height: 700px; width: 100%}
+#map_canvas_shop  {height: 400px; width: 100%}
+
+@media only screen and (max-width: 768px) 
+{
+#map_canvas {height: 400px; width: 100%}
+}
+</style>
+
 
 <div class="grid-100 mobile-grid-100 tablet-grid-100 grid-parent helpSection">
   <nav id="breadcrumb" class="hide-on-tablet hide-on-mobile grid-60 grid-parent">
@@ -14,7 +25,7 @@
     </ul>
   </nav>
 <div class="row ">
-  <div class="col-md-12 mobileIntro margintop"></div>
+  <div class="col-md-12 mobileIntro"></div>
   <div class="col-md-12 margintop">
     <div class="col-sm-3 col-md-3 navItems">
       <ul>
@@ -83,8 +94,8 @@ function myclick(i) {
 function initialize() {
 
   if (window.innerWidth < 769) {
-    zoomLevel = 7
-    minZoomLevel = 7
+    zoomLevel = 6
+    minZoomLevel = 6 
   } else {
     zoomLevel = 7
     minZoomLevel =  7
@@ -96,7 +107,7 @@ function initialize() {
     zoom: zoomLevel,
     minZoom: minZoomLevel, 
     maxZoom: 16, 
-    center: new google.maps.LatLng(52.627853,-1.845703),
+    center: new google.maps.LatLng(52.384716,-1.746826),
     mapTypeControl: true,
     mapTypeControlOptions: {style: google.maps.MapTypeControlStyle.DROPDOWN_MENU},
     navigationControl: true,
@@ -114,7 +125,6 @@ function initialize() {
     ['Brighton', 50.822316, -0.142128], //Brighton
     ["Chelsea", 51.487054, -0.169798], //Chelsea
     ["Harrogate", 53.992978, -1.544687], //Harrogate
-    ["Cambridge", 52.206934, 0.117964],
     ["Cheltenham", 51.898939, -2.077045], //Cheltenham
     ["Islington", 51.539154, -0.102360], //Islington
     ["Kilver", 51.190792, -2.536376], //Kilver
@@ -143,7 +153,7 @@ function initialize() {
           averageCenter: true,
           styles:[{
           
-          url: "https://s3.eu-west-2.amazonaws.com/toast-stores-files/images/TOAST_Pin_Cluster.png",
+          url: "https://s3.eu-west-2.amazonaws.com/toast-stores-files/images/1.png",
                 width: 53,
                 height: 53,
                 fontFamily:"arial",
@@ -170,7 +180,7 @@ $( document ).ready(function() {
         $(".mobileIntro").hide()
     } else{
         $(".storesIntro").hide()
-        $(".mobileIntro").html("<div class='col-md-12'>"+$(".storesIntro").html()+"<p>Please select a store below:</p></div>")
+        $(".mobileIntro").html($(".storesIntro").html()+"<p>Please select a store below:</p>")
     }
 })
 

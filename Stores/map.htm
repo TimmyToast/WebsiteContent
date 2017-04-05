@@ -329,6 +329,8 @@ function initialize() {
     ["Oxford", 51.752331, -1.254184] //Oxford
   ]
 
+
+
   for (var i = 0; i < markers.length; i++) {
     var sites = markers[i]
     var lat = sites[1]
@@ -339,7 +341,26 @@ function initialize() {
     var html= id
     var marker = createMarker(point,id,html)
   }
-  markerCluster = new MarkerClusterer(map, gmarkers, {imagePath: '//s3.eu-west-2.amazonaws.com/toast-stores-files/images/'})  
+
+
+  var mcOptions = {
+          //gridSize:40,
+          averageCenter: true,
+          styles:[{
+          
+          url: "https://s3.eu-west-2.amazonaws.com/toast-stores-files/images/1.png",
+                width: 53,
+                height: 53,
+                fontFamily:"arial",
+                textSize:15,
+                textColor:"black"
+                //color: #00FF00,
+          }]
+          
+        };
+
+
+  markerCluster = new MarkerClusterer(map, gmarkers, mcOptions)  
 }
  
 var infowindow = new google.maps.InfoWindow(
@@ -348,12 +369,23 @@ var infowindow = new google.maps.InfoWindow(
 })
 
 $( document ).ready(function() {
-    initialize()
-});
+    if (window.innerWidth > 767) {
+        initialize()
+        $(".storesIntro").show()
+        $(".mobileIntro").hide()
+    } else{
+        $(".storesIntro").hide()
+        $(".mobileIntro").html($(".storesIntro").html()+"<p>Please select a store below:</p>")
+    }
+})
 
 </script> 
 <div class="row">
     <div class="col-md-12">
+    <div class="storesIntro">
+        <h1>Stores</h1>
+        <p>There are 12 TOAST shops in the UK and our latest collection is also available in 14 John Lewis stores.</p>
+    </div>
         <div id="map_canvas" ></div>
     </div> 
 </div>

@@ -1,0 +1,98 @@
+<head>
+  <title>Find Your Nearest Store | Toast</title>
+  <meta name="description" content="Information on shipping, delivery and other frequently asked questions">
+</head>
+<script type="text/javascript">
+    markers = [52.206910, 0.118218]
+</script>
+<script type="text/javascript" src="//maps.googleapis.com/maps/api/js?v=3"></script> 
+<script type="text/javascript" src="//d2xfispw8k8nwr.cloudfront.net/js/min/markerclusterer.js"></script>
+<script src="https://s3.eu-west-2.amazonaws.com/toast-stores-files/js/standaloneStore.js" type="text/javascript"></script>
+<style>
+
+#map_canvas {height: 700px; width: 100%}
+#map_canvas_shop  {height: 400px; width: 100%}
+
+@media only screen and (max-width: 768px) 
+{
+#map_canvas {height: 400px; width: 100%}
+}
+</style>
+
+
+<div class="grid-100 mobile-grid-100 tablet-grid-100 grid-parent helpSection">
+  <nav id="breadcrumb" class="hide-on-tablet hide-on-mobile grid-60 grid-parent">
+    <ul>
+      <li><a href="/"><span>HOME</span></a></li>
+      <li><span>SHOP LOCATOR</span></li>
+    </ul>
+  </nav>
+  <div class="row">
+  <div class="col-md-12 margintop">
+  <div class="col-md-12 mobileIntro"></div>
+    <div class="col-sm-3 col-md-3 navItems">
+      <ul>
+      <li class="link sansMedium"><a href="/shops/shops.htm">All our shops</a></li>
+        <li class="link sansMedium"><a href="/shops/bath.htm">Bath</a></li>
+        <li class="link sansMedium"><a href="#brighton">Brighton</a></li>
+        <li class="link sansMedium"><a href="#cambridge" class="active" >Cambridge</a>
+        <li class="link sansMedium"><a href="#cheltenham">Cheltenham</a></li>
+        <li class="link sansMedium"><a href="#harrogate">Harrogate</a></li>
+        <li class="link sansMedium"><a href="#llandeilo">Llandeilo</a></li>
+        <li class="link sansMedium"><a href="#chelsea">London (Chelsea)</a>
+        <li class="link sansMedium"><a href="#islington">London (Islington)</a></li>  
+        <li class="link sansMedium"><a href="#marylebone">London (Marylebone)</a></li>
+        <li class="link sansMedium"><a href="#westbournegrove">London (Notting Hill)</a></li>
+        <li class="link sansMedium"><a href="#oxford">Oxford</a></li>
+        <li class="link sansMedium"><a href="#kilver">Shepton Mallet (Kilver Court)</a></li>
+        <li class="link sansMedium"><a href="/shops/john-lewis.htm"  class="margintop">John Lewis Stores</a></li>
+      </ul>
+    </div>
+    <div class="col-sm-9 col-md-9 col-xs-12 helpContentArea textBook">
+   <div class="row">
+   <div class="col-md-12">
+        <h1 class="sansMedium">Cambridge</h1>
+  </div>
+         <div class="storePageContent">
+    <div class="col-sm-6">
+        <img src="//d3c707rd4l0ogp.cloudfront.net/content-images/ss17/1200/TOAST_SS17_WEB_Shops_Cambridge_1.jpg" class="img-responsive" alt="">
+
+            <p class="textBook">19 Trinity Street, Cambridge, CB2 1TB
+                <br />Telephone:  01223 364088<br>Women. House&Home.</p>
+            <a href="javascript:showStoreMap()" class="sansMedium mapLink">VIEW ON MAP</a>
+    </div>
+    <div class="col-sm-6 openingHours">
+        <img src="//d3c707rd4l0ogp.cloudfront.net/content-images/ss17/1200/TOAST_SS17_WEB_Shops_Cambridge_2.jpg" class="img-responsive hidden-xs" alt="">
+    <h3 class="textSemibold storeSub">Opening Hours</h3>
+            <p class="textBook">Monday - Saturday 9.30am-6.00pm, 
+<br>Sunday 11.00am-5.00pm</p>
+    </div>
+
+    <div class="col-sm-12 mainShopMap hiddenMap">
+        <div class="col-sm-12" id="map_canvas_shop"></div>
+    </div>
+    <div class="col-sm-6 storeAbout">
+        <h2 class="sansMedium">MORE INFO</h2>
+
+            <p class="textBook">TOAST has come to Cambridge as a pop up shop. This small shop will be selling the whole women’s collection, including all clothing, accessories, shoes, night & loungewear as well as a selection of house and home pieces. We will be accepting the same cards as our regular stores and the refund policy will be the same. We would love to see you so please do visit!</p>
+
+                <h3 class="textSemibold">Store Manager</h3>
+                <p class="textBook textNoTop">Verity Germer</p>
+                <h3 class="textSemibold">Accessibility</h3>
+                <p class="textBook textNoTop">There is an easy access for wheelchairs.</p>
+
+    </div>
+<div class="col-sm-6">
+        <h2 class="sansMedium">SHOP EVENTS</h2>
+
+            <p class="textBook">Saturday 8th April. Summer Launch. Serving an elderflower cocktail & seeded flapjacks.</p>
+            <a href="/content/static+pages/curates.htm" class="textSemibold readMore">Read More</a>
+        </div>
+</div>
+     </div>  
+     </div>          
+     </div>
+
+</div>
+
+​
