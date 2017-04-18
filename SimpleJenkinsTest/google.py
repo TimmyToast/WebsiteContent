@@ -1,16 +1,19 @@
 import unittest
 
-from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
+
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
-capabilities = DesiredCapabilities.FIREFOX.copy()
-capabilities['marionette'] = False
+
+from selenium import webdriver
+from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
+
+binary = FirefoxBinary('path/to/binary')
+driver = webdriver.Firefox(firefox_binary=binary)
  
 class GoogleSearchTest(unittest.TestCase):
  
     def setUp(self):
         # Create a new Firefox driver instance
-        self.driver = webdriver.Firefox(capabilities=capabilities)
+        self.driver = webdriver.Firefox(firefox_binary=binary)
  
     def tearDown(self):
         # Close the browser after running the tests
