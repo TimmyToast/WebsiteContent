@@ -1,18 +1,14 @@
 import unittest
 
-
-
 from selenium import webdriver
-from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
-
-binary = FirefoxBinary('path/to/binary')
-
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
  
 class GoogleSearchTest(unittest.TestCase):
  
     def setUp(self):
         # Create a new Firefox driver instance
-        self.driver = webdriver.Firefox(firefox_binary=binary)
+        self.driver = webdriver.Firefox(capabilities=caps)
  
     def tearDown(self):
         # Close the browser after running the tests
