@@ -1,7 +1,12 @@
 import unittest
-from selenium import webdriver
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
+
+from selenium.webdriver.remote.webdriver import WebDriver
+from selenium.webdriver.firefox.firefox_profile import FirefoxProfile
+from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
+
+# from selenium import webdriver
+# from selenium.webdriver.support.ui import WebDriverWait
+# from selenium.webdriver.support import expected_conditions as EC
  
 class GoogleSearchTest(unittest.TestCase):
  
