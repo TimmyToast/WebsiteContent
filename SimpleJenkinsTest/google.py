@@ -15,7 +15,7 @@ class GoogleSearchTest(unittest.TestCase):
  
     def testSearch(self):
         # Trigger a Google Search
-        self.driver.get('http://www.google.com')
+        self.driver.get('http://www.google.comvbc')
         self.assertEqual(self.driver.title, 'Google')
         searchElement = self.driver.find_element_by_name('q')
         searchElement.send_keys('6020 peaks')
