@@ -41,7 +41,7 @@
         <p>There are 12 TOAST shops in the UK. The women’s collection is also available at selected John Lewis stores.<br> From time to time we host TOAST Curates events on topics that inspire us. <a href="/content/static+pages/curates.htm" title="Store events">Read more</a>.</p>
     </div>
         <div id="map_canvas" ></div>
-        <a href="javascript:showallStores()" class="sansMedium mapLink resetZoomButton">See all stores</a>
+        <a href="javascript:showAllStores()" class="sansMedium mapLink resetZoomButton">View all</a>
 </div>
 
 
@@ -62,6 +62,7 @@ function showAllStores(){
   myLatlng = {lat: 52.627853, lng: -1.845703};
   map.setCenter(myLatlng)
   map.setZoom(7)
+  $(".resetZoomButton").fadeOut()
 }
 
 
@@ -81,7 +82,7 @@ function createMarker(latlng, name, html) {
 
     map.addListener('zoom_changed', function() {
       $(".resetZoomButton").fadeIn()
-    });
+    })
 
     gmarkers.push(marker)
 }

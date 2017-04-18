@@ -18,7 +18,7 @@
   <div class="col-md-12 margintop">
     <div class="col-sm-3 col-md-3 navItems">
       <ul>
-        <li class="link sansMedium hidden-xs"><a href="/shops/shops.htm" class="active">View all shops</a></li>
+        <li class="link sansMedium hidden-xs"><a href="/shops/shops.htm">View all shops</a></li>
         <li class="link sansMedium"><a href="/shops/bath.htm" >Bath</a></li>
         <li class="link sansMedium"><a href="#brighton">Brighton</a></li>
         <li class="link sansMedium"><a href="#cambridge">Cambridge</a>
@@ -31,15 +31,17 @@
         <li class="link sansMedium"><a href="#westbournegrove">London (Notting Hill)</a></li>
         <li class="link sansMedium"><a href="#oxford">Oxford</a></li>
         <li class="link sansMedium"><a href="#kilver">Shepton Mallet (Kilver Court)</a></li>
+        <li class="link sansMedium"><a href="/shops/john-lewis.htm"  class="active  margintop">John Lewis Stores</a></li>
       </ul>
     </div>
    <div class="hidden-xs"> <div class="col-sm-9 col-md-9 col-xs-12 helpContentArea textBook">
      
     <div class="storesIntro">
-        <h1>Our Shops</h1>
-        <p>There are 12 TOAST shops in the UK and our latest collection is also available in 14 John Lewis stores. From time to time we also host a series of events on topics that inspire us, *Read More*.</p>
+        <h1>John Lewis</h1>
+        <p>The TOAST women’s collection is available in selected John Lewis stores. Click the map below for details.</p>
     </div>
         <div id="map_canvas" ></div>
+        <a href="javascript:showAllStores()" class="sansMedium mapLink resetZoomButton">View all</a>
 </div>
 
 
@@ -53,9 +55,14 @@
 var gmarkers = []
 var map = null
 var markerclusterer = null
-var image = '//s3.eu-west-2.amazonaws.com/toast-stores-files/images/TOAST_Pin.png'
+var image = '//s3.eu-west-2.amazonaws.com/toast-stores-files/images/TOAST_JohnLewis.png'
 
-
+function showAllStores(){
+  myLatlng = {lat: 52.440734, lng: -1.845703};
+  map.setCenter(myLatlng)
+  map.setZoom(7)
+  $(".resetZoomButton").fadeOut()
+}
 
 
 function createMarker(latlng, name, html) {
@@ -72,6 +79,21 @@ function createMarker(latlng, name, html) {
         //window.location.href = "/shops/"+contentString.toLowerCase()+".htm"
     })
 
+
+    map.addListener('zoom_changed', function() {
+      $(".resetZoomButton").fadeIn()
+    })
+
+    marker.addListener('mouseover', function() {
+      infowindow.setContent(contentString)
+      infowindow.open(map,marker)
+      infowindow.open(map, this)
+    })
+
+    marker.addListener('mouseout', function() {
+      infowindow.close()
+    })
+
     gmarkers.push(marker)
 }
 
@@ -82,7 +104,7 @@ function myclick(i) {
 
 function initialize() {
 
-  if (window.innerWidth < 769) {
+  if (window.innerWidth < 769) { 
     zoomLevel = 7
     minZoomLevel = 7
   } else {
@@ -96,7 +118,7 @@ function initialize() {
     zoom: zoomLevel,
     minZoom: minZoomLevel, 
     maxZoom: 16, 
-    center: new google.maps.LatLng(52.627853,-1.845703),
+    center: new google.maps.LatLng(52.440734,-1.845703),
     mapTypeControl: true,
     mapTypeControlOptions: {style: google.maps.MapTypeControlStyle.DROPDOWN_MENU},
     navigationControl: true,
@@ -110,21 +132,18 @@ function initialize() {
   })
 
   var markers = [
-    ['<b>Bath</b><br>Full collection', 51.385655, -2.361707], //Bath
-    ['Brighton', 50.822316, -0.142128], //Brighton
-    ["Chelsea", 51.487054, -0.169798], //Chelsea
-    ["Harrogate", 53.992978, -1.544687], //Harrogate
-    ["Cambridge", 52.206934, 0.117964],
-    ["Cheltenham", 51.898939, -2.077045], //Cheltenham
-    ["Islington", 51.539154, -0.102360], //Islington
-    ["Kilver", 51.190792, -2.536376], //Kilver
-    ["Llandeilo", 51.882577, -3.994105], //Llandeilo
-    ["Marylebone", 51.521358, -0.151707], //Marylebone
-    ["Westbourne Grove", 51.514515, -0.198427], //Westbourne Grove
-    ["Oxford", 51.752331, -1.254184] //Oxford
+    ['<b>Cardiff</b><br>The Hayes, Cardiff, CF10 1EG', 51.477831, -3.174090], 
+    ['<b>Cribbs Causeway</b><br>The Mall at Cribbs Causeway, Bristol, BS34 5QU', 51.525289, -2.595477], 
+    ['<b>Oxford Street</b><br>300 Oxford Street, London, W1A 1EX', 51.515216, -0.145123],
+    ['<b>Peter Jones</b><br>Sloane Square, London, SW1W 8EL', 51.492270, -0.158959],
+    ['<b>Kingston</b><br>Wood Street, Kingston upon Thames, Surrey, KT1 1TE', 51.411378, -0.306223],
+    ['<b>Victoria Centre</b><br>Victoria Centre - Nottingham, NG1 3QA', 52.955954, -1.147591],
+    ['<b>Glasgow</b><br>Buchanan Galleries, Buchanan St, Glasgow G1 2GF', 55.862977, -4.252460],
+    ['<b>High Wycombe</b><br>Cressex Centre, High Wycombe, HP12 4NW', 51.610873, -0.782570],
+    ['<b>Milton Keynes</b><br>the centre:mk, Milton Keynes, MK9 3EP', 52.044848, -0.752437],
+    ['<b>Cambridge</b><br>Grand Arcade, Cambridge, CB2 3DS', 52.203785, 0.122585],
+    ['<b>Exeter</b><br>1 Sidwell Street, Exeter, EX4 6NN', 50.725939, -3.526827],
   ]
-
-
 
   for (var i = 0; i < markers.length; i++) {
     var sites = markers[i]
@@ -142,8 +161,7 @@ function initialize() {
           gridSize:20,
           averageCenter: true,
           styles:[{
-          
-          url: "https://s3.eu-west-2.amazonaws.com/toast-stores-files/images/TOAST_Pin_Cluster.png",
+                url: "https://s3.eu-west-2.amazonaws.com/toast-stores-files/images/TOAST_Pin_Cluster.png",
                 width: 53,
                 height: 53,
                 fontFamily:"arial",
@@ -151,11 +169,10 @@ function initialize() {
                 textColor:"black"
                 //color: #00FF00,
           }]
-          
-        };
-
+  }
 
   markerCluster = new MarkerClusterer(map, gmarkers, mcOptions)  
+  
 }
  
 var infowindow = new google.maps.InfoWindow(
@@ -164,6 +181,7 @@ var infowindow = new google.maps.InfoWindow(
 })
 
 $( document ).ready(function() {
+    $(".resetZoomButton").hide()
     if (window.innerWidth > 767) {
         initialize()
         $(".storesIntro").show()

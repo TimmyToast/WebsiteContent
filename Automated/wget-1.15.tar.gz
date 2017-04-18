@@ -1,0 +1,12 @@
+<html>
+<body>
+<h3> Response denied by WatchGuard HTTP proxy. </h3>
+<b> Reason: </b> header 'Content-Type' denied rule='Default' value='application/x-gzip' <br>
+<hr size="1" noshade>
+<b> Method: </b> GET <br>
+<b> Host: </b> ftp.gnu.org <br>
+<b> Path: </b> /gnu/wget/wget-1.15.tar.gz <br>
+<hr size="1" noshade>
+
+</body>
+                                                                                                                                                                                                                                                                               <!-- PAD --></html> 
