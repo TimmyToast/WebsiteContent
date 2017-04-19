@@ -62,7 +62,11 @@ function showAllStores(){
   myLatlng = {lat: 52.627853, lng: -1.845703};
   map.setCenter(myLatlng)
   map.setZoom(7)
+<<<<<<< HEAD
   $(".resetZoomButton").hide()
+=======
+  $(".resetZoomButton").fadeOut()
+>>>>>>> origin/master
 }
 
 
@@ -82,7 +86,7 @@ function createMarker(latlng, name, html) {
 
     map.addListener('zoom_changed', function() {
       $(".resetZoomButton").fadeIn()
-    });
+    })
 
     gmarkers.push(marker)
 }
