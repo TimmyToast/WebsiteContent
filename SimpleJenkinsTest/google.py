@@ -2,12 +2,13 @@ import unittest
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+
  
 class GoogleSearchTest(unittest.TestCase):
  
     def setUp(self):
         # Create a new Firefox driver instance
-        self.driver = webdriver.Firefox()
+        self.driver = webdriver.Firefox(executable_path = '/usr/local/bin/geckodriver')
  
     def tearDown(self):
         # Close the browser after running the tests
