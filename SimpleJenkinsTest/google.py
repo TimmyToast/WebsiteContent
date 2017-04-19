@@ -1,17 +1,13 @@
 import unittest
-
 from selenium import webdriver
-from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
-
-firefox_capabilities = DesiredCapabilities.FIREFOX
-firefox_capabilities['marionette'] = True
-firefox_capabilities['binary'] = '/usr/local/bin/geckodriver'
-
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+ 
 class GoogleSearchTest(unittest.TestCase):
  
     def setUp(self):
         # Create a new Firefox driver instance
-        self.driver = webdriver.Firefox(capabilities=firefox_capabilities)
+        self.driver = webdriver.Firefox()
  
     def tearDown(self):
         # Close the browser after running the tests
