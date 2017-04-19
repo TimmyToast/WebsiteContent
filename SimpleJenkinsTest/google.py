@@ -1,13 +1,13 @@
+import unittest
+
 from selenium import webdriver
 from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
-
 
 firefox_capabilities = DesiredCapabilities.FIREFOX
 firefox_capabilities['marionette'] = True
 firefox_capabilities['binary'] = '/Applications/Firefox.app/Contents/MacOS/firefox-bin'
 
- 
 class GoogleSearchTest(unittest.TestCase):
  
     def setUp(self):
