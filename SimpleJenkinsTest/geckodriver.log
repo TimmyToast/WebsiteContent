@@ -1159,3 +1159,9 @@ JavaScript error: https://d2xfispw8k8nwr.cloudfront.net/js/min/product_sw.js, li
 1492618287180	Marionette	INFO	New connections will no longer be accepted
 [Child 19492] ###!!! ABORT: Aborting on channel error.: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/glue/MessageChannel.cpp, line 2143
 [Child 19492] ###!!! ABORT: Aborting on channel error.: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/glue/MessageChannel.cpp, line 2143
+1492676880885	geckodriver	INFO	Listening on 127.0.0.1:51335
+1492676882080	mozprofile::profile	INFO	Using profile path /var/folders/3l/5gw7vtzs3pqc6lznh1lh6wm80000gp/T/rust_mozprofile.QgjLco5sJz6w
+1492676882081	geckodriver::marionette	INFO	Starting browser /Applications/Firefox.app/Contents/MacOS/firefox-bin with args []
+1492676882088	geckodriver::marionette	INFO	Connecting to Marionette on localhost:51349
+[warn] kq_init: detected broken kqueue; not using.: Undefined error: 0
+1492676883307	Marionette	INFO	Listening on port 51349
