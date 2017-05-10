@@ -201,7 +201,7 @@ header .mobile-nav-bar {
     /*line-height: 55px;*/
     background-color: initial;
     max-width: 1100px;
-    margin: 10px auto 20px auto
+    margin: 12px auto 20px auto
 }
 header .nav-bar-left {
     background-color: initial;
@@ -4218,7 +4218,7 @@ html.us .range-price-usd {
 
 
 
-
+/*
 .left-side-nav {width: 60%; float:left;}
 .right-side-nav {width: 40%; float: right}
 .right-side-nav ul {width: 73%; float: left}
@@ -4226,4 +4226,4 @@ html.us .range-price-usd {
 
 .search-item, .login-item , #topBasketContainer{float: left; font-size: 11px; letter-spacing: 2}
 .login-item {float: right}
-
+*/
