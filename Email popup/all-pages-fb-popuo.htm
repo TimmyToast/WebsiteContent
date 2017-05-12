@@ -33,9 +33,9 @@ function triggerEmailPopup() {
 
     showQualifyer = thisHref.indexOf("Master+Group") == -1 && thisHref.indexOf("utm_medium=paidsocial&utm_campaign=highsummer") != -1 && !$.cookie("emailClickUserSummer") // ??????
 
-    if ((thisHref.indexOf("Master+Group") == -1) && (!$.cookie("emailClickUserSummer"))) {
-    document.cookie = "emailClickUserSummer=true; expires=" + now.toUTCString() + "; path=/";
-        openSignupField()
+    if (showQualifyer) {
+      document.cookie = "emailClickUserSummer=true; expires=" + now.toUTCString() + "; path=/";
+      openSignupField()
     }
 }
 

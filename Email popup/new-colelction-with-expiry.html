@@ -29,9 +29,6 @@
 
 //document.cookie = "name=value; expires=" + now.toUTCString() + "; path=/";
 
-
-
-
 function triggerEmailPopup() {
     thisHref = window.location.href;
     var now = new Date();
@@ -55,8 +52,6 @@ function openSignupField() {
         closeemailBox()
       }
     })
-
-   
 }
 
 function closeemailBox() {
@@ -70,7 +65,7 @@ function isEmail(email) {
 }
 
 function sendGAevent(){
- _gaq.push(["_trackEvent","Spring Collection email submit","Click","Sale page email submit"])
+ _gaq.push(["_trackEvent","New collection page email submit","Click","Sale page email submit"])
 }
 
 function submitEmail() {
@@ -86,16 +81,15 @@ function submitEmail() {
                 sendGAevent()
             }
         })
-    } else {
-        
-    }
+    } else {    
+   }
 }
 
 $(document).ready(function() {
-
     $('body').prepend('<div class="elb_Lightbox"></div>')
     setTimeout(triggerEmailPopup, 15000);
 
 });
-  </script>​
+</script>
 
+​
