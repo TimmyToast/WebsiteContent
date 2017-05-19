@@ -69,24 +69,24 @@
       $('.pb_Lightbox').fadeIn()
     }
 
-    function openPasswordField() {
-      $('.pb_Lightbox').html('<div class="pb_passwordBox">'+ $('.passwordBox').html() +'</div>')
-      setLightBoxHeight()
-      $('.pb_Lightbox').fadeIn()
+    // function openPasswordField() {
+    //   $('.pb_Lightbox').html('<div class="pb_passwordBox">'+ $('.passwordBox').html() +'</div>')
+    //   setLightBoxHeight()
+    //   $('.pb_Lightbox').fadeIn()
 
-      $("#passsWordField").keyup(function(event){
-        if(event.keyCode == 13){
-            submitPassword()
-        }
-      })
-    }
+    //   $("#passsWordField").keyup(function(event){
+    //     if(event.keyCode == 13){
+    //         submitPassword()
+    //     }
+    //   })
+    // }
   
     function submitPassword() {
-      if ($('#passsWordField').val() == 'TOAST_17') {
+     // if ($('#passsWordField').val() == 'TOAST_17') {
         $('.pb_Lightbox').fadeOut()
         $('.visibleContent').html($('.pressBookContent').html())
 
-         _gaq.push(["_trackEvent", "Pressbook - Logged in successfully", "Click", "Success"])
+         _gaq.push(["_trackEvent", "Pressbook - Clicked Enter (password removed)", "Click", "Success"])
 
         if ($(window).width() > 768) {
           startVideo()
@@ -95,12 +95,12 @@
       }
         
         setHoverState()
-      } else if ( $('#passsWordField').val() == "") {
-        $('.pb_submitFeedback').html('Please enter a password')
-      }
-      else {
-         $('.pb_submitFeedback').html('Incorrect password')
-      }
+      // } else if ( $('#passsWordField').val() == "") {
+      //   $('.pb_submitFeedback').html('Please enter a password')
+      // }
+      // else {
+      //    $('.pb_submitFeedback').html('Incorrect password')
+      // }
     }
 
     function closePasswordBox(){
