@@ -1,0 +1,35 @@
+<script type="text/javascript" src="//toast-staging.s3.amazonaws.com/js/min/jquery.min.js"></script>
+
+
+<div class="comments"></div>
+
+
+<script>
+
+$.getJSON( "https://travels.toa.st/siteForms/commentsJSON/showJson.php", function( data ) {
+  var topStories = [];
+  console.log(data)
+  $.each( data, function( key, val ) {
+  	if (val.hubReplyToID == "") {
+  		console.log(val.hubComment)
+    	topStories.push( "<li id='" + val.ID + "'>" + val.hubComment + "</li>" );
+	}
+  });
+ 
+  $( "<ul/>", {
+    "class": "my-new-list",
+    html: topStories.join( "" )
+  }).appendTo( ".comments" );
+
+  var storyComments = [];
+
+  $.each( data, function( key, val ) {
+  	if (val.hubReplyToID != "") {
+  		$("#"+val.hubReplyToID).append("<br> - "+val.hubComment)
+	}
+  });
+
+
+});
+
+</script>

@@ -7,8 +7,6 @@
     <title>Bootstrap 101 Template</title>
     <link rel="stylesheet" href="grid.css" />
     <script type="text/javascript" src="//d2xfispw8k8nwr.cloudfront.net/js/min/jquery.min.js"></script>
-
-    
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -21,78 +19,118 @@
     .mainNav li {display: inline;}
     .mainNav li a { display: block; float: left; padding: 10px}
     /* .mainNav li ul {display: none} */
-    /* .dropdownBox {position: absolute; height: 100px; background-color: #000000; top:60px; z-index: 100} */
-
-    .dropdown .womens-parent:hover .womens-content {display: block;}
-	.womens-content { display: none; position: absolute; background-color: #f9f9f9; width:100%; left:0; top:50px;  z-index: 1;}
-	.subMenu ul {width: 25%; float: left}
-	.subMenu li a {width: 100%; padding: 0px; font-size: 13px}
-	.blackOut {width: 100%; height: 100%; background-color: #000000; position: }
+    /* .dropdownBox {position: absolute; height: 100px; background-color: #000000; top:60px; z-index: 100} */  
+    .dropdown .womens-parent:hover .womens-content, .dropdown .hh-parent:hover .hh-content {display: block;}
+	  .womens-content,  .hh-content { display: none; position: absolute; background-color: #f9f9f9; width:600px; left:0; top:50px;  z-index: 1; padding:0;}
+    .womens-content { left: 150px}
+    .hh-content { left: 230px}
+	  .subMenu ul {width: 25%; float: left; padding: 0}
+	  .subMenu li a {width: 100%; padding: 0px; font-size: 13px}
+	  .blackOut {width: 100%; height: 100%; background-color: #000000; position: }
+    .logo {width: 150px; height: 45px; background:url(logo.png); background-size:100% 100%; display: block; float: left}
     </style>
   </head>
-  <body>
-  <div class="container">
-    <div class="col-md-12 header">
-    		<div class="col-md-2"> Logo </div>
-    		<div class="mainNav dropdown">
-    			<ul>
-    				<li id="0" class="womens-parent"><a href="\" >Womens</a>
-    				<ul class="womens-content subMenu">
-    					<ul class="col0">
-    						 <li><a href="/us/category/womens+new+collection/womens+new+collection.htm" title="Shop TOAST New Collection">High Summer - New In</a></li>   
-		                     <li><a href="/us/category/womens+oas/womens+oas.htm" title="Shop TOAST OAS Collection">OAS</a></li>
-		                     <li><a href="/us/category/womens+favourites/womens+favourites.htm" title="Shop TOAST Favourites">TOAST Favourites</a></li>
-		                     <li><a href="/us/category/womens+holidays/womens+holidays.htm" title="Shop TOAST Holiday Shop">Holiday Shop</a></li>
-		                     <li><a href="/us/content/static+pages/in-the-detail.htm" title="Shop TOAST In The Detail" class="topNavSpacer">In The Detail</a></li>
-              			</ul>
-    					<ul class="col1">
-    						<li>Clothing</li>
-                     		<li><a href="/us/category/womens+cashmere/womens+cashmere.htm" title="Shop TOAST Women's Cashmere">Cashmere</a></li>
-                     		<li><a href="/us/category/womens+coats+and+jackets/womens+coats+and+jackets.htm" title="Shop TOAST Women's Coats and Jackets">Coats & Jackets</a></li>                    
-                     		<li><a href="/us/category/womens+denim/womens+denim.htm" title="Shop TOAST Women's Denim Jackets, Trousers, Dunagrees and more">Denim</a></li>
-                     		<li><a href="/us/category/womens+dresses+and+tunics/womens+dresses+and+tunics.htm" title="Shop TOAST Women's Dresses and Tunics">Dresses & Tunics</a></li>
-                     		<li><a href="/us/category/womens+gowns/womens+gowns.htm" title="Shop TOAST Gowns and Bed Jackets">Gowns</a></li>
-                     		<li><a href="/us/category/womens+jersey+and+tees/womens+jersey+and+tees.htm" title="Shop TOAST Women's Jersey and Tees">Jersey & Tees</a></li>
-                     		<li><a href="/us/category/womens+knitwear/womens+knitwear.htm" title="Shop TOAST Women's Knitwear">Knitwear</a></li>
-                     		<li><a href="/us/category/womens+linen/womens+linen.htm" title="Shop TOAST Women's Linen">Linen</a></li>
-                     		<li><a href="/us/category/womens+loungewear/womens+loungewear.htm" title="Shop TOAST Women's Loungewear">Loungewear</a></li>
-                     		<li><a href="/us/category/womens+nightwear/womens+nightwear.htm" title="Shop TOAST Women's Nightwear">Nightwear</a></li>
-                     		<li><a href="/us/category/womens+shirts/womens+shirts.htm" title="Shop TOAST Women's Shirts">Shirts</a></li>
-                     		<li><a href="/us/category/womens+skirts/womens+skirts.htm" title="Shop TOAST Women's Skirts">Skirts</a></li>
-                     		<li><a href="/us/category/womens+swimwear/womens+swimwear.htm" title="Shop TOAST Women's Swimwear">Swimwear</a></li>
-                     		<li><a href="/us/category/womens+tops/womens+tops.htm" title="Shop TOAST Women's Tops">Tops</a></li>
-                     		<li><a href="/us/category/womens+trousers/womens+trousers.htm" title="Shop TOAST Women's Trousers">Trousers</a></li>
-              			</ul>
-              			 <ul class="col2">
-		                     <li><a href="/us/category/womens+accessories/womens+accessories.htm">Accessories</a></li>
-		                     <li><a href="/us/category/womens+accessories/womens+accessories.htm" title="Shop TOAST Women's Accessories">All Accessories</a></li>
-		                     <li><a href="/us/category/womens+bags+and+belts/womens+bags+and+belts.htm" title="Shop TOAST Women's Bags and Belts">Bags & Belts</a></li>
-		                     <li><a href="/us/category/womens+hats+scarves+and+gloves/womens+hats+scarves+and+gloves.htm" title="Shop TOAST Women's Hats and Scarves">Hats & Scarves</a></li>
-		                     <li><a href="/us/category/womens+jewellery/womens+jewellery.htm" title="Shop TOAST Women's Jewellery">Jewellery</a></li>
-		                     <li><a href="/us/category/womens+socks+and+tights/womens+socks+and+tights.htm" title="Shop TOAST Women's Socks and Tights">Socks & Tights</a></li>
-		                     <li><a href="/us/category/womens+sunglasses/womens+sunglasses.htm" title="Shop TOAST Women's Sunglasses">Sunglasses</a></li>
-                  		</ul>
-                  		<ul class="col3">
-                     		<li><a href="/us/category/womens+footwear/womens+footwear.htm">Footwear</a></li>
-                     		<li><a href="/us/category/womens+boots/womens+boots.htm" title="Shop TOAST Women's Boots">Boots</a></li>
-                     		<li><a href="/us/category/womens+sandals/womens+sandals.htm" title="Shop TOAST Women's Sandals">Sandals</a></li>
-                     		<li><a href="/us/category/womens+shoes/womens+shoes.htm" title="Shop TOAST Women's Shoes">Shoes</a></li>               
-                     		<li><a href="/us/category/womens+slippers/womens+slippers.htm" title="Shop TOAST Women's Slippers">Slippers</a></li>
-                  		</ul>
-                  		<ul>
-                  		<li class="blackOut">Hello</li>
-                  		</ul>
-                  		</ul>
-    				</li>
-    				<li id="1"><a href="\" class="dropbtn">House&amp;Home</a></li>
-    				<li id="2"><a href="\" class="dropbtn">Sale</a></li>
-    				<li id="3"><a href="\" class="dropbtn">Magazine</a></li>
-    		</div>
-    		<div class="col-md-2"> Search </div>
-    		<div class="col-md-3"> Utility </div>
-    </div>
-    </div>
-    <script src="makeNav.js"></script>
-  </body>
+<body>
+   <div class="container">
+      <div class="col-md-12 header">
+         <a href="\" class="logo"></a>
+         <div class="mainNav dropdown">
+            <ul>
+            <li id="0" class="womens-parent">
+               <a href="\" >Womens</a>
+               <ul class="womens-content subMenu">
+                  <ul class="col0">
+                     <li class="topLevel"><a href="/us/category/womens+new+collection/womens+new+collection.htm" title="Shop TOAST New Collection">High Summer - New In</a></li>
+                     <li class="topLevel"><a href="/us/category/womens+oas/womens+oas.htm" title="Shop TOAST OAS Collection">OAS</a></li>
+                     <li class="topLevel"><a href="/us/category/womens+favourites/womens+favourites.htm" title="Shop TOAST Favourites">TOAST Favourites</a></li>
+                     <li class="topLevel"><a href="/us/category/womens+holidays/womens+holidays.htm" title="Shop TOAST Holiday Shop">Holiday Shop</a></li>
+                     <li class="topLevel"><a href="/us/content/static+pages/in-the-detail.htm" title="Shop TOAST In The Detail" class="topNavSpacer">In The Detail</a></li>
+                  </ul>
+                  <ul class="col1">
+                     <li class="topLevel">Clothing
+                       <ul>
+                         <li><a href="/us/category/womens+cashmere/womens+cashmere.htm" title="Shop TOAST Women's Cashmere">Cashmere</a></li>
+                         <li><a href="/us/category/womens+coats+and+jackets/womens+coats+and+jackets.htm" title="Shop TOAST Women's Coats and Jackets">Coats & Jackets</a></li>
+                         <li><a href="/us/category/womens+denim/womens+denim.htm" title="Shop TOAST Women's Denim Jackets, Trousers, Dunagrees and more">Denim</a></li>
+                         <li><a href="/us/category/womens+dresses+and+tunics/womens+dresses+and+tunics.htm" title="Shop TOAST Women's Dresses and Tunics">Dresses & Tunics</a></li>
+                         <li><a href="/us/category/womens+gowns/womens+gowns.htm" title="Shop TOAST Gowns and Bed Jackets">Gowns</a></li>
+                         <li><a href="/us/category/womens+jersey+and+tees/womens+jersey+and+tees.htm" title="Shop TOAST Women's Jersey and Tees">Jersey & Tees</a></li>
+                         <li><a href="/us/category/womens+knitwear/womens+knitwear.htm" title="Shop TOAST Women's Knitwear">Knitwear</a></li>
+                         <li><a href="/us/category/womens+linen/womens+linen.htm" title="Shop TOAST Women's Linen">Linen</a></li>
+                         <li><a href="/us/category/womens+loungewear/womens+loungewear.htm" title="Shop TOAST Women's Loungewear">Loungewear</a></li>
+                         <li><a href="/us/category/womens+nightwear/womens+nightwear.htm" title="Shop TOAST Women's Nightwear">Nightwear</a></li>
+                         <li><a href="/us/category/womens+shirts/womens+shirts.htm" title="Shop TOAST Women's Shirts">Shirts</a></li>
+                         <li><a href="/us/category/womens+skirts/womens+skirts.htm" title="Shop TOAST Women's Skirts">Skirts</a></li>
+                         <li><a href="/us/category/womens+swimwear/womens+swimwear.htm" title="Shop TOAST Women's Swimwear">Swimwear</a></li>
+                         <li><a href="/us/category/womens+tops/womens+tops.htm" title="Shop TOAST Women's Tops">Tops</a></li>
+                         <li><a href="/us/category/womens+trousers/womens+trousers.htm" title="Shop TOAST Women's Trousers">Trousers</a></li>
+                         </ul>
+                     </li>
+                  </ul>
+                  <ul class="col2">
+                    <li>Accessories
+                      <ul>
+                         <li class="topLevel"><a href="/us/category/womens+accessories/womens+accessories.htm">Accessories</a></li>
+                         <li><a href="/us/category/womens+accessories/womens+accessories.htm" title="Shop TOAST Women's Accessories">All Accessories</a></li>
+                         <li><a href="/us/category/womens+bags+and+belts/womens+bags+and+belts.htm" title="Shop TOAST Women's Bags and Belts">Bags & Belts</a></li>
+                         <li><a href="/us/category/womens+hats+scarves+and+gloves/womens+hats+scarves+and+gloves.htm" title="Shop TOAST Women's Hats and Scarves">Hats & Scarves</a></li>
+                         <li><a href="/us/category/womens+jewellery/womens+jewellery.htm" title="Shop TOAST Women's Jewellery">Jewellery</a></li>
+                         <li><a href="/us/category/womens+socks+and+tights/womens+socks+and+tights.htm" title="Shop TOAST Women's Socks and Tights">Socks & Tights</a></li>
+                         <li><a href="/us/category/womens+sunglasses/womens+sunglasses.htm" title="Shop TOAST Women's Sunglasses">Sunglasses</a></li>
+                       </ul>
+                     </li>
+                  </ul>
+                  <ul class="col3">
+                    <li>Accessories
+                      <ul>
+                       <li class="topLevel"><a href="/us/category/womens+footwear/womens+footwear.htm">Footwear</a></li>
+                       <li><a href="/us/category/womens+boots/womens+boots.htm" title="Shop TOAST Women's Boots">Boots</a></li>
+                       <li><a href="/us/category/womens+sandals/womens+sandals.htm" title="Shop TOAST Women's Sandals">Sandals</a></li>
+                       <li><a href="/us/category/womens+shoes/womens+shoes.htm" title="Shop TOAST Women's Shoes">Shoes</a></li>
+                       <li><a href="/us/category/womens+slippers/womens+slippers.htm" title="Shop TOAST Women's Slippers">Slippers</a></li>
+                    </ul>
+                    </li>
+                  </ul>
+               </ul>
+            </li>
+            <li id="1" class="hh-parent">
+               <a href="\" >House&amp;Home</a>
+               <ul class="hh-content subMenu">
+                  <ul class="col0">
+                     <li><a href="/uk/category/house+and+home+new+collection/house+and+home+new+collection.htm" title="Shop TOAST New Collection">Spring/Summer - New In</a></li>
+                  </ul>
+                  <ul class="col1">
+                     <li class="topLevel">Homeware</li>
+                     <li><a href="/uk/category/house+and+home+aprons+and+tea+towels/house+and+home+aprons+and+tea+towels.htm" title="Shop TOAST Aprons and Tea Towels">Aprons & Tea Towels</a></li>
+                     <li><a href="/uk/category/house+and+home+towels/house+and+home+towels.htm" title="Shop TOAST Bathroom Towels and Accessories">Bathroom Towels & Accessories</a></li>
+                     <li><a href="/uk/category/house+and+home+bedlinen/house+and+home+bedlinen.htm" title="Shop TOAST Bed Linen">Bed Linen</a></li>
+                     <li><a href="/uk/category/house+and+home+blankets+and+throws/house+and+home+blankets+and+throws.htm" title="Shop TOAST Blankets and Throws">Blankets & Throws</a></li>
+                     <li><a href="/uk/category/house+and+home+candles/house+and+home+candles.htm" title="Shop TOAST Candles">Candles</a></li>
+                     <li><a href="/uk/category/house+and+home+cookery+books/house+and+home+cookery+books.htm" title="Shop TOAST Cookery Books">Cookery Books</a></li>
+                     <li><a href="/uk/category/house+and+home+cushions/house+and+home+cushions.htm" title="Shop TOAST Cushion Covers">Cushion Covers</a></li>
+                     <li class="hidden-row hidden-eu hidden-us"><a href="/uk/category/house+and+home+outdoor/house+and+home+outdoor.htm" title="Shop TOAST Fire Bowls">Fire Bowls</a></li>
+                     <li><a href="/uk/category/house+and+home+rugs/house+and+home+rugs.htm" title="Shop TOAST Rugs">Rugs</a></li>
+                     <li><a href="/uk/category/house+and+home+soaps/house+and+home+soaps.htm" title="Shop TOAST Soaps">Soaps</a></li>
+                     <li><a href="/uk/category/house+and+home+tableware/house+and+home+tableware.htm" title="Shop TOAST Tableware">Tableware</a></li>
+                  </ul>
+                  <ul class="col2">
+                     <li class="topLevel">Clothing &amp; Footwear</a>
+                     <li><a href="/uk/category/womens+gowns/womens+gowns.htm" title="Shop TOAST Gowns and Bed Jackets">Gowns</a></li>
+                     <li><a href="/uk/category/womens+loungewear/womens+loungewear.htm" title="Shop TOAST Loungewear">Loungewear</a></li>
+                     <li><a href="/uk/category/womens+nightwear/womens+nightwear.htm" title="Shop TOAST Nightwear">Nightwear</a></li>
+                     <li><a href="/uk/category/womens+slippers/womens+slippers.htm" title="Shop TOAST Slippers">Slippers</a></li>
+                     <li class="main-link hidden-row hidden-eu hidden-us"><a href="/uk/product/gift+cards/gift/toast+store+gift+card.htm" title="Shop TOAST Store Gift Cards">Store Gift Cards</a></li>
+                  </ul>
+               </ul>
+            </li>
+            <li id="2"><a href="\" class="dropbtn">Sale</a></li>
+            <li id="3"><a href="\" class="dropbtn">Magazine</a></li>
+         </div>
+         <div class="col-md-2"> Search </div>
+         <div class="col-md-3"> Utility </div>
+      </div>
+   </div>
+   <script src="makeNav.js"></script>
+</body>
 </html>
 
