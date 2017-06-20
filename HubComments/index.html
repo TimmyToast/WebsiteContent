@@ -6,13 +6,13 @@
 
 <script>
 
-$.getJSON( "https://travels.toa.st/siteForms/commentsJSON/showJson.php", function( data ) {
+$.getJSON( "https://travels.toa.st/siteForms/commentsJSON/", function( data ) {
   var topStories = [];
-  console.log(data)
+  //console.log(data)
   $.each( data, function( key, val ) {
-  	if (val.hubReplyToID == "") {
-  		console.log(val.hubComment)
-    	topStories.push( "<li id='" + val.ID + "'>" + val.hubComment + "</li>" );
+  	if (val[3] == "") {
+  		//console.log(val.hubComment)
+    	topStories.push( "<li id='" + val[0] + "'>" + val[2] + "</li>" );
 	}
   });
  
@@ -24,8 +24,9 @@ $.getJSON( "https://travels.toa.st/siteForms/commentsJSON/showJson.php", functio
   var storyComments = [];
 
   $.each( data, function( key, val ) {
-  	if (val.hubReplyToID != "") {
-  		$("#"+val.hubReplyToID).append("<br> - "+val.hubComment)
+  	if (val[3] != "") {
+  		console.log("inside")
+  		$("#"+val[3]).append("<br> - "+val[2])
 	}
   });
 

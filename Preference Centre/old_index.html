@@ -26,7 +26,7 @@
 .fieldSet {margin-top:30px; margin-bottom:60px; float:left}
   
 .prefInput {width: 26px; float: left; margin-right: 3px}
-.prefLabel {float: left; padding-top: 6%}
+.prefLabel {float: left; padding-top: 8px}
 .floatLeft {float: left}
 
 @media only screen and (max-width: 767px) 
@@ -53,13 +53,15 @@
   <div class="row ">
     <div class="helpContentArea textBook">
       <div class="preferenceContent">
+       <div class="col-sm-6 col-sm-offset-3 sansBook ">
         <div class="perferenceIntro">
           <h1 class="textBold">TOAST Preference Centre</h1>
           <p>If you have already signed up to receive TOAST newsletters, tailor the way you hear from us below.</p>
           <p>Fields marked with an * are compulsory.</p>
         </div>
+        </div>
 
-        <div class="col-md-4 col-md-offset-4 col-sm-8 col-sm-offset-2 sansBook fieldSet">
+        <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 sansBook fieldSet">
           <div class="fieldItem">
             <label for="name">Email*</label>
             <input type="text" name="name" id="name" >
@@ -171,11 +173,11 @@
           <img src="https://d117fiyhpld8f9.cloudfront.net/content-images/ss17/1200/WEB_AccountPreferences_1.jpg" class="img-responsive" title="Preference Centre" />
         </div>
 
-        <div class="col-md-10 col-md-offset-1 col-sm-8 col-sm-offset-2">
+        <div class="col-sm-8 col-sm-offset-2">
           <h2 class="sansMedium">TAILOR THE WAY YOU HEAR FROM US</h2>
           <h3 class="sansBook">INTERESTS</h3>
           <p class="textBook">Let us know what interests you, so that we can make sure you keep enjoying our content.</p>
-
+        </div>
 
           <div class="col-md-10 col-md-offset-1 col-lg-6 col-lg-offset-3 col-sm-8 col-sm-offset-2">
             <div class="row textBook">
@@ -212,7 +214,7 @@
 
          </div>
 
-         <div class="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2 col-sm-8 col-sm-offset-2">
+         <div class="col-sm-8 col-sm-offset-2">
           <h3 class="sansBook">REGULAR UPDATES</h3>
           <p class="textBook">Our regular newsletters include news about our launches, sales and events as well as articles on things we hope you’ll find interesting; from traditional textile techniques, passed down through generations, to the routines and rituals or artists and authors. Please let us know what you would like to hear.</p>
         </div>
@@ -220,25 +222,27 @@
         <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-12 col-xs-offset-0">
           <div class="row textBook">
             <div class="preferenceTwoCol">
-              <input type="radio" id="allUpdates" name="toastUpdates" value="allUpdates" checked> <label for="allUpdates">All TOAST Updates</label>
+                <div class="prefInput"><input type="radio" id="allUpdates" name="toastUpdates" value="allUpdates" checked></div>
+                <div class="prefLabel"><label for="allUpdates">All TOAST Updates</label></div>
             </div>
 
             <div class="preferenceTwoCol">
-              <input type="radio" id="specialUpdates" name="toastUpdates" value="specialUpdates"> <label for="specialUpdates">Launch & Sale Updates Only</label>
+                <div class="prefInput"><input type="radio" id="specialUpdates" name="toastUpdates" value="specialUpdates"></div>
+                <div class="prefLabel"><label for="specialUpdates">Launch & Sale Updates Only</label></div>
             </div>
 
           </div>
         </div>
 
 
-        <div class="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2 col-sm-8 col-sm-offset-2 floatLeft">
+        <div class="col-sm-8 col-sm-offset-2 floatLeft">
           <h3 class="sansBook">YOUR NEAREST TOAST SHOP</h3>
           <p class="textBook">We will always let you know if there is something happening in your
             nearest shop, but for news on offers or events at an alternative shop
             please tick below.</p>
           </div>
 
-          <div class="col-md-8 col-md-offset-2 col-sm-12 col-sm-offset-0">
+          <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
             <div class="row textBook">
              <div class="preferenceThreeCol">
               <div class="prefInput"><input type="checkbox" id="Bath" name="Bath"></div>
