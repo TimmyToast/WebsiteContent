@@ -1,0 +1,360 @@
+<head>
+  <title>TOAST - Request a Catalogue</title>
+  <link rel="stylesheet" href="//s3-eu-west-1.amazonaws.com/toast-production/css/cataloguesignup-new.css" />  
+</head>
+<style>
+    .tstSliderOuter {
+        overflow:hidden;
+        width: 100%;
+        white-space: nowrap;
+        position: relative;
+        font-size: 0;
+    }
+    .tstSliderLeft, .tstSliderRight {
+        position: absolute;
+        left: 0;
+        top:0;
+        left:0;
+        height: 100%;
+        cursor: pointer;
+        border-left: solid 5px #fff;
+        width: 30px;
+    }
+    .tstSliderRight {
+        left: auto;
+        right: 0;
+        border-left: none;
+        border-right: solid 5px #fff;
+    }
+    .tstSliderInner {
+        width: 100%;
+    }
+    .tstSlide {
+        width: 100%;
+        border: solid 5px #fff;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+    }
+    .tstSliderRight .sprite, .tstSliderLeft .sprite {
+        top: 50%;
+        margin-top: -7px;
+        position: absolute;
+        left: 15px;
+    }
+    .tstSliderRight .sprite {
+        left: auto;
+        right: 15px;
+    }
+
+    #women-slider, #men-slider {
+        width: 100%;
+    }
+    .tstSliderOverlay {
+        background-color: rgba(255,255,255,0.8);
+    }
+    .sprite.chevron-right, .sprite.chevron-left {
+        height: 15px;
+        width: 10px;
+        background-position: -22px -93px;
+    }
+    .sprite.chevron-left {
+        background-position: -10px -93px;
+    }    
+  #registerSignUp{display:block;opacity: 1;}
+  .catalogueBottomText{display: none;}
+</style>
+<div id="registerFormWrapper" class="grid-100 tablet-grid-100 mobile-grid-100 grid-parent">
+    <header class="static-page-header orderBookHeader grid-parent grid-100 tablet-grid-100 mobile-grid-100">
+        <nav class="breadcrumb grid-100 tablet-grid-100 mobile-grid-100 grid-parent">
+            <ul>
+                <li><a href="/"><span>Home</span></a></li>
+                <li>></li>
+                <li><span>Book</span></li>
+            </ul>
+        </nav>
+        <h1 class="grid-100 tablet-grid-100 mobile-grid-100 grid-parent">Order the Toast Book</h1>
+    </header>
+    <div class="registerDescription grid-100 tablet-grid-100 mobile-grid-100 grid-parent">    
+    
+      <p>Please fill in the below form to receive our latest book (there is a small cost to post our books to locations outside of the UK).<br>
+       You can also view our current online lookbook <a href="/content/landing-pages/lookbook.htm">here</a>.
+    
+    </p>
+       
+    </div>
+
+    <section class="catalogue-choices grid-100 tablet-grid-100 mobile-grid-100 grid-parent">
+        <article class="grid-50 tablet-grid-50 mobile-grid-100 grid-parent women-holder">    
+
+        <div id="women-slider">
+        </div>
+
+        <div class="catalogueBottomText">
+            <input type="checkbox" id="catalogueWomen" name="catalogueWomen" value="S17eWC" class="catalogue-option">
+            <div class="catalogueRadioRight med-font">
+                Order <span class="light-font">Womens</span>
+            </div> 
+            <label for="catalogueWomen" class="checkhack"></label>
+        </div>
+        </article>
+
+        <!--<article class="grid-50 tablet-grid-50 mobile-grid-100 grid-parent men-holder">
+            <div id="men-slider">
+            </div>
+            <div class="catalogueBottomText">
+            <input type="checkbox" id="catalogueMen" name="catalogueMen" value="S15mWC" class="catalogue-option">        
+            <div class="catalogueRadioRight med-font">
+                Order <span class="light-font">Men</span>
+            </div> 
+            <label for="catalogueMen" class="checkhack"></label>
+            </div>
+        </article>-->
+
+        <!--<article class="grid-100 tablet-grid-100 mobile-grid-100 grid-parent both-holder">
+            <div class="catalogueBottomText">
+                <input type="checkbox" id="catalogueBoth" name="catalogueBoth" class="catalogue-option">        
+                <div class="catalogueRadioRight med-font">
+                    Order <span class="light-font">Both Books</span>
+                </div> 
+                <label for="catalogueBoth" class="checkhack"></label>
+            </div>
+        </article>-->
+
+        <div class="grid-100 tablet-grid-100 mobile-grid-100">
+            <p class="invalidAlert hidden">Please select at least one catalogue</p>
+        </div>
+    </section>
+
+    <div id="registerSignUp" class="grid-75 tablet-grid-75 mobile-grid-100 suffix-25 tablet-suffix-25 grid-parent">
+        <h2>Your Details</h2>
+        <p>
+            Within the UK you can recieve a complimentary copy of the lastest Toast book,
+            and at a small cost, it can be sent to locations outside of the UK.
+        </p>
+        <p class="padding-bottom-30">
+            <br/><span class="medFont">Europe:</span> €5 per book
+            <br/><span class="medFont">USA:</span> $6.50 per book
+            <br/><span class="medFont">Other International locations:</span> £3.95 per book
+        </p>
+      <section class="orderFormHeader"></section>
+        <section class="details-one grid-33 tablet-grid-33 mobile-grid-100 grid-parent">
+            <label for="signUpTitle" class="grid-100 tablet-grid-100 mobile-grid-100 grid-parent">TITLE*</label>
+            <select name="signUpFormTitle" id="signUpTitle" class="titleDrop grid-100 tablet-grid-100 mobile-grid-100 grid-parent">
+                <option selected="selected" value="0">Please select</option>
+                <option value="Ms">Ms</option>
+                <option value="Mrs">Mrs</option>
+                <option value="Miss">Miss</option>
+                <option value="Dr">Dr</option>
+                <option value="Mr">Mr</option>
+              <option value="Mx">Mx</option
+            </select>
+            <p class="invalidAlert hidden">Please select a title</p>
+            <label for="signUpForename" class="grid-100 tablet-grid-100 mobile-grid-100 grid-parent">First Name*</label>
+            <input name="signUpFormForename" maxlength="80" type="text" id="signUpForename" class="inputText grid-100 tablet-grid-100 mobile-grid-100 grid-parent"/>
+            <p class="invalidAlert hidden">Please enter a valid forename</p>
+            <label for="signUpSurname" class="grid-100 tablet-grid-100 mobile-grid-100 grid-parent">Last Name*</label>
+            <input name="signUpFormSurname" maxlength="80" type="text" id="signUpSurname" class="inputText grid-100 tablet-grid-100 mobile-grid-100 grid-parent">
+            <p class="invalidAlert hidden">Please enter a valid surname</p>
+            <label for="signUpEmail" class="grid-100 tablet-grid-100 mobile-grid-100 grid-parent">EMAIL*</label>
+            <input name="signUpFormEmail" maxlength="80" id="signUpEmail" class="inputText grid-100 tablet-grid-100 mobile-grid-100 grid-parent">
+            <p class="invalidAlert hidden">Please enter a valid email address</p>
+        </section>
+
+        <section class="details-two grid-33 tablet-grid-33 mobile-grid-100 grid-parent">
+            <label for="signUpCountry" class="grid-100 tablet-grid-100 mobile-grid-100 grid-parent">Country*</label>
+            <select name="signUpCountry" id="signUpCountry" class="titleDrop grid-100 tablet-grid-100 mobile-grid-100 grid-parent">
+                <option value="">Please select</option>
+                <option value="AD">Andorra</option>
+                <option value="AU">Australia</option>
+                <option value="AT">Austria</option>
+                <option value="BH">Bahrain</option>
+                <option value="BY">Belarus</option>
+                <option value="BE">Belgium</option>
+                <option value="BM">Bermuda</option>
+                <option value="BA">Bosnia And Herzegovina</option>
+                <option value="BN">Brunei Darussalam</option>
+                <option value="BG">Bulgaria</option>
+                <option value="CA">Canada</option>
+                <option value="KY">Cayman Islands</option>
+                <option value="CN">China</option>
+                <option value="HR">Croatia</option>
+                <option value="CY">Cyprus</option>
+                <option value="CZ">Czech Republic</option>
+                <option value="DK">Denmark</option>
+                <option value="EE">Estonia</option>
+                <option value="FI">Finland</option>
+                <option value="FR">France</option>
+                <option value="DE">Germany</option>
+                <option value="GI">Gibraltar</option>
+                <option value="GR">Greece</option>
+                <option value="GG">Guernsey</option>
+                <option value="HK">Hong Kong</option>
+                <option value="HU">Hungary</option>
+                <option value="IS">Iceland</option>
+                <option value="IN">India</option>
+                <option value="ID">Indonesia</option>
+                <option value="IE">Ireland</option>
+                <option value="IL">Israel</option>
+                <option value="IT">Italy</option>
+                <option value="JP">Japan</option>
+                <option value="JE">Jersey</option>
+                <option value="KZ">Kazakhstan</option>
+                <option value="KR">Korea, Republic Of</option>
+                <option value="XK">Kosovo</option>
+                <option value="LV">Latvia</option>
+                <option value="LI">Liechtenstein</option>
+                <option value="LT">Lithuania</option>
+                <option value="LU">Luxembourg</option>
+                <option value="MK">Macedonia, The Former Yugoslav Republic Of</option>
+                <option value="MT">Malta</option>
+                <option value="MC">Monaco</option>
+                <option value="ME">Montenegro</option>
+                <option value="NL">Netherlands</option>
+                <option value="AN">Netherlands Antilles</option>
+                <option value="NZ">New Zealand</option>
+                <option value="NO">Norway</option>
+                <option value="PL">Poland</option>
+                <option value="PT">Portugal</option>
+                <option value="QA">Qatar</option>
+                <option value="RO">Romania</option>
+                <option value="RU">Russian Federation</option>
+                <option value="SM">San Marino</option>
+                <option value="SA">Saudi Arabia</option>
+                <option value="RS">Serbia, Republic Of</option>
+                <option value="SG">Singapore</option>
+                <option value="SK">Slovakia</option>
+                <option value="SI">Slovenia</option>
+                <option value="ZA">South Africa</option>
+                <option value="ES">Spain</option>
+                <option value="SE">Sweden</option>
+                <option value="CH">Switzerland</option>
+                <option value="TW">Taiwan, Province Of China</option>
+                <option value="TR">Turkey</option>
+                <option value="UA">Ukraine</option>
+                <option value="AE">United Arab Emirates</option>
+                <option selected="selected" value="GB">United Kingdom</option>
+                <option value="US">United States</option>
+            </select>
+            <p class="invalidAlert hidden">Please select a country</p>
+
+            <div id="ukAddressFields">
+                <label for="signUpPostcode"class="grid-100 tablet-grid-100 mobile-grid-100 grid-parent">POSTCODE*</label>
+                <input name="signUpFormPostcode" maxlength="15" type="text" id="signUpPostcode" class="inputText grid-100 tablet-grid-100 mobile-grid-100 grid-parent">
+                <p class="invalidAlert hidden">Please enter a valid postcode</p>
+                <a id="catalogueFindPostcode" class="grid-100 tablet-grid-100 mobile-grid-100 grid-parent" href='#'>Find Address</a>
+                <a id="manualAddress" class="grid-100 tablet-grid-100 mobile-grid-100 grid-parent" href='#'>Or enter address manually</a>
+
+                <div id="selectAddressWrapper" class="hidden">
+                    <div id="selectAddress" class="not-required hidden grid-100 tablet-grid-100 mobile-grid-100 grid-parent">
+                    </div>
+                </div>
+
+                <div id="yourAddressWrapper">        
+                    <label class="grid-100 tablet-grid-100 mobile-grid-100 grid-parent">Your Address</label>
+                    <span id="yourAddress"></span>
+                    <a id="changeAddress" class="grid-100 tablet-grid-100 mobile-grid-100 grid-parent" href='#'>Change Address</a>
+                </div>
+
+                <p class="noresults invalidAlert hidden">Sorry, no results found.</p>
+                <p class="mandatory mandatoryLabel">* Mandatory.</p>
+
+                <span class="addressWrapper">
+                    <label for="signUpBuildingNo" class="grid-100 tablet-grid-100 mobile-grid-100 grid-parent">Building/Company Name</label>
+                    <input name="signUpFormBuildingNo" maxlength="80" type="text" id="signUpBuildingNo" class="not-required inputText grid-100 tablet-grid-100 mobile-grid-100 grid-parent">
+                    <!--<p class="invalidAlert hidden">Please enter a valid building name or number</p>-->
+                    <label for="signUpAddressOne" class="grid-100 tablet-grid-100 mobile-grid-100 grid-parent">Address 1*</label>
+                    <input name="signUpFormAddressOne" maxlength="80" type="text" id="signUpAddressOne" class="inputText grid-100 tablet-grid-100 mobile-grid-100 grid-parent">
+                    <p class="invalidAlert hidden">Please enter a valid address</p>
+                    <label for="signUpAddressTwo" class="grid-100 tablet-grid-100 mobile-grid-100 grid-parent">Address 2</label>
+                    <input name="signUpFormAddressTwo" type="text" maxlength="80" id="signUpAddressTwo" class="not-required inputText grid-100 tablet-grid-100 mobile-grid-100 grid-parent">
+                    <label for="signUpTown" class="grid-100 tablet-grid-100 mobile-grid-100 grid-parent">Town or city*</label>
+                    <input name="signUpFormTown" type="text" maxlength="80" id="signUpTown" class="inputText grid-100 tablet-grid-100 mobile-grid-100 grid-parent">
+                    <p class="invalidAlert hidden">Please enter a valid town or city</p>
+                    <label for="signUpCounty" class="grid-100 tablet-grid-100 mobile-grid-100 grid-parent">County</label>
+                    <input name="signUpFormCounty" type="text" maxlength="80" id="signUpCounty" class="inputText grid-100 tablet-grid-100 mobile-grid-100 grid-parent">
+                    <p class="invalidAlert hidden">Please enter a valid county</p>
+                    <!--<label for="signUpCountry" class="grid-100 tablet-grid-100 mobile-grid-100 grid-parent">Country</label>-->
+                <!--<input name="signUpFormCountry" type="text" id="signUpCountry" class="inputText grid-100 tablet-grid-100 mobile-grid-100 grid-parent">-->
+                   <!-- <select name="signUpFormCountry" id="signUpCountry" class="titleDrop grid-100 tablet-grid-100 mobile-grid-100 grid-parent">
+                        <option selected="selected" value="United Kingdom">United Kingdom</option>
+                        <option value="Channel Islands">Channel Islands</option>
+                    </select> -->
+                </span> 
+            </div> 
+        </section>
+
+        <section class="details-three grid-33 tablet-grid-33 mobile-grid-100 grid-parent">
+            <div id="ukSubmit" class="grid-100 tablet-grid-100 mobile-grid-100 grid-parent hidden">
+                <section class="grid-100 tablet-grid-100 mobile-grid-100 grid-parent padding-top-15">  
+                    <!--<input name="signUpFormOptIn" type="checkbox" id="signUpOptIn" class="">-->
+                    <a id="catalogueSignUpSubmit" class="grid-100 tablet-grid-100 mobile-grid-100 grid-parent" href='#'>Submit</a>
+                    <img src="//d1kh76s6bjh8ww.cloudfront.net/img/ajaxLoader.gif" class="ajaxLoader" />
+                    <!--<p style="padding-top:8px;">Please note that we do not send out catalogues during the sale period. Fill out the form below and we will send you a newly published catalogue early August.</p>-->
+                    <p class="mandatory">* By submitting this form you agree to our terms and conditions and privacy policy. <a href="/content/help/help.htm?=legal">Read more ></a></p>     
+                    
+                </section>
+              
+                <section class="grid-100 tablet-grid-100 mobile-grid-100 grid-parent">
+                    <section class="grid-10 tablet-grid-10 mobile-grid-10 grid-parent">
+                        <input type="checkbox" id="signUpOptIn" name="signUpFormOptIn" checked />
+                        <label for="signUpOptIn" class="checkhack"></label>
+                    </section>          
+                    <section class="grid-90 tablet-grid-90 mobile-grid-90 grid-parent">
+                        <label for="signUpOptIn" class="opt-in-msg">I am happy for Toast to let me know about sale offers, new products, content, events and news by email.  Don't worry - we won't ever pass your email address on to anyone else.</label>
+                    </section>
+                </section>
+              
+            </div>
+            <div id="internationalSubmit" class="grid-100 tablet-grid-100 mobile-grid-100 grid-parent hidden">
+                <section class="grid-100 tablet-grid-100 mobile-grid-100 grid-parent padding-top-15">  
+                    <div class="alert-neatural grid-100 tablet-grid-100 mobile-grid-100 grid-parent" id="catalogue-added-to-bag">Selected catalogue(s) have been added to your bag</div>
+                    <a id="catalogueAddToBag" class="grid-100 tablet-grid-100 mobile-grid-100 grid-parent add-to-bag" href='#'>Add to Bag</a>
+                    <img src="//d1kh76s6bjh8ww.cloudfront.net/img/ajaxLoader.gif" class="ajaxLoader" />
+                    <p class="mandatory">* By submitting this form you agree to our terms and conditions and privacy policy. <a href="/content/help/help.htm?=legal">Read more ></a></p>     
+                </section>
+            </div>
+        </section>
+    </div>
+
+    <div id="thankYouMessage">
+<div class="col-xs-12 landingBSIntro">
+             <h1>Thank you for requesting our book.</h1>
+  <p>In the meantime you can browse our latest collections online.</p> 
+          </div>
+          
+          
+<div class="col-xs-6 col-sm-4 col-sm-offset-2 thankyouImgTile">
+          <a href="/uk/women.htm" class="portraitTile hlTile2" title="Shop TOAST Women">
+              <div class="tileTitle">
+                  <h2 class="mainTitle textSemibold landingTileTxt">Women</h2>
+              </div>
+          </a>
+      </div>
+
+<div class="col-xs-6 col-sm-4 tileWpadding thankyouImgTile">
+          <a href="/uk/houseandhome.htm" class="portraitTile hlTile4" title="Shop TOAST House and Home">
+              <div class="tileTitle">
+                  <h2 class="mainTitle textSemibold landingTileTxt">House&Home</h2>
+              </div>
+          </a>
+      </div>
+
+</div>
+<!--<script type="text/javascript" src="//s3-eu-west-1.amazonaws.com/toast-production/js/toast-plugins.js"></script>-->
+<script type="text/javascript" src="//s3-eu-west-1.amazonaws.com/toast-production/js/min/cataloguesignupnew.js"></script>
+
+<script type="text/javascript" data-ignore="true">  
+  $('#catalogueWomen')[0].checked = true;
+    var womenImages= [
+        "//d3c707rd4l0ogp.cloudfront.net/content-images/ss17/450/SS17_HighSummer_Catalogue.jpg"
+    ];
+    var menImages = [
+        "//d3c707rd4l0ogp.cloudfront.net/content-images/ss15/450/SS15056_BUILD_WEB_CatalogueSignUp_Mens_1.jpg",
+        "//d3c707rd4l0ogp.cloudfront.net/content-images/ss15/450/SS15056_BUILD_WEB_CatalogueSignUp_Mens_2.jpg",
+        "//d3c707rd4l0ogp.cloudfront.net/content-images/ss15/450/SS15056_BUILD_WEB_CatalogueSignUp_Mens_3.jpg",
+        "//d3c707rd4l0ogp.cloudfront.net/content-images/ss15/450/SS15056_BUILD_WEB_CatalogueSignUp_Mens_4.jpg",
+        "//d3c707rd4l0ogp.cloudfront.net/content-images/ss15/450/SS15056_BUILD_WEB_CatalogueSignUp_Mens_5.jpg"
+    ];
+    $("#women-slider").tstSlider({images: womenImages});    
+    $("#men-slider").tstSlider({images: menImages});
+</script>​

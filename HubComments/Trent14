@@ -1,0 +1,10 @@
+      if (window.location.href.indexOf("shops/bath.htm") > -1) {
+$('.shopAddress').prepend('<p style="font-weight:600">Our Bath shop will be closing at 5pm on Thursday 25th May 2017 for training, we will be reopening on Friday 26th May at 11.30am. We apologise for any inconvenience this may cause.</p>')
+}      
+if (window.location.href.indexOf("shops/llandeilo.htm") > -1){
+  $('.shopAddress').prepend('<p style="font-weight: 600">Our Llandeilo shop will be open 11am - 4pm  on Bank Holiday Sunday and Bank Holiday Monday 11am - 4pm. We apologise for any inconvenience this may cause.</p>')
+  }
+   $('.menu__title').on('click', function () {
+  var dropDown = $(this).parents('.menu--dropdown');
+  dropDown.toggleClass('active', !dropDown.hasClass('active'));
+});

@@ -1,0 +1,134 @@
+<head>
+  <title>Help | Toast</title>
+  <meta name="description" content="Information on shipping, delivery and other frequently asked questions">
+</head>
+<div class="grid-100 mobile-grid-100 tablet-grid-100 grid-parent helpSection">
+  <nav id="breadcrumb" class="hide-on-tablet hide-on-mobile grid-60 grid-parent">
+    <ul>
+      <li><a href="/"><span>HOME</span></a></li>
+      <li><span>HELP</span></li>
+    </ul>
+  </nav>
+<div class="row ">
+  <div class="col-md-12 margintop">
+    <div class="col-sm-3 col-md-3 navItems">
+      <ul>
+        <li class="parent delivery sansMedium"><a href="#deliver-uk" >Delivery & Returns</a>
+          <ul class="subnav textBook">
+            <li class="link deliver-uk"><a href="#deliver-uk" class="active">UK Standard Delivery</a></li>
+            <li class="link deliver-express"><a href="#deliver-express">UK Express Delivery</a></li>
+            <li class="link deliver-international"><a href="#deliver-international" >International Delivery </a></li>
+            <li class="link deliver-costs"><a href="#deliver-costs">Delivery Costs</a></li>
+            <li class="link deliver-returns"><a href="#deliver-returns" >Returns Information</a></li>
+            <li class="link gift-wrapping"><a href="#gift-wrapping" >Gift Wrap</a></li>
+          </ul>
+        </li>
+         <li class="parent size sansMedium"><a href="#size-fit">Size & Fit</a>
+          <ul class="subnav textBook">
+            <li class="link size-fit"><a href="#size-fit">Fitted Sizes</a></li>
+            <li class="link size-easy"><a href="#size-easy">Easy Sizes</a></li>
+            <li class="link size-shoes"><a href="#size-shoes">Shoe Sizes</a></li>
+            <li class="link size-ring"><a href="#size-ring">Ring Size Chart</a></li>
+            <li class="link size-bedlinen"><a href="#size-bedlinen">Bedlinen Sizes</a></li>
+          </ul>
+        </li>
+        <li class="link product-care sansMedium"><a href="#product-care" >Product Care Information</a></li>
+        <li class="link faqs sansMedium"><a href="#faqs" >Frequently Asked Questions</a></li>
+        <li class="parent legal sansMedium"><a href="#legal-privacy">Legal</a>
+          <ul class="subnav textBook">
+              <li class="link legal-privacy"><a href="#legal-privacy">Privacy Policy</a></li>
+              <li class="link legal-cookies"><a href="#legal-cookies">Cookies</a></li>
+              <li class="link legal-terms"><a href="#legal-terms">Terms & Conditions</a></li>
+            </ul>
+        </li>
+        <li class="link legal-ethical sansMedium"><a href="#legal-ethical">Ethical Policy</a></li>
+      </ul>
+    </div>
+    <div class="col-sm-9 col-md-9 helpContentArea textBook"></div>
+  </div>
+</div>
+</div>
+      
+<script>
+jQuery.support.cors = true
+loc = window.location.host
+if (loc.indexOf("staging") > -1 ){
+  envURL = "//s3.eu-west-2.amazonaws.com/toast-help-files-staging/"
+} else {
+  envURL = "//d38000zxamse83.cloudfront.net/"
+  }
+function loadNav(navItem) {
+    $(".parent").css("background-image", "url(//d2xfispw8k8nwr.cloudfront.net/images/arrow.gif)")
+    $("." + navItem).css("background-image", "url(//d2xfispw8k8nwr.cloudfront.net/images/down_arrow.gif)")
+    if (!$("." + navItem + " .subnav").is(":visible")) {
+        $(".subnav").not(this).removeClass('visible')
+        $("." + navItem + " .subnav").addClass('visible')
+        loadContent($("." + navItem + " .subnav li").first().attr("class").split(" ")[1])
+    }
+}
+
+function loadExclusions() {
+    $(".helpContentArea").load(envURL+"deliver-exclusions.htm", function(responseTxt, statusTxt, xhr) {
+      if (statusTxt == "error") {
+        $(".helpContentArea").html("Error loading content: " + xhr.status + ": " + xhr.statusText)
+      }
+    })
+}
+
+function loadContent(contentFile) {
+    $(".helpContentArea").html("Loading")
+    $(".navItems a").removeClass("active")
+    $("." + contentFile + " a").addClass("active")
+    $(".helpContentArea").load(envURL + contentFile + ".htm", function(responseTxt, statusTxt, xhr) {
+        if (statusTxt == "error") {
+            $(".helpContentArea").html("<div class='errorText'>Error loading content: " + contentFile + " Error cause: " + xhr.status + ": " + xhr.statusText + "</div>")
+        }
+    })
+}
+
+function internalContent(passedHash) {
+    $(".parent").css("background-image", "url(//d2xfispw8k8nwr.cloudfront.net/images/arrow.gif)");
+    $(".subnav").removeClass('visible')
+    window.location.hash = passedHash
+    if (window.location.hash) {
+        $("." + window.location.hash.substring(1)).parent().addClass("visible")
+
+        if ($("." + window.location.hash.substring(1)).parent().attr('class') != "visible") {
+            $("." + window.location.hash.substring(1)).parent().parent().css("background-image", "url(//d2xfispw8k8nwr.cloudfront.net/images/down_arrow.gif)")
+        }
+    loadContent(window.location.hash.substring(1))
+    }
+}
+function doThisWhenTheHashChanges(){
+   internalContent(window.location.href.substring(window.location.href.indexOf('#') + 1))
+}
+window.addEventListener("hashchange", doThisWhenTheHashChanges, false)
+
+$(document).on("click", ".helpContentArea a", function() {
+    hashURL = $(this).attr('href')
+    contentHash = hashURL.substring(hashURL.indexOf('#') + 1)
+    if ($(this).attr('href').indexOf('help.htm') > 10) {
+        event.preventDefault()
+        internalContent(contentHash)
+    }
+})
+
+$(document).ready(function() {
+    if (window.location.hash) {
+        $("." + window.location.hash.substring(1)).parent().addClass("visible")
+
+        if ($("." + window.location.hash.substring(1)).parent().attr('class') != "visible") {
+            $("." + window.location.hash.substring(1)).parent().parent().css("background-image", "url(//d2xfispw8k8nwr.cloudfront.net/images/down_arrow.gif)")
+        }
+        loadContent(window.location.hash.substring(1))
+    } else {
+        $(".delivery ul").addClass("visible")
+        $(".helpContentArea").load(envURL+"deliver-uk.htm", function(responseTxt, statusTxt, xhr) {
+            $(".delivery").css("background-image", "url(//d2xfispw8k8nwr.cloudfront.net/images/down_arrow.gif)")
+            if (statusTxt == "error") {
+                $(".helpContentArea").html("Error loading content: " + xhr.status + ": " + xhr.statusText)
+            }
+        })
+    }
+})
+</script>    ​
