@@ -1,0 +1,142 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <!-- Place favicon.ico in the root directory -->
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+    </head>
+    <body>
+    <style>
+    .holdingBody { max-width: 1100px; width: 100%; margin: 0 auto; background-color: #dddddd; overflow: hidden; position: relative; height: 400px}
+    .colHolder {background-color: #000000; position: absolute; left: 0; top: 10px; color: #ffffff}
+    .columnContent {background-color: #454545; float: left}
+    .columnContentPadder {width: 90%; margin: 5%; background-color:#999999}
+    </style>
+       
+            <div class="holdingBody">
+                <div class="colHolder">
+                    <div class="columnContent">
+                        <div class="columnContentPadder">
+                            Col 1 
+                        </div>
+                    </div>
+                    <div class="columnContent">
+                         <div class="columnContentPadder">
+                            Col 2 
+                        </div>
+                    </div>
+                    <div class="columnContent">
+                         <div class="columnContentPadder">
+                            Col 3 
+                        </div>
+                    </div>
+                    <div class="columnContent">
+                         <div class="columnContentPadder">
+                            Col 4 
+                        </div>
+                    </div>
+                    <div class="columnContent">
+                         <div class="columnContentPadder">
+                            Col 5 
+                        </div> 
+                    </div>
+                    <div class="columnContent">
+                         <div class="columnContentPadder">
+                            Col 6 
+                        </div> 
+                    </div>
+                    <div class="columnContent">
+                         <div class="columnContentPadder">
+                            Col 7 
+                        </div>
+                    </div>
+                    <div class="columnContent">
+                         <div class="columnContentPadder">
+                            Col 8 
+                        </div>
+                    </div>
+            </div>
+
+
+
+            </div>
+
+            <a href="javascript:moveHorizontal(0)">Left</a> / <a href="javascript:moveHorizontal(1)">Right</a>
+
+
+
+        <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')</script>
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+
+        <script>
+$( document ).ready(function() {
+
+    showCols = 4
+    animationStops = [];
+    totalCols = 8
+
+    innerHolderWidth = $(".holdingBody").width() * 1.777777
+
+    innnerColumnsWidth = (innerHolderWidth ) / totalCols
+
+    innerLastStop = innerHolderWidth - (innnerColumnsWidth * (showCols + 0.5))
+
+    animationStops.push(0);
+    animationStops.push(-innnerColumnsWidth);
+
+    console.log("Inner Holder: " + innerHolderWidth + " Individual cols: " + innnerColumnsWidth + " Inner last stop: "+innerLastStop )
+
+    $(".colHolder").width(innerHolderWidth)
+    $(".columnContent").width(innnerColumnsWidth)
+
+    for (i = 0; i < showCols-1; i++) { 
+        animationStops.push(animationStops[i+1] - innnerColumnsWidth);
+        console.log(animationStops)
+    }
+
+    currentStop = 0
+
+});
+
+
+function moveHorizontal(direction){
+
+    if (direction == 0){
+        if (currentStop < showCols) {
+            currentStop++
+        }
+    } else {
+        if (currentStop != 0) {
+            currentStop--
+        }
+    }
+
+    console.log("Current stop: "+ currentStop)
+
+    if (currentStop != 0 && currentStop < showCols) {
+        $(".colHolder").animate({left: animationStops[currentStop]}, 200);
+    } else if ( currentStop == showCols) {
+        console.log("in")
+         $(".colHolder").animate({left: -innerLastStop}, 200);
+    }
+    else if (currentStop == 0)
+    {
+        $(".colHolder").animate({left: 0});
+    }
+}
+
+
+        </script>
+    </body>
+</html>
