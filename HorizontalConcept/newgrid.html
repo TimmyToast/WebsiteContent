@@ -154,13 +154,12 @@
        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script src="js/jquery.ui.touch-punch.min.js"></script>
-        <script src="js/plugins.js"></script>
-        <script src="js/main.js"></script>
 
-        <script>
-$( document ).ready(function() {
 
-   
+       <script>
+
+
+
 
     showCols = 4
     ///animationStops = [];
@@ -177,93 +176,92 @@ $( document ).ready(function() {
 
     innerLastStop = (innerHolderWidth - (innnerColumnsWidth * (showCols + 0.5))) - restrainBoxLeftGap
 
-    //animationStops.push(restrainBoxLeftGap);
-    //animationStops.push(-innnerColumnsWidth);
 
-    
-
-    console.log("restrainBoxLeftGap: " + restrainBoxLeftGap )
-
-
-    $(".colRestrainArea").width(restrainBoxWidth)
-    $('.colRestrainArea').css('left', -restrainBoxLeftGap)
-
-    $(".colHolder").draggable({  axis: "x", scroll: false, containment: ".colRestrainArea"});
-
-    //$(".columnContent").draggable({  axis: "y", scroll: false })
-
-   
-    // $(".colHolder").draggable({
-    //     axis:"x",
-    //     drag: function( event, ui ) {
-    //         left = ui.position.left;
-    //         console.log(left)
-    //         $(".colHolder").css("left", ui.position.left);
-    //     }
-    // });
-
-    // $(".columnContent").draggable({
-    //     axis:"y",
-    //     drag: function( event, ui ) {
-    //         $(".colHolder").css("left", left + ui.position.left);
-    //     },
-    //     stop : function(event, ui) {
-    //         left = ui.position.left;
-    //     }
-    // });
-
-
-    //$(".columnContentPadder").draggable({axis: "y"})
 
     $(".colHolder").width(innerHolderWidth)
     $(".columnContent").width(innnerColumnsWidth)
 
-    // for (i = 0; i < showCols-1; i++) { 
-    //     animationStops.push(animationStops[i+1] - innnerColumnsWidth);
-    //     console.log(animationStops)
-    // }
+    
+$.fn.doubleDragOnXY = function(options) {
+            var defaultOptions = {
+                distance: 5,
+                duration: 300
+            };
+            options = $.extend(defaultOptions, options);
+            var parentStart = 0;
+            var children = $(this).children();
+            var parent = $(this);
+            var container = $(this).parent();
+            var cWidth = $(children[0]).outerWidth();
+            var parentCss = { position: "relative", padding: "0", margin: "0", listStyle: "none", width: children.length * cWidth + 5 };
+            var childCss = { position: "relative" };
 
-    //currentStop = 0
+            parent.css(parentCss);
+            children.each(function () {
+                var subs = $(this).children(), totalHeight = 0;
+                $(this).css($.extend(childCss, { float: "left" }));
+                $.each(subs, function() {
+                    totalHeight = totalHeight + $(this).outerHeight();
+                });
+                $(this).height(totalHeight);
+            });
 
-     $(".colHolder").animate({left: restrainBoxLeftGap}, 500);
+            children.draggable({
+                distance: options.distance,
+                start: function(event, ui) {
+                    ui.helper.data('doubleDragOnXY.originalPosition', ui.position || { top: 0, left: 0 });
+                    ui.helper.data('doubleDragOnXY.newDrag', true);
+                },
+                drag: function(event, ui) {
+                    var originalPosition = ui.helper.data('doubleDragOnXY.originalPosition');
+                    var deltaX = Math.abs(originalPosition.left - ui.position.left);
+                    var deltaY = Math.abs(originalPosition.top - ui.position.top);
 
-});
+                    var newDrag = options.dynamic || ui.helper.data('doubleDragOnXY.newDrag');
+                    ui.helper.data('doubleDragOnXY.newDrag', false);
+
+                    var xMax = newDrag ? Math.max(deltaX, deltaY) === deltaX : ui.helper.data('doubleDragOnXY.xMax');
+                    ui.helper.data('doubleDragOnXY.xMax', xMax);
+
+                    var newPosition = ui.position;
+                    if (xMax) {
+                        var newLeft = parentStart + newPosition.left;
+                        parent.css({
+                            left: newLeft
+                        });
+                        newPosition.top = originalPosition.top;
+                        newPosition.left = originalPosition.left;
+                    }
+                    if (!xMax) {
+                        newPosition.left = originalPosition.left;
+                    }
+                    return newPosition;
+                },
+                stop: function(event, ui) {
+                    var parentLeft = parent.position().left,
+                        maxLeft = (parent.width() - container.width()) * -1,
+                        childTop = ui.position.top,
+                        maxTop = ($(this).height() - container.innerHeight()) * -1;
+                    if (parentLeft > 0) {
+                        parentLeft = 0;
+                        parent.animate({ left: parentLeft }, options.duration);
+                    }
+                    if (parentLeft < maxLeft) {
+                        parentLeft = maxLeft;
+                        parent.animate({ left: maxLeft }, options.duration);
+                    }
+                    parentStart = parentLeft;
+                    if (childTop > 0) {
+                        $(this).animate({ top: 0 }, options.duration);
+                    }
+                    if (childTop < maxTop) {
+                        $(this).animate({ top: maxTop }, options.duration);
+                    }
 
 
-function moveHorizontal(direction){
-
-    if (direction ==0) {
-         $(".colHolder").animate({left: -innerLastStop}, 500);
-     } else 
-     {
-         $(".colHolder").animate({left: restrainBoxLeftGap});
-     }
-
-    // if (direction == 0){
-    //     if (currentStop < showCols) {
-    //         currentStop++
-    //     }
-    // } else {
-    //     if (currentStop != 0) {
-    //         currentStop--
-    //     }
-    // }
-
-    // console.log("Current stop: "+ currentStop)
-
-    // if (currentStop != 0 && currentStop < showCols) {
-    //     $(".colHolder").animate({left: animationStops[currentStop] + restrainBoxLeftGap}, 500);
-    // } else if ( currentStop == showCols) {
-    //     console.log("in")
-    //      $(".colHolder").animate({left: -innerLastStop}, 500);
-    // }
-    // else if (currentStop == 0)
-    // {
-    //     $(".colHolder").animate({left: restrainBoxLeftGap});
-    // }
-}
-
-
-        </script>
+                }
+            });        };
+$('.colHolder').doubleDragOnXY();
+</script>
     </body>
 </html>
