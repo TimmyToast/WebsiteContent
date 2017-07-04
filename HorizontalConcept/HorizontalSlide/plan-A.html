@@ -1,0 +1,634 @@
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+ <script src="https://toast-staging.s3.amazonaws.com/js/min/ss17/jquery.ui.touch-punch.min.js"></script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+   <style>
+   
+        .holdingBody { max-width: 1100px; width: 100%; margin: 0 auto;  overflow: hidden; position: relative; height: 600px}
+        .columnContent {float: left;  }
+        .columnContentPadder {width: 95%; margin: 2.5%;  height: auto  }
+        .colRestrainArea {}
+        .img-responsive {width: 100%; height: auto}
+        .postTitleHolder {float: left}
+        .postsTitles {position: absolute; left:0;}
+        #postsHolder {top:30px;position: absolute; left: 0}
+        h1, h2{font-size: 18px}
+         h1 {margin:10px 0}
+        p {font-size:14px}
+        .carouselArrowRight {position: absolute;right:0; z-index: 100; background: url(http://toasttest.co.uk.s16804.gridserver.com/right.png) rgba(255, 255, 255, .5) no-repeat; width: 50px; background-position: center; background-size: 25px 45px }
+        .carouselArrowLeft {position: absolute;left:0; z-index: 100; background: url(http://toasttest.co.uk.s16804.gridserver.com/left.png) rgba(255, 255, 255, .5) no-repeat; width: 50px; background-position: center; background-size: 25px 45px; display: none }
+        .contentArrowHolder {position: absolute; width: 100%;  top:100px; z-index: 100}
+        .titleHolder {position: absolute; width: 100%; top:-20px; z-index: 100; background-color: #ffffff}
+        .titleBlocks {float: left; height: 30px}
+        .contentArrows {float: left; height: 30px}
+        .contentArrowDown {width: 50%; float: left; background: url(http://toasttest.co.uk.s16804.gridserver.com/down.png) rgba(255, 255, 255, .5) no-repeat; background-position: center; background-size: 22px 12px; z-index: 100; height: 30px}
+        .contentArrowUp {width: 50%; float: left; background: url(http://toasttest.co.uk.s16804.gridserver.com/up.png) rgba(255, 255, 255, .5) no-repeat;  background-position: center; background-size: 22px 12px; z-index: 100; height: 30px}
+
+    </style>
+<div class="holdingBody">
+
+    <a href="javascript:moveHorizontal(0)" class="carouselArrowRight">
+        
+    </a>
+    <a href="javascript:moveHorizontal(1)" class="carouselArrowLeft">
+        
+    </a>
+
+
+ <div class="colRestrainArea">
+    <div id="postsHolder">
+        <!-- Arts -->
+        <div class="columnContent" id="0">
+            <div class="columnContentPadder">
+                <a href="https://travels.toa.st/2017/06/30/mirror-shoulder-signal/">
+                    <img src="https://travels.toa.st/wp-content/uploads/2017/05/block-printing-300x212.jpg" class="img-responsive" />
+                    <h1>A brief history of block printing</h1>
+                    <p>The soft thud of a wooden block hitting the print table is the rhythmic backdrop to the centuries-old craft of block printing. </p>
+                </a>
+            </div>
+            <div class="columnContentPadder">
+                <a href="https://travels.toa.st/2017/06/21/walking-through-midsummer/">
+                    <img src="https://d117fiyhpld8f9.cloudfront.net/content-images/ss17/400/TOAST_PreCollection_LandingWomen_2.jpg" class="img-responsive" />
+                    <h1>Walking through midsummer</h1>
+                    <p>Our long walk across the Lake District, marking the long days of midsummer, took us not between summits, but between seven trees.</p>
+                </a>
+            </div>
+            <div class="columnContentPadder">
+                <a href="https://travels.toa.st/2017/06/20/lady-macbeth-film/">
+                    <img src="https://travels.toa.st/wp-content/uploads/2017/06/Macbeth_3-300x212.jpg" class="img-responsive" />
+                    <h1>Lady Macbeth Film</h1>
+                    <p>As this spare and striking drama opens, the camera slowly pans around the veiled face of an anxious young bride, who’s glancing around the room in palpable unease as she struggles to sing in tune.</p>
+                </a>
+            </div>
+            <div class="columnContentPadder">
+                <a href="https://travels.toa.st/2017/06/21/walking-through-midsummer/">
+                    <img src="https://travels.toa.st/wp-content/uploads/2017/06/radishes_2-300x212.jpg" class="img-responsive" />
+                    <h1>Pink & Peppery</h1>
+                    <p>Like many children, I grew radishes in a tiny plot at the far end of our family garden.</p>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Book -->
+         <div class="columnContent" id="1">
+            <div class="columnContentPadder">
+                <a href="https://travels.toa.st/2017/06/30/mirror-shoulder-signal/">
+                    <img src="https://travels.toa.st/wp-content/uploads/2017/06/bookclub_2-300x212.jpg" class="img-responsive" />
+                    <h1>Mirror, Shoulder, Signal</h1>
+                    <p>The TOAST Book Club is published on the last Friday of every month.  </p>
+                    </a>
+            </div>
+            <div class="columnContentPadder">
+                <a href="https://travels.toa.st/2017/05/25/hotel-du-lac-book-club/">
+                    <img src="https://d117fiyhpld8f9.cloudfront.net/content-images/ss17/400/TOAST_PreCollection_Homepage_1.jpg" class="img-responsive" />
+                    <h1>Hotel du Lac</h1>
+                    <p>When I said I was reviewing Hotel du Lac to someone in the bookshop today they said: ‘20 years too late!’ It’s a funny thing, returning to a book I read years ago.  </p>
+                    </a>
+            </div>
+            <div class="columnContentPadder">
+                <a href="https://travels.toa.st/2017/03/30/the-summer-book-tove-jansson-book-club/">
+                    <img src="https://travels.toa.st/wp-content/uploads/2017/03/SummerBook-300x212.jpg" class="img-responsive" />
+                    <h1>The Summmer Book</h1>
+                    <p>First, a confession: I am a fan of Tove Jansson. She is probably Finland’s most famous export, mainly for her quirky, hippo-like, imaginary characters, the Moomins.  </p>
+                    </a>
+            </div>
+            <div class="columnContentPadder">
+                <a href="https://travels.toa.st/2017/01/26/the-golden-legend-book-club-by-nadeem-aslam/">
+                    <img src="https://travels.toa.st/wp-content/uploads/2017/01/BOOKCLUB-300x212.jpg" class="img-responsive" />
+                    <h1>The Golden Legend</h1>
+                    <p>In the opening pages of The Golden Legend, a mysterious presence has gripped the fictional city of Zamana: someone is slipping into the mosques at night and revealing the shameful secrets of its citizenry over the minaret’s loudspeakers.  </p>
+                    </a>
+            </div>
+            <div class="columnContentPadder">
+                <a href="https://travels.toa.st/2016/12/30/the-good-immigrant-book-club/">
+                    <img src="https://travels.toa.st/wp-content/uploads/2016/12/TheGoodImmigrant_1-300x212.jpg" class="img-responsive" />
+                    <h1>The Good Immigrant </h1>
+                    <p>Every immigrant has a story to tell. </p>
+                    </a>
+            </div>
+            <div class="columnContentPadder">
+                <a href="https://travels.toa.st/2016/09/29/sarah-perry-the-essex-serpent/">
+                    <img src="https://travels.toa.st/wp-content/uploads/2016/09/Bookclub_6-300x211.jpg" class="img-responsive" />
+                    <h1>The Essex Serpent</h1>
+                    <p>Who doesn’t love a thing of beauty? </p>
+                    </a>
+            </div>
+        </div>
+        <!-- Food -->
+         <div class="columnContent" id="2">
+            <div class="columnContentPadder">
+                <a href="https://travels.toa.st/2017/06/30/mirror-shoulder-signal/">
+                    <img src="https://d117fiyhpld8f9.cloudfront.net/content-images/ss17/400/TOAST_HighSummer_Homepage_5.jpg" class="img-responsive" />
+                    <h1>Fruit Tart</h1>
+                    <p>This recipe is from Sanda Vuckovic Pagaimo author of Little Upside Down Cake.</p>
+                </a>
+            </div>
+            <div class="columnContentPadder">
+                  <a href="https://travels.toa.st/2016/05/26/baked-whole-fish-with-roasted-lemon-potato-dill/">
+                    <img src="https://travels.toa.st/wp-content/uploads/2016/05/fish2-300x211.jpg" class="img-responsive" />
+                    <h1>Baked Whole Fish with Roasted Lemon, Potato and Dill</h1>
+                    <p>To celebrate the blessing of the sea Claire Thomson, columnist for The Guardian and author of The Five O’Clock Apron, shares her recipe for a Baked Whole Fish with Roasted Lemon, Potato and Dill.</p>
+                </a>
+            </div>
+            <div class="columnContentPadder">
+                 <a href="https://travels.toa.st/2015/12/16/fig-earl-grey-victoria-sponge-recipe/">
+                    <img src="https://travels.toa.st/wp-content/uploads/2015/12/fig-and-earl-grey-sponge-recipe-300x211.jpg" class="img-responsive" />
+                    <h1>Fig & Earl Grey Victoria Sponge</h1>
+                    <p>Violet Bakery originated as a market stall on Broadway Market and is now a small bakery-cafe based in East London.  </p>
+                </a>
+            </div>
+            <div class="columnContentPadder">
+                 <a href="https://travels.toa.st/2015/09/25/beetroot-cream-cheese-tart/">
+                    <img src="https://travels.toa.st/wp-content/uploads/2015/08/fern-verrow-book1-191x300.jpg" class="img-responsive" />
+                    <h1>Beetroot & Creamcheese Tart</h1>
+                    <p>Fern Verrow is a biodynamic farm at the foothills of the Black Mountains in Herefordshire.</p>
+                </a>
+            </div>
+            <div class="columnContentPadder">
+                <a href="https://travels.toa.st/2015/08/26/blackberry-and-anise-shrub/">
+                    <img src="https://d117fiyhpld8f9.cloudfront.net/content-images/ss17/400/TOAST_PreCollection_LandingHouseHome_4.jpg" class="img-responsive" />
+                    <h1>Blackberry and Anise Shrub</h1>
+                    <p>I love to make cordials when soft fruit is seasonal and in full force.</p>
+                </a>
+            </div>
+        </div>
+
+        <!-- Book -->
+         <div class="columnContent" id="3">
+            <div class="columnContentPadder">
+                <a href="https://travels.toa.st/2016/10/25/the-land-gardeners/">
+                    <img src="https://travels.toa.st/wp-content/uploads/2016/10/LANDGARDENERS-300x211.jpg" class="img-responsive" />
+                    <h1>The Land Gardeners</h1>
+                    <p>The desire to connect, the need to produce healthy food which was good for our families, and the joy we felt being amongst plants or in a greenhouse.</p>
+                </a>
+            </div>
+
+            <div class="columnContentPadder">
+                <a href="https://travels.toa.st/2016/05/13/honouring-the-ash-tree/">
+                    <img src="https://travels.toa.st/wp-content/uploads/2016/05/Wood-300x283.jpg" class="img-responsive" />
+                    <h1>The Ash</h1>
+                    <p>No tree grows in anticipation of being felled, sawn, planked, planed, turned, sanded, drilled, moulded, routed, charcoaled or burned. </p>
+                </a>
+            </div>
+            <div class="columnContentPadder">
+                <a href="https://travels.toa.st/2016/07/15/bathing-in-seaweed-2/">
+                    <img src="https://d117fiyhpld8f9.cloudfront.net/content-images/ss17/400/TOAST_SummerSeasonSale_SaleLanding_1.jpg" class="img-responsive" />
+                    <h1>Bathing in Seaweed</h1>
+                    <p>When you travel a lot and carry a lot, over time the body wearies and stiffens.</p>
+                </a>
+            </div>
+            <div class="columnContentPadder">
+                <a href="https://travels.toa.st/2016/03/24/a-brief-history-of-the-waterlily/">
+                    <img src="https://d117fiyhpld8f9.cloudfront.net/content-images/aw17/400/TOAST_PreCollection_Lookbook_8.jpg" class="img-responsive" />
+                    <h1>Victoria amazonica</h1>
+                    <p>Waterlily’s reign as ‘Queen of the Aquatics’ in the British pond stems from victorian times, during a period when Queen Victoria herself was a just small princess.</p>
+                </a>
+            </div>
+        </div>
+
+         <!-- News -->
+         <div class="columnContent" id="4">
+            <div class="columnContentPadder">
+                  <a href="https://travels.toa.st/2017/05/11/the-huipil/">
+                    <img src="https://d117fiyhpld8f9.cloudfront.net/content-images/aw17/400/TOAST_PreCollection_Lookbook_4.jpg" class="img-responsive" />
+                    <h1>The Huipil</h1>
+                    <p>Huipils are traditional garments worn by the indigenous Mayan women of the Guatemalan highlands.</p>
+                </a>
+            </div>
+           <div class="columnContentPadder">
+                <a href="https://travels.toa.st/2016/12/01/the-christmas-tree/">
+                        <img src="https://travels.toa.st/wp-content/uploads/2016/11/Chrsitmastree-300x212.jpg" class="img-responsive" />
+                        <h1>The Christmas Tree</h1>
+                        <p>The tradition of bringing an evergreen coniferous tree into the house and decorating it for Christmas is of surprisingly recent origin. It seems to have started in Livonia (now Latvia and Estonia) on the Baltic coast in the fifteenth century. </p>
+                </a>
+            </div>
+            <div class="columnContentPadder">
+                  <a href="https://travels.toa.st/2016/07/22/workspace-temple-cycles/">
+                    <img src="https://d117fiyhpld8f9.cloudfront.net/content-images/ss17/400/TOAST_PreCollection_LandingHouseHome_2.jpg" class="img-responsive" />
+                    <h1>Temple Cycles</h1>
+                    <p>Our workshop (which also doubles as a showroom) is in South West Bristol. It’s a modern building with a lot of sustainable features such as its grass roof, solar panels and louvre heat exchangers.</p>
+                </a>
+            </div>
+            <div class="columnContentPadder">
+                  <a href="https://travels.toa.st/2016/03/22/oas-by-toast/">
+                    <img src="https://travels.toa.st/wp-content/uploads/2016/03/OAS_by@styleNylo_2-300x211.jpg" class="img-responsive" />
+                    <h1>Julia Rebaudo</h1>
+                    <p>My favourite piece from the new OAS collection has to be the cotton twill olive shirt. So soft to touch, but boldly holding its own shape, its durability is plain to see – this is a shirt that will be with me for years to come, I can see it earning its place in my wardrobe no problem.</p>
+                </a>
+            </div>
+            <div class="columnContentPadder">
+                  <a href="https://travels.toa.st/2015/11/13/herb-succulent-wreath-tutorial-grace-thorn/">
+                    <img src="https://travels.toa.st/wp-content/uploads/2015/11/succulent-wreath-300x199.jpg" class="img-responsive" />
+                    <h1>Grace & Thorn</h1>
+                    <p>Grace & Thorn are florist and plant purveyors based in Hackney and Soho. Founded by Nik Southern in 2011, the business was born from her desire to create florals that defied all traditions and rules.</p>
+                </a>
+            </div>
+        </div>
+
+        <!-- News -->
+         <div class="columnContent" id="5">
+           <div class="columnContentPadder">
+                  <a href="https://travels.toa.st/2017/05/31/swifts/">
+                    <img src="https://d117fiyhpld8f9.cloudfront.net/product/c4gfe/d1/350/black-denim-cropped-ashley-trouser.jpg" class="img-responsive" />
+                    <h1>Swifts</h1>
+                    <p>One of my lengthier commutes while living in London consumed the better part of an hour and a half each way. </p>
+                </a>
+            </div>
+            <div class="columnContentPadder">
+                  <a href="https://travels.toa.st/2015/12/28/abandoned-spaces/">
+                    <img src="https://travels.toa.st/wp-content/uploads/2015/12/Castle-Acre-Priory-224x300.jpg" class="img-responsive" />
+                    <h1>Abandoned Spaces</h1>
+                    <p>There is something deeply fascinating yet unnerving about stepping into an abandoned space – absorbing the atmosphere of a place that used to be filled with people, footsteps and conversations but now rests in the shadows. </p>
+                </a>
+            </div>
+             <div class="columnContentPadder">
+                <a href="https://travels.toa.st/2016/05/13/honouring-the-ash-tree/">
+                    <img src="https://travels.toa.st/wp-content/uploads/2016/05/Wood-300x283.jpg" class="img-responsive" />
+                    <h1>The Ash</h1>
+                    <p>No tree grows in anticipation of being felled, sawn, planked, planed, turned, sanded, drilled, moulded, routed, charcoaled or burned. </p>
+                </a>
+            </div>
+            <div class="columnContentPadder">
+                <a href="https://travels.toa.st/2016/07/15/bathing-in-seaweed-2/">
+                    <img src="https://d117fiyhpld8f9.cloudfront.net/content-images/ss17/480/TOAST_MakingOfBlockPrint_6.jpg" class="img-responsive" />
+                    <h1>Bathing in Seaweed</h1>
+                    <p>When you travel a lot and carry a lot, over time the body wearies and stiffens.</p>
+                </a>
+            </div>
+            <div class="columnContentPadder">
+                <a href="https://travels.toa.st/2016/03/24/a-brief-history-of-the-waterlily/">
+                    <img src="https://d117fiyhpld8f9.cloudfront.net/content-images/ss16/780/TOAST_TrueIndigo_ContentPage_3.jpg" class="img-responsive" />
+                    <h1>Victoria amazonica</h1>
+                    <p>Waterlily’s reign as ‘Queen of the Aquatics’ in the British pond stems from victorian times, during a period when Queen Victoria herself was a just small princess.</p>
+                </a>
+            </div>
+        </div>
+
+         <div class="columnContent" id="6">
+           <div class="columnContentPadder">
+                  <a href="https://travels.toa.st/2017/05/11/the-huipil/">
+                    <img src="https://d117fiyhpld8f9.cloudfront.net/content-images/aw16/408/MakingOf_Khadi_3.jpg" class="img-responsive" />
+                    <h1>James Howes</h1>
+                    <p>Huipils are traditional garments worn by the indigenous Mayan women of the Guatemalan highlands.</p>
+                </a>
+            </div>
+           <div class="columnContentPadder">
+                <a href="https://travels.toa.st/2016/12/01/the-christmas-tree/">
+                        <img src="https://d117fiyhpld8f9.cloudfront.net/content-images/aw16/400/MakingOf_Khadi_1.jpg" class="img-responsive" />
+                        <h1>The Only Ones</h1>
+                        <p>It seems to have started in Livonia (now Latvia and Estonia) on the Baltic coast in the fifteenth century. </p>
+                </a>
+            </div>
+            <div class="columnContentPadder">
+                  <a href="https://travels.toa.st/2016/07/22/workspace-temple-cycles/">
+                    <img src="https://d117fiyhpld8f9.cloudfront.net/content-images/ss16/408/TOAST_Ikat_MakingOf_3.jpg" class="img-responsive" />
+                    <h1>A day in the life</h1>
+                    <p>Our workshop (which also doubles as a showroom) is in South West Bristol. It’s a modern building with a lot of sustainable features such as its grass roof, solar panels and louvre heat exchangers.</p>
+                </a>
+            </div>
+            <div class="columnContentPadder">
+                  <a href="https://travels.toa.st/2016/03/22/oas-by-toast/">
+                    <img src="https://travels.toa.st/wp-content/uploads/2016/03/OAS_by@styleNylo_2-300x211.jpg" class="img-responsive" />
+                    <h1>Julia Rebaudo</h1>
+                    <p>My favourite piece from the new OAS collection has to be the cotton twill olive shirt. So soft to touch, but boldly holding its own shape, its durability is plain to see – this is a shirt that will be with me for years to come, I can see it earning its place in my wardrobe no problem.</p>
+                </a>
+            </div>
+            <div class="columnContentPadder">
+                  <a href="https://travels.toa.st/2015/11/13/herb-succulent-wreath-tutorial-grace-thorn/">
+                    <img src="https://d117fiyhpld8f9.cloudfront.net/content-images/ss16/468/TOAST_Ikat_MakingOf_4.jpg" class="img-responsive" />
+                    <h1>Levelling</h1>
+                    <p>Grace &amp; Thorn are florist and plant purveyors based in Hackney and Soho. Founded by Nik Southern in 2011, the business was born from her desire to create florals that defied all traditions and rules.</p>
+                </a>
+            </div>
+        </div>
+
+         <div class="columnContent" id="7">
+            <div class="columnContentPadder">
+                <a href="https://travels.toa.st/2017/06/30/mirror-shoulder-signal/">
+                    <img src="https://d117fiyhpld8f9.cloudfront.net/product/ffhac/d1/350/kiara-espadrille.jpg" class="img-responsive" />
+                    <h1>A brief history of block printing</h1>
+                    <p>The soft thud of a wooden block hitting the print table is the rhythmic backdrop to the centuries-old craft of block printing. </p>
+                </a>
+            </div>
+            <div class="columnContentPadder">
+                <a href="https://travels.toa.st/2017/06/21/walking-through-midsummer/">
+                    <img src="https://d117fiyhpld8f9.cloudfront.net/content-images/aw16/400/TOAST_MakingOfCheaney_4.jpg" class="img-responsive" />
+                    <h1>Walking through midsummer</h1>
+                    <p>Our long walk across the Lake District, marking the long days of midsummer, took us not between summits, but between seven trees.</p>
+                </a>
+            </div>
+            <div class="columnContentPadder">
+                <a href="https://travels.toa.st/2017/06/20/lady-macbeth-film/">
+                    <img src="https://d117fiyhpld8f9.cloudfront.net/content-images/aw16/400/TOAST_MakingOfCheaney_2.jpg" class="img-responsive" />
+                    <h1>Lady Macbeth Film</h1>
+                    <p>As this spare and striking drama opens, the camera slowly pans around the veiled face of an anxious young bride, who’s glancing around the room in palpable unease as she struggles to sing in tune.</p>
+                </a>
+            </div>
+            <div class="columnContentPadder">
+                <a href="https://travels.toa.st/2017/06/21/walking-through-midsummer/">
+                    <img src="https://d117fiyhpld8f9.cloudfront.net/content-images/aw16/400/TOAST_MakingOfCheaney_3.jpg" class="img-responsive" />
+                    <h1>Pink &amp; Peppery</h1>
+                    <p>Like many children, I grew radishes in a tiny plot at the far end of our family garden.</p>
+                </a>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    $( document ).ready(function() {
+        initiateAll()
+    })
+
+    function initiateAll()
+    {
+
+        if ($( window ).width() < 1025) {
+
+            if  ($( window ).width() > 767) {
+
+                prepareColumns(3, 8)
+
+            } else {
+
+                prepareColumns(1, 8)
+
+                $(".carouselArrowRight").fadeOut()
+                $(".carouselArrowLeft").fadeOut()
+            }
+
+            $(".colRestrainArea").css({position: "relative"})
+            $("#postsHolder").doubleDragOnXY()
+            $("#postsHolder").animate({left: carouselStopArray[carouselStopPosition]}, 500)
+            addVerticalArrows()
+            addTitles() 
+
+        } else {
+
+            prepareColumns(4, 8)
+
+            $(".columnContent").css({"overflow-y": "scroll"}) 
+            $(".colRestrainArea").css({position: "absolute"})
+            $(".colRestrainArea").width(restrainBoxWidth)
+            $(".colRestrainArea").css("left", -restrainBoxLeftGap)
+            $("#postsHolder").draggable({  axis: "x", scroll: false, containment: ".colRestrainArea",  drag: function(event, ui) {
+
+
+             console.log($("#postsHolder").offset().left )
+             if ($("#postsHolder").offset().left > 0) {
+                $(".columnContent#7").hide()
+                $(".contentArrows#arrow7").hide()
+                $(".titleBlocks#title7").hide()
+             } else {
+                $(".columnContent#7").show()
+                $(".contentArrows#arrow7").show()
+                $(".titleBlocks#title7").show()
+             }
+
+             
+
+            }, stop: function(){
+                 if ($("#postsHolder").offset().left > 0) {
+                $(".columnContent#7").hide()
+                $(".contentArrows#arrow7").hide()
+                $(".titleBlocks#title7").hide()
+             } else {
+                $(".columnContent#7").show()
+                $(".contentArrows#arrow7").show()
+                $(".titleBlocks#title7").show()
+             }
+            }
+
+
+        })
+
+
+            $("#postsHolder").animate({left: carouselStopArray[2]}, 500)
+            addVerticalArrows()
+            addTitles() 
+
+        }
+    }
+
+
+
+    function addVerticalArrows(){
+
+        $("#postsHolder").prepend("<div class='contentArrowHolder'></div>")
+        for (i = 0; i < totalColums; i++) { 
+            $(".contentArrowHolder").append("<div class='contentArrows' id='arrow"+i+"''><a class='contentArrowUp' href='javascript:moveVertical(1,"+i+")'></a><a class='contentArrowDown' href='javascript:moveVertical(0,"+i+")'></a></div>")
+        }
+
+        $(".contentArrows").width(innnerColumnsWidth)
+        $(".contentArrowHolder").css("top", $(window).height()-240)
+    }
+
+    function addTitles() {
+
+        $("#postsHolder").prepend("<div class='titleHolder'></div>")
+
+        titlesArray = ["Arts", "Books", "Food", "Land", "News", "Style", "Workspace", "Contributors"]
+         for (i = 0; i < totalColums; i++) { 
+            $(".titleHolder").append("<div class='titleBlocks' id='title"+i+"''><h2>"+titlesArray[i]+"</h2></div>")
+        }
+
+        $(".titleBlocks").width(innnerColumnsWidth)
+    }
+
+    function prepareColumns(showCols, totalCols){
+
+        carouselStopPosition = 0
+        totalColums = totalCols
+
+        innerHolderWidth = $(".holdingBody").width() * ( totalCols / (showCols + 0.5) )
+        innnerColumnsWidth = (innerHolderWidth ) / totalCols
+        restrainBoxLeftGap = (innnerColumnsWidth * totalCols) - $(".holdingBody").width()
+        restrainBoxWidth = (restrainBoxLeftGap * 2) + $(".holdingBody").width()
+        innerLastStop = (innerHolderWidth - (innnerColumnsWidth * (showCols + 0.5))) - restrainBoxLeftGap
+        centralStop = restrainBoxLeftGap / 2
+
+        carouselStopArray = [innerLastStop,  centralStop, restrainBoxLeftGap]
+        $(".colHolder").width(innerHolderWidth)
+        $(".columnContent").width(innnerColumnsWidth)
+        $(".postsTitles").width(innerHolderWidth)
+        $(".columnContentTitles").width(innnerColumnsWidth * totalCols)
+
+
+        $(".holdingBody").height($(window).height()-100)
+        $(".columnContent").height($(window).height()-260)
+        $(".carouselArrowRight").height($(window).height()-200)
+        $(".carouselArrowLeft").height($(window).height()-200)
+
+
+    }
+
+    $.fn.doubleDragOnXY = function(options) {
+        var defaultOptions = {
+            distance: 5,
+            duration: 300
+        }
+        options = $.extend(defaultOptions, options)
+        var parentStart = 0
+        var children = $(this).children()
+        var parent = $(this)
+        var container = $(this).parent()
+        var cWidth = $(children[0]).outerWidth()
+        var parentCss = { position: "relative", padding: "0", margin: "0", listStyle: "none", width: children.length * cWidth + 5 }
+        var childCss = { position: "relative" }
+
+        parent.css(parentCss)
+        children.each(function () {
+            var subs = $(this).children(), totalHeight = 0
+            $(this).css($.extend(childCss, { float: "left" }))
+            $.each(subs, function() {
+                totalHeight = totalHeight + $(this).outerHeight()
+            })
+            $(this).height(totalHeight)
+        })
+
+        children.draggable({
+            distance: options.distance,
+            start: function(event, ui) {
+                ui.helper.data("doubleDragOnXY.originalPosition", ui.position || { top: 0, left: 0 })
+                ui.helper.data("doubleDragOnXY.newDrag", true)
+            },
+            drag: function(event, ui) {
+
+                console.log("dragging")
+
+                var originalPosition = ui.helper.data("doubleDragOnXY.originalPosition")
+                var deltaX = Math.abs(originalPosition.left - ui.position.left)
+                var deltaY = Math.abs(originalPosition.top - ui.position.top)
+
+                var newDrag = options.dynamic || ui.helper.data("doubleDragOnXY.newDrag")
+                ui.helper.data("doubleDragOnXY.newDrag", false)
+
+                var xMax = newDrag ? Math.max(deltaX, deltaY) === deltaX : ui.helper.data("doubleDragOnXY.xMax")
+                ui.helper.data("doubleDragOnXY.xMax", xMax)
+
+                var newPosition = ui.position
+                if (xMax) {
+                    var newLeft = parentStart + newPosition.left
+                    parent.css({
+                        left: newLeft
+                    });
+                    newPosition.top = originalPosition.top
+                    newPosition.left = originalPosition.left
+                }
+                if (!xMax) {
+                    newPosition.left = originalPosition.left
+                }
+                return newPosition;
+            },
+            stop: function(event, ui) {
+
+                var parentLeft = parent.position().left,
+                maxLeft = (parent.width() - container.width()) * -1,
+                childTop = ui.position.top,
+                maxTop = ($(this).height() - container.innerHeight() + 200) * -1;
+                if (parentLeft > 0) {
+                    parentLeft = 0;
+                    parent.animate({ left: parentLeft }, options.duration)
+                }
+                if (parentLeft < maxLeft) {
+                    parentLeft = maxLeft;
+                    parent.animate({ left: maxLeft }, options.duration)
+                }
+                parentStart = parentLeft;
+                if (childTop > 0) {
+                    $(this).animate({ top: 0 }, options.duration)
+                }
+                if (childTop < maxTop) {
+                    $(this).animate({ top: maxTop }, options.duration)
+                }
+
+
+            }
+        });       
+    }
+
+    function arrrowFadeCheck(){
+        console.log("stopped: "+ carouselStopPosition)
+        if ($( window ).width() >  767) {
+            if (carouselStopPosition == 0) {
+                $(".carouselArrowRight").fadeIn()
+                $(".carouselArrowLeft").fadeOut()
+            }
+
+            if (carouselStopPosition == 1) {
+                $(".carouselArrowRight").fadeIn()
+                $(".carouselArrowLeft").fadeIn()
+            }
+
+            if (carouselStopPosition == 2) {
+                $(".carouselArrowRight").fadeOut()
+                $(".carouselArrowLeft").fadeIn()
+            }
+        } else {
+            $(".carouselArrowRight").fadeOut()
+            $(".carouselArrowLeft").fadeOut()
+        }
+    }
+
+    function moveVertical(direction, ID){
+
+        if ($( window ).width() < 1025) {
+            if (direction == 0){
+                $(".columnContent#"+ID).animate({top: $(".columnContent#"+ID).position().top + 100}, 200)
+            } else {
+                $(".columnContent#"+ID).animate({top: $(".columnContent#"+ID).position().top - 100}, 200)
+            }
+        } else {
+            if (direction == 0){
+                $(".columnContent#"+ID).animate({ scrollTop: $(".columnContent#"+ID).scrollTop()+200 }, 200)
+            } else {
+                $(".columnContent#"+ID).animate({ scrollTop: $(".columnContent#"+ID).scrollTop()-200 }, 200)
+            }
+        }
+
+    }
+
+    function moveHorizontal(direction){
+
+        if ($( window ).width() < 1025) {
+
+            if (direction ==0 ) {
+                if (carouselStopPosition < 2) {
+                    carouselStopPosition++
+                    $("#postsHolder").animate({left: -carouselStopArray[carouselStopPosition]}, 500)
+                    arrrowFadeCheck()
+                    $(".columnContent#7").show()
+                }
+            } else 
+            {
+                if (carouselStopPosition > 0) {
+                    carouselStopPosition--
+                    $("#postsHolder").animate({left: -carouselStopArray[carouselStopPosition]}, 500)
+                    arrrowFadeCheck()
+                }
+            }
+
+        } else {
+
+            if (direction == 0) {
+                carouselStopPosition = 2
+                $("#postsHolder").animate({left: carouselStopArray[0]}, 500)
+                arrrowFadeCheck()
+                $(".columnContent#7").show()
+            } else 
+            {
+                carouselStopPosition = 0
+                $("#postsHolder").animate({left: carouselStopArray[2]}, 500)
+                arrrowFadeCheck()
+            }
+        }
+    }
+</script>
+
+
+
+
