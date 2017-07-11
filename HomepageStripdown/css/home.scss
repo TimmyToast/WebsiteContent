@@ -14,18 +14,18 @@ $serifFont: "freight-text-pro", serif;
 .landscapeTile{display: block;width: 100%;padding-top: 58.46748%;margin-bottom: 10px;background-size: 100% 100%;position: relative}
 .portraitTile {width: 100%; display: block; width: 100%;padding-top: 128%;  margin-bottom: 20px; background-size: 100% 100%; position: relative}
 .tileTitle {position: absolute; top:77%; width: 100%; text-align: center; color: #ffffff}
-/*Category Headers*/
+/*Category Headers
 .landingBSIntro{text-align: center;margin: 30px 0}
 .landingBSIntro h1 {font-size: 26px;font-family: $serifFont; font-weight: 600}
 .landingBSIntro h2 { font-size: 18px; font-family: $serifFont;font-weight: 400; margin-top: 16px;letter-spacing: 1px}
 .landingBSIntro p {font-size: 18px;font-family: $serifFont;letter-spacing: 1px}
 .landingBS p {font-size: 16px; font-family: $serifFont; letter-spacing: 1px}
 .landingBSIntro p.newProductDescription{font-size: 16px; line-height: 24px}
-.landingBSIntro a.newProductLBLink{text-align: center;position: relative; top: 15px;font-size: 14px;letter-spacing: 1px;border-bottom: 1px solid #000000;padding-bottom: 5px;text-transform: uppercase}
-/* Range page */
+.landingBSIntro a.newProductLBLink{text-align: center;position: relative; top: 15px;font-size: 14px;letter-spacing: 1px;border-bottom: 1px solid #000000;padding-bottom: 5px;text-transform: uppercase}*/
+/* Range page 
 .products-in-range {text-align: center} 
 .products-in-range .range-product {float: none; display: inline-block}
-.t_Tooltip {display: none}
+.t_Tooltip {display: none}*/
 /*Homepage*/
 .tileTitleMid {color: white;position: absolute;top: 31%;width: 100%;text-align: center;font-size: 28px;line-height: 45px; letter-spacing: 2px; left:0}
 .hlTopTile {width: 100%; display: block; width: 100%; padding-top: 62.947%;  margin-bottom: 20px; background-size: 100% 100%; position: relative}
@@ -64,9 +64,9 @@ $serifFont: "freight-text-pro", serif;
 #review-section.expanded{padding-bottom: 10px}
 .underlineLink {border-bottom: 1px solid #000000;}
 .topNavSpacer {margin-bottom:20px; float:left;width:100%;}
-/*Third party catalogs checkbox and text*/		
+/*Third party catalogs checkbox and text		
 label[for="chkReceiveThirdPartyCatalogs"]{display:none}		
-input#ctl00_globalMainContent_chkReceiveThirdPartyCatalogs{display:none}
+input#ctl00_globalMainContent_chkReceiveThirdPartyCatalogs{display:none}*/
 /* Footer style */
 .footerMessage {padding-top: 10px;float: left;width: 100%; text-align: center}
 .footerColHolder { padding-top: 20px}
