@@ -385,9 +385,9 @@
             $(".colRestrainArea").css({position: "absolute"})
             //$(".colRestrainArea").width(restrainBoxWidth)
             //$(".colRestrainArea").css("left", -restrainBoxLeftGap)
-            $(".colRestrainArea").width(3476)
-            $("#postsHolder").width(2376)
-            $(".colRestrainArea").css("left", -1176 + sideGaps)
+            $(".colRestrainArea").width(3300)
+            $("#postsHolder").width(2200)
+            $(".colRestrainArea").css("left", -1100 + sideGaps)
             $("#postsHolder").draggable({  axis: "x", scroll: false, containment: ".colRestrainArea",  drag: function(event, ui) {
 
 
@@ -439,7 +439,7 @@
         if ($( window ).width() < 1025) {
             $(".contentArrows").width(innnerColumnsWidth)
         } else {
-            $(".contentArrows").width(297)
+            $(".contentArrows").width(275)
         }
 
         $(".contentArrowHolder").css("top", $(window).height()-240)
@@ -460,7 +460,7 @@
         if ($( window ).width() < 1025) {
             $(".titleBlocks").width(innnerColumnsWidth)
         } else {
-            $(".titleBlocks").width(297)
+            $(".titleBlocks").width(275)
         }
     }
 
@@ -482,10 +482,10 @@
             $(".columnContentTitles").width(innnerColumnsWidth * totalCols)
             carouselStopArray = [innerLastStop,  centralStop, restrainBoxLeftGap]
         } else {
-            $(".columnContent").width(297)
-            $(".postsTitles").width(297)
+            $(".columnContent").width(275)
+            $(".postsTitles").width(275)
             $(".columnContentTitles").width(240)
-            carouselStopArray = [1176 ,  centralStop, 0]
+            carouselStopArray = [1100 ,  centralStop, 0]
             $(".columnContentPadder").css({width: "257px"})
             $(".columnContentPadder").css({margin: "12px 0px 23px 0"})
         }
