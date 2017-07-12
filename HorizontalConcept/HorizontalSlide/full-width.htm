@@ -27,6 +27,7 @@
         .titleHolder {position: absolute; width: 100%; top:-20px; z-index: 100; background-color: #ffffff}
         .titleBlocks {float: left; height: 30px; }
         .titleBlocks h2 {font-family: font-family:"freight-sans-pro",sans-serif;font-weight:500; font-size:14px;}
+        .titleBorder {width:235px; border-bottom: 1px solid #000000}
         .contentArrows {float: left; height: 30px}
         .contentArrowDown {width: 100%; float: left; background: url(http://toasttest.co.uk.s16804.gridserver.com/down.png) rgba(255, 255, 255, .5) no-repeat; background-position: center; background-size: 22px 12px; z-index: 100; height: 30px}
       
@@ -385,7 +386,7 @@
             $(".colRestrainArea").css({position: "absolute"})
             //$(".colRestrainArea").width(restrainBoxWidth)
             //$(".colRestrainArea").css("left", -restrainBoxLeftGap)
-            $(".colRestrainArea").width(3300)
+            $(".colRestrainArea").width(3320)
             $("#postsHolder").width(2200)
             $(".colRestrainArea").css("left", -1100 + sideGaps)
             $("#postsHolder").draggable({  axis: "x", scroll: false, containment: ".colRestrainArea",  drag: function(event, ui) {
@@ -454,7 +455,7 @@
 
         titlesArray = ["Arts", "Books", "Food", "Land", "News", "Style", "Workspace", "Contributors"]
          for (i = 0; i < totalColums; i++) { 
-            $(".titleHolder").append("<div class='titleBlocks' id='title"+i+"''><h2>"+titlesArray[i]+"</h2></div>")
+            $(".titleHolder").append("<div class='titleBlocks' id='title"+i+"''><div class='titleBorder'><h2>"+titlesArray[i]+"</h2></dic></div>")
         }
         //$("#title7").fadeOut()
         if ($( window ).width() < 1025) {
@@ -485,8 +486,8 @@
             $(".columnContent").width(275)
             $(".postsTitles").width(275)
             $(".columnContentTitles").width(240)
-            carouselStopArray = [1100 ,  centralStop, 0]
-            $(".columnContentPadder").css({width: "257px"})
+            carouselStopArray = [1100 ,  centralStop, 20]
+            $(".columnContentPadder").css({width: "235px"})
             $(".columnContentPadder").css({margin: "12px 0px 23px 0"})
         }
 
