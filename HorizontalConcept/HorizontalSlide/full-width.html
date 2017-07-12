@@ -6,33 +6,34 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
    <style>
-        .fakeNav {width: 1190px; background-color: #454545; margin: 0 auto; height: 40px; display: block}
         .holdingBody {  width: 100%; margin: 0 auto;  overflow: hidden; position: relative; height: 600px}
 
         .columnContent {float: left; }
         .columnContent::-webkit-scrollbar { width: 0px; background: transparent;}
-        .columnContentPadder {width: 95%; margin: 2.5%;  height: auto  }
+        .columnContentPadder {width: 80%; margin: 12px 10% 23px 10% ;  height: auto  }
+        .columnContentPadder h1 {font-family: font-family:"freight-sans-pro",sans-serif;font-weight:500; font-size:14px;}
+        .columnContentPadder p {font-family:"freight-sans-pro",sans-serif;font-weight:300; font-size: 13px}
+        .columnContentPadder a {text-decoration: none; color: #000000}
+
         .colRestrainArea {}
         .img-responsive {width: 100%; height: auto}
         .postTitleHolder {float: left}
         .postsTitles {position: absolute; left:0;}
-        #postsHolder {top:30px;position: absolute; left: 0}
-        h1, h2{font-size: 18px}
-         h1 {margin:10px 0}
-        p {font-size:14px}
+        #postsHolder {top:30px;position: absolute; left: 0; display: block}
 
-        .carouselArrowRight {position: absolute;right:0; z-index: 100; background: url(http://toasttest.co.uk.s16804.gridserver.com/right.png) rgba(255, 255, 255, .5) no-repeat; width: 50px; background-position: center left; background-size: 25px 45px }
+
+        .carouselArrowRight {position: absolute;right:0; z-index: 100; background: url(http://toasttest.co.uk.s16804.gridserver.com/right.png) rgba(255, 255, 255, .5) no-repeat; width: 50px; background-position: center; background-size: 25px 45px }
 
         .carouselArrowLeft {position: absolute;left:0; z-index: 100; background: url(http://toasttest.co.uk.s16804.gridserver.com/left.png) rgba(255, 255, 255, .5) no-repeat; width: 50px; background-position: center; background-size: 25px 45px; display: none }
 
         .contentArrowHolder {position: absolute; width: 100%;  top:100px; z-index: 100}
         .titleHolder {position: absolute; width: 100%; top:-20px; z-index: 100; background-color: #ffffff}
-        .titleBlocks {float: left; height: 30px}
+        .titleBlocks {float: left; height: 30px; }
+        .titleBlocks h2 {font-family: font-family:"freight-sans-pro",sans-serif;font-weight:500; font-size:14px;}
         .contentArrows {float: left; height: 30px}
         .contentArrowDown {width: 100%; float: left; background: url(http://toasttest.co.uk.s16804.gridserver.com/down.png) rgba(255, 255, 255, .5) no-repeat; background-position: center; background-size: 22px 12px; z-index: 100; height: 30px}
       
     </style>
-    <div class="fakeNav"></div>
 <div class="holdingBody">
 
     <a href="javascript:moveHorizontal(0)" class="carouselArrowRight"></a>
@@ -384,33 +385,36 @@
 
             $(".columnContent").css({"overflow-y": "scroll"}) 
             $(".colRestrainArea").css({position: "absolute"})
-            $(".colRestrainArea").width(restrainBoxWidth)
-            $(".colRestrainArea").css("left", -restrainBoxLeftGap)
+            //$(".colRestrainArea").width(restrainBoxWidth)
+            //$(".colRestrainArea").css("left", -restrainBoxLeftGap)
+            $(".colRestrainArea").width(3552)
+            $("#postsHolder").width(2376)
+            $(".colRestrainArea").css("left", -1176 + sideGaps)
             $("#postsHolder").draggable({  axis: "x", scroll: false, containment: ".colRestrainArea",  drag: function(event, ui) {
 
 
           
              if ($("#postsHolder").offset().left > 0) {
-                $(".columnContent#7").hide()
-                $(".contentArrows#arrow7").hide()
-                $(".titleBlocks#title7").hide()
+                // $(".columnContent#7").hide()
+                // $(".contentArrows#arrow7").hide()
+                // $(".titleBlocks#title7").hide()
              } else {
-                $(".columnContent#7").show()
-                $(".contentArrows#arrow7").show()
-                $(".titleBlocks#title7").show()
+                // $(".columnContent#7").show()
+                // $(".contentArrows#arrow7").show()
+                // $(".titleBlocks#title7").show()
              }
 
              
 
             }, stop: function(){
                  if ($("#postsHolder").offset().left > 0) {
-                $(".columnContent#7").hide()
-                $(".contentArrows#arrow7").hide()
-                $(".titleBlocks#title7").hide()
+                // $(".columnContent#7").hide()
+                // $(".contentArrows#arrow7").hide()
+                // $(".titleBlocks#title7").hide()
              } else {
-                $(".columnContent#7").show()
-                $(".contentArrows#arrow7").show()
-                $(".titleBlocks#title7").show()
+                // $(".columnContent#7").show()
+                // $(".contentArrows#arrow7").show()
+                // $(".titleBlocks#title7").show()
              }
             }
 
@@ -418,7 +422,7 @@
         })
 
 
-            $("#postsHolder").animate({left: carouselStopArray[2]}, 500)
+            $("#postsHolder").animate({left: carouselStopArray[0]}, 500)
             addVerticalArrows()
             addTitles() 
 
@@ -434,7 +438,12 @@
             $(".contentArrowHolder").append("<div class='contentArrows' id='arrow"+i+"''><a class='contentArrowDown' href='javascript:moveVertical(0,"+i+")'></a></div>")
         }
 
-        $(".contentArrows").width(innnerColumnsWidth)
+        if ($( window ).width() < 1025) {
+            $(".contentArrows").width(innnerColumnsWidth)
+        } else {
+            $(".contentArrows").width(297)
+        }
+
         $(".contentArrowHolder").css("top", $(window).height()-240)
        // $(".columnContent#7").fadeOut()
         //$("#arrow7").fadeOut()
@@ -449,7 +458,7 @@
          for (i = 0; i < totalColums; i++) { 
             $(".titleHolder").append("<div class='titleBlocks' id='title"+i+"''><h2>"+titlesArray[i]+"</h2></div>")
         }
-        $("#title7").fadeOut()
+        //$("#title7").fadeOut()
         if ($( window ).width() < 1025) {
             $(".titleBlocks").width(innnerColumnsWidth)
         } else {
@@ -478,7 +487,9 @@
             $(".columnContent").width(297)
             $(".postsTitles").width(297)
             $(".columnContentTitles").width(240)
-            carouselStopArray = [innerLastStop - sideGaps + 20 ,  centralStop, restrainBoxLeftGap + sideGaps]
+            carouselStopArray = [1176 ,  centralStop, 0]
+            $(".columnContentPadder").css({width: "257px"})
+            $(".columnContentPadder").css({margin: "12px 0px 23px 0"})
         }
 
        
@@ -578,8 +589,9 @@
     }
 
     function arrrowFadeCheck(){
+
       
-        if ($( window ).width() >  767) {
+        if ($( window ).width() <  1025) {
             if (carouselStopPosition == 0) {
                 $(".carouselArrowRight").fadeIn()
                 $(".carouselArrowLeft").fadeOut()
@@ -594,6 +606,22 @@
                 $(".carouselArrowRight").fadeOut()
                 $(".carouselArrowLeft").fadeIn()
             }
+        } else if ($( window ).width() >  1024) {
+            if (carouselStopPosition == 2) {
+                $(".carouselArrowRight").fadeIn()
+                $(".carouselArrowLeft").fadeOut()
+            }
+
+            if (carouselStopPosition == 1) {
+                $(".carouselArrowRight").fadeIn()
+                $(".carouselArrowLeft").fadeIn()
+            }
+
+            if (carouselStopPosition == 0) {
+                $(".carouselArrowRight").fadeOut()
+                $(".carouselArrowLeft").fadeIn()
+            }
+
         } else {
             $(".carouselArrowRight").fadeOut()
             $(".carouselArrowLeft").fadeOut()
@@ -627,7 +655,7 @@
                     carouselStopPosition++
                     $("#postsHolder").animate({left: -carouselStopArray[carouselStopPosition]}, 500)
                     arrrowFadeCheck()
-                    $(".columnContent#7").show()
+                    //$(".columnContent#7").show()
                 }
             } else 
             {
@@ -641,18 +669,18 @@
         } else {
 
             if (direction == 0) {
-                carouselStopPosition = 2
-                $("#postsHolder").animate({left: carouselStopArray[0]}, 500)
-                arrrowFadeCheck()
-                $(".columnContent#7").fadeIn()
-                $("#arrow7").fadeIn()
-            } else 
-            {
                 carouselStopPosition = 0
                 $("#postsHolder").animate({left: carouselStopArray[2]}, 500)
                 arrrowFadeCheck()
-                $(".columnContent#7").fadeOut()
-                $("#arrow7").fadeOut()
+                // $(".columnContent#7").fadeIn()
+                // $("#arrow7").fadeIn()
+            } else 
+            {
+                carouselStopPosition = 2
+                $("#postsHolder").animate({left: carouselStopArray[0]}, 500)
+                arrrowFadeCheck()
+                // $(".columnContent#7").fadeOut()
+                // $("#arrow7").fadeOut()
             }
         }
     }
