@@ -1,0 +1,624 @@
+<style>
+    /*include of YT.htm*/
+    
+    #ytLightbox {position: relative; height: 0; padding-bottom: 56.25%; margin: 0 auto}
+    #ytLightboxbg{position:absolute;top:0;left:20%;max-width:850px}
+    #ytLightbox #player{margin:0 auto;position:absolute;top:0;left:0;background-color:rgba(255, 255, 255, 0.8);height:100%;width:100%}
+    #playerHolder{background-color:red}
+    .YThiddenContent{display:none}
+    .lbYTplayer{background-color:rgba(255, 255, 255, 0.8);position:absolute;top:0;left:0;float:left;width:100%;z-index:9990;display:none}
+    .closage{z-index:99999;position:absolute;right:13%;top:1%;font-size:45px;color:white}
+    .closage img{height:20px;width:20px}
+    .vidImgs img{max-width:100%}
+    #ytLightboxbg h3{font-size:18px;margin-top:10px}
+    #ytLightboxbg p{font-size:15px}
+    .commentLightbox{background-color:rgba(255, 255, 255, 0.8);position:absolute;left:0;top:100px;text-align:center;display:none}
+    .commentLightbox iframe{width:100%;height:500px}
+    .commentLightboxInner{position:relative;margin:0 auto;border:1px solid black;background-color:white;max-width:850px}
+    .closeLb {position:absolute;top:20px;right:40px}
+    .closeLb img{height:15px;width:15px}
+    .closeLBYT {position:absolute;top:20px;right:20px;z-index:9}
+    .closeLBYT img{height:15px;width:15px}
+    .enrich {margin-bottom: 40px}
+    .enrich .unnestedComment > .nestedComment{padding-left:15px}
+    .enrich .timePosted{display:inline-block;font-size:10px;position:relative;padding-left:20px}
+    .enrich blockquote{display:block;background:#fff;padding:6px 12px 0 35px;margin:0 0 50px 0;position:relative;font-family:Georgia, serif;font-size:16px;line-height:1.2}
+    .enrich blockquote::before{content:"\201C";font-size:29px;font-weight:bold;position:absolute;left:10px;top:5px}
+    .enrich .enrichHead h1{letter-spacing:1px}
+    .enrich .enrichHead p{font-size:15px; letter-spacing:0}
+    .enrich .enrichTopCol h2{font-size:15px;font-weight:600;letter-spacing:0}
+    .magazineHeader h2{font-size:15px;font-weight:600;letter-spacing:0; margin-bottom:5px}
+    .enrich .enrichTopCol p{font-size:15px;letter-spacing:0; margin:5px 0 25px 0}
+    .enrich .vid1desc, .enrich .vid2desc , .enrich .vid3desc  {margin-top: 2px}
+    .enrich .enrichSnippet{font-size:28px;font-weight:500;letter-spacing:1px; margin-top: 45px}
+    .enrich .enrichSnippet a{display:inline;font-size:15px;letter-spacing:0;font-weight:500;border-bottom:1px solid black}
+    .enrich .enrichedCommentsInner {overflow-y:scroll;max-height:480px}
+    .enrich .enrichedCommentsInner h2{text-decoration:underline;display:inline-block;font-size:15px;letter-spacing:0;text-align:center;width:100%}
+    .enrich .enrichedCommentsInner p {font-size: 14px; letter-spacing:0}
+    .enrich .enrichName, .enrich .nestedName{font-weight:500}
+    .enrich .enrichedButtons{position:absolute;bottom:-30px;max-height:50px;width:100%}
+    .enrich .commentHere {text-align:left;font-size:14px;text-decoration:underline; margin-bottom: 20px}
+    .enrich .commentReply,.commentLike,.commentShare{display:inline-block;margin-right:10px;font-size:14px}
+    .enrich .enrichedCommentsArrowDown{background:url(//d1kh76s6bjh8ww.cloudfront.net/site/ui.down-and-toTop-arrow.png) left -76px no-repeat;position:relative;bottom:-30px;height:28px;width:50%;background-position:50% bottom;float:left}
+    .enrich .enrichedCommentsArrowUp{background:url(//d1kh76s6bjh8ww.cloudfront.net/site/ui.down-and-toTop-arrow.png) left top no-repeat;position:relative;bottom:-30px;height:28px;width:50%;background-position:50% 3px;float:left}
+    .enrich .eRow{margin:0;clear:both}
+    .enrich .unnestedComment a{padding:10px}
+    .enrich .nestedComment{padding-left:15px}
+    .enrich .checkBoxText{font-size:32px}
+    .enrich .nestedComment{display:none}
+    .enrich .imageLeftPush {margin-left:26px}
+    .enrich .enrichHashtag {font-size:15px}
+   
+    .enrich .stories{margin-top:50px}
+    
+    #instagramSlider h3 {font-size:15px}
+
+    .enrich .replyBox{border:0;border-bottom:1px solid black;display:none}
+    .enrich .landingBS p {letter-spacing: 0}
+    .enrich .enrichedCommentsInner p{font-family:"freight-sans-pro",sans-serif;font-weight:300; font-size:14px;}
+    .storyBox {font-size:15px}
+     #instagramSlider header {background-color:#ffffff; font-size:15px}
+
+    
+
+      @media screen and (max-width: 1023px){
+        .conversation {margin-top:  10px;}
+      }
+
+
+  @media screen and (max-width: 768px){
+    .magazineHeader {margin-left: 10px}
+      .theSqueeze{padding-left: 15px;padding-right: 15px;}
+      .theSmallSqueeze{padding-left: 10px;padding-right: 10px;}
+      #ytLightboxbg{max-width: 710px}
+      
+      
+  }
+  @media screen and (max-width: 768px){
+    .vidImgs {margin-top: 20px}
+     .conversation {margin: 10px}
+  }
+</style>
+
+    <div class="landingBS  enrich">
+       <div class="row">
+            <div class="col-xs-10 col-xs-push-1 col-sm-6 col-sm-push-3 landingBSIntro enrichHead">
+                <h1 class="sansSemi">Enrichment of Other</h1>
+                <p>As part of our campaign this season we are celebrating the ways in which books have enriched our lives. Join in the conversation below or visit a TOAST shop to share a book end take one in return...</p>
+            </div>
+    </div>
+
+
+        <div class="YThiddenContent">
+
+            <div id="ytLightboxbg">
+<div class="closeLBYT">
+                   <img src="//d117fiyhpld8f9.cloudfront.net/content-images/aw17/1200/X-White.png" />
+              </div>
+                <div id="ytLightbox">
+
+                    <div id="player"></div>
+                </div>
+            </div>
+        </div>
+
+
+     
+            <div class="col-sm-6 col-md-4 enrichTopCol">
+                <h2 class="textSemibold theSqueeze">Share a book</h2>
+                <p class="theSqueeze">In each of our twelve shops is a shelf filled with books from customers and staff. Inside the books are hard written notes, explaining how the book has enriched the sharer. Visit a shop to share your own book and take one in return</p>
+                <span class="textSemibold theSqueeze enrichHashtag">#TOASTBOOKCLUB</span>
+
+                <div class="spacer">
+                    <blockquote class="enrichSnippet textSemibold">
+                        This book totally changed the way I thought. I'd never imagined...” <!--<a href="https://travels.toa.st/2017/06/30/mirror-shoulder-signal/" title="TOAST Magazine">Read on</a>-->
+                    </blockquote>
+                    <div class="col-sm-10 enrichTopCol imageLeftPush">
+                        <img src="https://d117fiyhpld8f9.cloudfront.net/content-images/ss17/1400/enrichment.jpg" class="img-responsive" alt="Making of Cheaney">
+                    </div>
+                </div>
+            </div>
+  
+
+        <div class="col-sm-6 col-md-4 enrichTopCol">
+            <div class="col-sm-10 col-sm-push-2  col-xs-12 col-xs-push-0 vidImgs">
+                <h2 class="textSemibold">Listen to others</h2>
+                <p>We spoke to a variety of authors and interesting people about books they've been enriched by</p>
+
+                <img src="//d117fiyhpld8f9.cloudfront.net/content-images/aw17/1200/EnrichmentofOther_Webpage_Vid_1b.jpg" class="topPpImage lbBtn img-responsive" data-video-index="0" alt="Making of Cheaney">
+                <p class="vid1desc">Quarry Jewellery</p>
+                <img src="//d117fiyhpld8f9.cloudfront.net/content-images/aw17/1200/EnrichmentofOther_Webpage_Vid_2b.jpg" class="img-responsive lbBtn" data-video-index="1" alt="Making of Cheaney">
+                <p class="vid2desc">Right Place, Right Plant</p>
+                <img src="//d117fiyhpld8f9.cloudfront.net/content-images/aw17/1200/EnrichmentofOther_Webpage_Vid_3b.jpg" class="img-responsive lbBtn" data-video-index="2" alt="Making of Cheaney">
+                <p class="vid3desc">Mirror, Shoulder, Signal | Book Club</p>
+            </div>
+        </div>
+
+
+        <div class="col-sm-12 col-md-4 enrichTopCol conversation">
+      
+                <h2 class="textSemibold">Join the conversation</h2>
+                <p>Tell us about a book that has enriched you. It could be a novel, travel journal, cookery book or poem, something you read when you were younger or a book a friend has just passed on. All who comment will be entered into our prize draw to win £500 of TOAST product and a year's subscriptions to Persephone Books.
+            <h2 class="commentHere sansSemi">COMMENT HERE</h2>
+    
+       
+
+            <div class="enrichedCommentsInner">
+                <div class="enrichedComments">
+                </div>
+             </div>
+            <!--<div class="enrichedButtons">
+                            <div class="enrichedCommentsArrowDown"></div>
+              <div class="enrichedCommentsArrowUp"></div>
+                </div>-->
+        </div>
+
+
+
+
+    </div>
+                  <div class="col-xs-12 magazineHeader padding-top-30">
+ <h2 class="textSemibold">TOAST Magazine</h2>
+                    </div>
+    <div class="eRow stories theSmallSqueeze">
+    </div>
+    <div class="eRow">
+        <div class="instagramFeed"></div>
+    </div>
+
+    <div class="hiddenContent">
+        <div class="emailBox">
+            <div class="elb_emailWhiteBox">
+                <div class="elb_submitClose">
+                    <a href="javascript:closeemailBox()"><img src="//d117fiyhpld8f9.cloudfront.net/content-images/aw17/1200/X-Black.png" alt="Close" width="32px" />
+                    </a>
+                </div>
+                <div class="elb_emailBoxText">
+                    <h2 class="sansBook">Welcome to our</h2>
+                    <h3 class="sansMedium">SUMMER PRE SALE</h3>
+                    <p class="textBook">Join our newsletter to hear about our Summer Sale <span class="hidden-xs"><br></span>and to keep abreast of other TOAST news.</p>
+                </div>
+                <div class="emailSender">
+                    <input type="text" id="signupEmail" name="signupEmail" onfocus="if(this.value == 'Email Address') { this.value = ''; }" value="Email Address">
+                    <a href="javascript:submitEmail()">
+                        <input type="submit" value="Submit">
+                    </a>
+                    <div class="submitErrors"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+<div id="instagramSlider" class="padding-top-30 col-xs-12">
+
+ 
+        <h3 class="textBook theSmallSqueeze">Instagram #TOASTBOOKCLUB</h3>
+ 
+    <div id="instagramBody">
+        <div id="instagramInner" class="fadeIn">
+
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="commentLightbox">
+    <div class="commentLightboxInner">
+        <div class="closeLb">
+            <img src="//d117fiyhpld8f9.cloudfront.net/content-images/aw17/1200/X-Black.png" width="32px" />
+        </div>
+    </div>
+</div>
+
+
+<div id="aplayer"></div>
+
+</div>
+<div class="YThiddenContent"></div>
+</div>
+
+<script>
+function getComments() {
+    $.getJSON("https://travels.toa.st/siteForms/EnrichmentOfOther/CommentsJSON/", function(data) {
+
+        $.each(data, function(index, value) {
+            if (value[3] == "") {
+                $('.enrichedComments').prepend('<div class="cmntHolder cmntNo' + value[0] + '" data-id=' + value[0] + '><p class="unnestedComment">' + '<span class="enrichName sansBook">' + value[1] + '</span><span class="timePosted sansBook">' + value[4] + '</span><br>' + value[2] + '<br /><a href="#" class="sansBook reply">reply</a></div>');
+            } else {
+                $('.cmntNo' + value[3]).append('<p class="nestedComment">' + '<span class="nestedName sansBook">' + value[1] + '</span><span class="timePosted">' + value[4] + '</span><br>' + value[2] + '</p>');
+            }
+        })
+        replyToBind();
+        getReplyCount();
+        showReplies();
+    })
+
+}
+
+function getBlogposts() {
+    $.getJSON("https://travels.toa.st/three-posts/", function(data) {
+
+        $.each(data, function(index, value) {
+            if (index < 3) {
+                $('.stories').append('<a href="' + value.url + '" title="' + value.title + '"><div class="col-xs-12 col-sm-4 storyBox"><img src="' + value.thumbnail + '"alt="' + value.title + '" class="img-responsive" />' + '<p class="story textBook"><span class="storyCat">' + value.category[0].cat_name + ' | </span><span class="storyDesc">' + value.title + '</span></p></div></a>');
+            }
+        })
+    })
+}
+
+function getReplyCount() {
+    for (var k = 0; k < $('.cmntHolder').length; k++) {
+        if ($('.cmntHolder')[k].children.length > 1) {
+
+            $($('.cmntHolder .unnestedComment')[k]).append('<a href="#" class="replies sansBook">' + ($('.cmntHolder')[k].children.length - 1) + ' Replies</a>');
+        }
+    };
+}
+
+$(document).ready(function() {
+    getComments();
+    getBlogposts();
+    instagramSlider();
+
+});
+
+
+$('.commentHere').click(function(e) {
+    e.preventDefault();
+
+    var cmntParent = $(this).parent().parent()[0];
+    var commentId = $(cmntParent).attr('data-id');
+    var windowWidth = $(document).width();
+    var windowHeight = $(document).height();
+    $('.commentLightbox').css('width', windowWidth);
+    $('.commentLightbox').css('height', windowHeight);
+    var cmntLightboxDisplay = $(window).scrollTop() + 120;
+    var cmntScrollPos = $(window).scrollTop() - 100;
+
+    if ($(window).width() < 768) {
+        $('.commentLightboxInner').css('width', '95%');
+        $('.commentLightboxInner').css('margin', '2.5%');
+        $('.commentLightbox iframe').css('width', '100%');
+        $(".commentLightbox").show();
+        $('.commentLightboxInner').css('margin-top', cmntScrollPos);
+        console.log(cmntScrollPos);
+        $(".commentLightboxInner").append("<iframe src='https://travels.toa.st/siteForms/EnrichmentOfOther/index.php'></iframe>");
+    } else {
+
+
+        wwidth = $(window).width();
+        fwidth = wwidth * 0.2;
+        finalWidth = wwidth - fwidth;
+        $('.commentLightboxInner').css('width', finalWidth);
+
+        $(".commentLightbox").fadeIn(200);
+        $('.commentLightboxInner').css('margin-top', cmntLightboxDisplay);
+        $(".commentLightboxInner").append("<iframe src='https://travels.toa.st/siteForms/EnrichmentOfOther/index.php'></iframe>");
+
+    }
+})
+
+function replyToBind() {
+    $('.reply').click(function(e) {
+        e.preventDefault();
+
+        var cmntParent = $(this).parent().parent()[0];
+        var commentId = $(cmntParent).attr('data-id');
+        var windowWidth = $(document).width();
+        var windowHeight = $(document).height();
+        $('.commentLightbox').css('width', windowWidth);
+        $('.commentLightbox').css('height', windowHeight);
+        var cmntLightboxDisplay = $(window).scrollTop() + 120;
+        var cmntScrollPos = $(window).scrollTop() - 100;
+
+
+        if ($(window).width() < 768) {
+            $('.commentLightboxInner').css('width', '100%');
+            $('.commentLightbox iframe').css('width', '100%');
+            $(".commentLightbox").show();
+            console.log('hi ' + cmntScrollPos);
+            $('.commentLightboxInner').css('margin-top', cmntScrollPos);
+            $(".commentLightboxInner").append("<iframe src='https://travels.toa.st/siteForms/EnrichmentOfOther/index.php?replyID=" + commentId + "'></iframe>");
+        } else {
+            wwidth = $(window).width();
+            fwidth = wwidth * 0.2;
+            finalWidth = wwidth - fwidth;
+            $('.commentLightboxInner').css('width', finalWidth);
+            $(".commentLightbox").fadeIn(200);
+            $('.commentLightboxInner').css('margin-top', cmntLightboxDisplay);
+            $(".commentLightboxInner").append("<iframe src='https://travels.toa.st/siteForms/EnrichmentOfOther/index.php?replyID=" + commentId + "'></iframe>");
+
+
+        }
+    })
+}
+
+
+function showReplies() {
+    $('.replies').click(function(e) {
+        e.preventDefault();
+        $(this).parent().parent().children().show();
+        $(this).hide();
+    })
+}
+
+
+/*Instagram include*/
+function instagramSlider() {
+
+    $.ajax({
+        type: "GET",
+        url: "https://api.instagram.com/v1/users/3351257/media/recent/?access_token=3351257.1677ed0.b27b02c841ca4128b3fcb97232c5f000",
+        dataType: "jsonp",
+        success: function(result) {
+
+
+            var d = result.data;
+            jQuery.each(d, function(i, val) {
+                var s = "<a href='" + val.link + "' target='_blank'><div class='instagram-img-holder'><img src='" + val.images.standard_resolution.url + "' class='instagram-img' data-comments='" + val.comments.count + "' data-likes='" + val.likes.count + "' data-recent='" + val.created_time + "'/><div class='instagram-rollover'>" + val.caption.text + "</div></div></a>";
+                $('#instagramInner').append($.parseHTML(s));
+            });
+
+        },
+        async: false
+    })
+
+    var slideIndex = 0;
+    var totalSlides = $(".instagram-img").length;
+    var totalPages = Math.ceil(totalSlides / 6);
+    var sliding = false;
+
+    $("#instagramSlider .slide-right, #instagramSlider .slide-left").click(function() {
+        if ($("#mediaChecker").css("content").match(/mobile/g)) {
+            totalPages = totalSlides;
+        } else {
+            totalPages = Math.ceil(totalSlides / 6);
+        }
+
+        if (sliding === false) {
+            sliding = true;
+
+            var slideDirection = "left";
+
+            if ($(this).hasClass("slide-right")) {
+                slideDirection = "right";
+                slideIndex++;
+                if (slideIndex > 3) {
+                    slideIndex = 0;
+                    $("#instagramInner").animate({
+                        marginLeft: "-" + parseInt((slideIndex) / 100) + "%"
+
+                    }, function() {
+
+                        sliding = false;
+                    });
+                }
+            } else {
+
+                slideIndex--;
+                if (slideIndex === -1) {
+                    slideIndex = 3;
+                    $("#instagramInner").animate({
+                        marginLeft: "-" + parseInt((slideIndex) * 100) + "%"
+
+                    }, function() {
+
+                        sliding = false;
+                    });
+                }
+            }
+
+            $("#instagramInner").animate({
+                marginLeft: "-" + parseInt((slideIndex) * 100) + "%"
+            }, function() {
+                sliding = false;
+            });
+        }
+    });
+
+    $(".instagram-filter").click(function() {
+        var filter = $(this).data("filter");
+        $(".instagram-filter.selected-filter").removeClass("selected-filter");
+        $(this).addClass("selected-filter");
+
+        var instagramArray = [];
+        $(".instagram-img").each(function(index) {
+            instagramArray[index] = {
+                "element": $(this),
+                "comments": $(this).data("comments"),
+                "likes": $(this).data("likes"),
+                "recent": $(this).data("recent")
+            };
+        });
+        0
+
+        instagramArray.sort(function(a, b) {
+            return parseFloat(b[filter]) - parseFloat(a[filter])
+        });
+
+        for (var i = 0; i < instagramArray.length; i++) {
+            $("#instagramInner").append($(instagramArray[i].element).parent().parent());
+        }
+
+        $("#instagramInner").removeClass("fadeIn");
+        setTimeout(function() {
+            $("#instagramInner").addClass("fadeIn");
+        }, 1);
+    });
+
+}
+
+
+
+
+$('.closeLb img').click(function() {
+
+
+    $('.commentLightbox').hide();
+    $('.commentLightbox iframe').remove();
+
+})
+
+
+vids = ['nuVVHxCJSQY', 'UQIwdQdaAOI', 'pufX9gHROvo'];
+vidDescs = ['<h3 class="textBook">Quarry Jewellery</h3><p class="textBook">Jewellery with a minimal, organic modernism...</p>', '<h3 class="textBook">Right Place, Right Plant</h3><p class="textBook">Matt Collins explores Croatia’s Hoary Plantains...</p>', '<h3 class="textBook">Mirror, Shoulder, Signal</h3><p class="textBook">A unique and painfully funny Danish novel...</p>'];
+vidToPlay = 0;
+// 2. This code loads the IFrame Player API code asynchronously.
+var tag = document.createElement('script');
+
+tag.src = "https://www.youtube.com/iframe_api";
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+
+
+// 3. This function creates an <iframe> (and YouTube player)
+//    after the API code downloads.
+var player;
+var tVideo = 'nuVVHxCJSQY';
+var tVideo2 = 'nuVVHxCJSQY';
+
+function onYouTubeIframeAPIReady() {
+
+    /*$(document).ready(function(){*/
+
+    function lightboxBoom() {
+        var docHeight = $(document).height();
+        $('body').prepend($('<div class="lbYTplayer"></div>'));
+        $('.lbYTplayer').height(docHeight);
+        $('.lbYTplayer').html($('.YThiddenContent').html());
+        $('#ytLightboxbg').append(vidDesc);
+        $('.lbYTplayer').fadeIn(200, function() {
+
+
+
+            /*Tom Custom Insert*/
+            if ($(document).width() < 768) {
+                var ytLightboxDisplay = $(window).scrollTop() + 120;
+                $('#ytLightboxbg').css('width', vidWidth);
+                $('#ytLightBox iframe').css('width', '100%');
+                $('#ytLightboxbg').css('left', vidOffsetL).css('top', vidOffsetTp);
+                $('.lbYTplayer').css('background-color', 'rgba(255,255,255,0.9)');
+            } else {
+                var ytLightboxDisplay = $(window).scrollTop() + 120;
+                $('#ytLightboxbg').css('width', '80%');
+                $('#ytLightBox iframe').css('width', '100%');
+                var wwwidth = $(window).width();
+                var ifrwidth = $('#ytLightboxbg').width();
+                var twidth = wwwidth - ifrwidth;
+                var tfirstwidth = twidth / 2;
+                $('#ytLightboxbg').css('left', tfirstwidth).css('top', ytLightboxDisplay);
+            }
+
+
+        });
+
+    }
+
+    $('.lbBtn').click(function(e) {
+        vidOffsetTp = $(this).offset().top;
+        vidOffsetL = $(this).offset().left;
+        vidWidth = $(this).width();
+        imageClicked = $(this).attr('data-video-index');
+        vidDesc = vidDescs[imageClicked];
+        vidClicked = parseInt(imageClicked);
+        vidToPlay = vids[vidClicked];
+        lightboxBoom();
+
+
+
+        /*End custom insert*/
+
+
+
+        $('.closeLBYT img').click(function() {
+            $('.lbYTplayer').fadeOut(200);
+            $('.lbYTplayer').remove();
+        })
+
+
+        player = new YT.Player('player', {
+            height: '390',
+            width: '640',
+            videoId: vidToPlay,
+            playerVars: {
+                'autoplay': 1,
+                'controls': 1,
+                'showinfo': 0,
+                'modestbranding': true,
+            },
+            events: {
+                'onReady': onPlayerReady,
+                'onStateChange': onPlayerStateChange
+            }
+        });
+
+        // 4. The API will call this function when the video player is ready.
+
+        function onPlayerReady(event, videoId) {
+            event.target.playVideo();
+            player2 = new YT.Player('player2', {
+                height: '390',
+                width: '640',
+                videoId: vidToPlay,
+                autoplay: 1,
+                events: {
+                    'onReady': onPlayerReady,
+                    'onStateChange': onPlayerStateChange
+                }
+
+            });
+
+        };
+
+
+        var done = false;
+
+        function onPlayerStateChange(event) {
+            if (event.data == YT.PlayerState.ENDED) {
+                player.stopVideo();
+                player.destroy();
+                $('.lbYTplayer').fadeOut(200);
+            }
+        }
+
+        function stopVideo() {
+            player.stopVideo();
+        }
+
+    })
+
+
+
+}
+
+function formCompleted() {
+    $('.commentLightbox').hide();
+    $('.commentLightbox iframe').remove();
+    getComments();
+}
+
+var eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
+var eventer = window[eventMethod];
+var messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message";
+
+eventer(messageEvent, function(e) {
+    var key = e.message ? "message" : "data";
+    var data = e[key];
+    if (data == "formComplete") {
+        formCompleted()
+    }
+}, false);
+
+</script>
+
+
+
+​

@@ -1,0 +1,353 @@
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://toast-staging.s3.amazonaws.com/js/min/ss17/jquery.ui.touch-punch.min.js"></script>
+
+
+<style>
+        .holdingBody {  width: 100%; margin: 20px auto 0 auto;  overflow: hidden; position: relative; height: 600px}
+        .columnContentPadder { min-height:350px  }
+
+        .bText  {margin:20px 0;}
+        .bText  h1 {font-family:"freight-sans-pro",sans-serif;font-weight:500; font-size:14px; margin: 5px 0 0 0}
+        .bText p {font-family:"freight-text-pro",serif;font-weight:400; font-size: 13px; margin: 0 0 0 0; line-height:16px}
+
+        .tText {margin:20px 0;}
+        .tText  h1 {font-family:"freight-sans-pro",sans-serif;font-weight:500; font-size:14px; margin: 0 0 0 0}
+        .tText p {font-family:"freight-text-pro",serif;font-weight:400; font-size: 13px; margin: 0 0 8px 0; line-height:16px}
+
+        .columnContentPadder a {text-decoration: none; color: #000000}
+
+        .colRestrainArea {}
+        .img-responsive {width: 100%; height: auto}
+        .postTitleHolder {float: left}
+        .postsTitles {position: absolute; left:0;}
+        #postsHolder {top:30px;position: absolute; left: 0; display: block}
+
+        .carouselArrowRight {position: absolute;right:0; z-index: 100; background: url(http://toasttest.co.uk.s16804.gridserver.com/right.png) rgba(255, 255, 255, .85) no-repeat; width: 50px; background-position: center; background-size: 25px 45px }
+        .carouselArrowLeft {position: absolute;left:0; z-index: 100; background: url(http://toasttest.co.uk.s16804.gridserver.com/left.png) rgba(255, 255, 255, .85) no-repeat; width: 50px; background-position: center; background-size: 25px 45px; display: none }
+
+        .contentArrowHolder {position: absolute; width: 100%;  top:100px; z-index: 100}
+        .titleHolder {width: 100%; z-index: 100; background-color: #ffffff; height: 30px; margin:10px; display: block}
+        .titleBlocks {float: left; height: 30px; width: 100% }
+        .titleBlocks h2 {font-family:"freight-sans-pro",sans-serif;font-weight:600; font-size:14px; text-transform:uppercase; letter-spacing:2px}
+        .titleBorder {width:100%; border-bottom: 1px solid #000000}
+        .contentArrows {float: left; height: 30px}
+        .contentArrowDown {width: 80%; float: left; background: url(http://toasttest.co.uk.s16804.gridserver.com/down.png) rgba(255, 255, 255, .5) no-repeat; background-position: center; background-size: 22px 12px; z-index: 100; height: 30px; opacity: 0.5}
+
+        .magazineLightbox {/*background-color:rgba(255,255,255,0.6);*/position:absolute;top:0;left:0;height:500px;width:100%;z-index:120;display: none}
+
+        .hiddenContent {display: none}
+        .magazinePopupContent {max-width:580px; margin: 0 auto; background-color: #ffffff; border:1px solid #000000; padding: 10px; text-align: center;  }
+        .magazineCloseButton {width: 100%; text-align: right}
+        .magazinePopupText {margin: 20px;}
+        .magazinePopupContent p {font-size: 16px; line-height: 23px; letter-spacing:0px}
+        .magazinePopupCTAtext {margin:50px 0 20px 0; letter-spacing:2px}
+        .magazinePopupField {width: 50%; margin-left: 25%}
+        .magazinePopupField input {width: 100%; border:none; border-bottom: 1px solid #000000; padding: 8px; text-align:center }
+        .magazineCTA {margin:10px; }
+        .magazineCTA a { color:#000000; font-size: 18px; border-bottom:1px solid #000000; text-transform: uppercase}
+      
+        @media (max-width: 1150px) {
+            .titleBorder {width:80%; margin: 0 10%; border-bottom: 1px solid #000000}
+        }
+     
+        @media (max-width: 767px) {
+           .magazinePopupField {width: 80%; margin-left: 10%}
+        }
+     
+</style>
+
+</div>
+<div class="magazineLightbox">
+        <div class="magazinePopupContent">
+            <div class="magazineCloseButton"><a href="javascript:closeemailBox()"><img src="https://d117fiyhpld8f9.cloudfront.net/content-images/aw17/1200/X-Black.png" width="16px"></a></div>
+            <div class="magazinePopupText textBook">
+                <p>TOAST creates and curates simple, functional, beautiful product and content.</p>
+                <p>Each week we publish insightful and inspiring articles on a variety of subjects – from traditional textile techniques through to seasonal recipes and the routines of artists and authors.</p>
+            </div>
+            <div class="magazinePopupCTAtext sansMedium">
+                <p>Keep up with our latest articles and news </p>
+            </div>
+            <div class="magazinePopupField">
+                <input class="sansBook" type="text" name="lname" placeholder='enter your name'>
+                <div class="magazineCTA">
+                    <a href="javascript:closeemailBox()" class="sansMedium">Sign up</a>
+                </div>
+            </div>
+        </div>
+</div>
+<div class="container">
+<div class='titleHolder'><div class='titleBlocks'><div class='titleBorder'><h2>Art</h2></div></div></div>
+            <div class="columnContentPadder col-xs-6 col-sm-4 bText">
+                <a href="https://www.toa.st/uk/content/test/post.htm">
+                    <img src="https://travels.toa.st/wp-content/uploads/2017/05/block-printing-300x212.jpg" class="img-responsive" />
+                    <h1>A brief history of block printing</h1>
+                    <p>The soft thud of a wooden block hitting the print table is the rhythmic backdrop to the centuries-old craft of block printing. </p>
+                </a>
+            </div>
+           
+     
+            <div class="columnContentPadder col-xs-6 col-sm-4 tText">
+                <a href="https://travels.toa.st/2017/06/30/mirror-shoulder-signal/">
+                   
+                    <h1>New Inventions</h1>
+                    <p>We explore the Royal College of Art graduate show.</p>
+                     <img src="https://travels.toa.st/wp-content/uploads/2017/07/RoyalCollege_3-300x212.jpg" class="img-responsive" />
+                </a>
+            </div>
+   <div class="columnContentPadder col-xs-6 col-sm-4 bText">
+                <a href="https://travels.toa.st/2017/06/21/walking-through-midsummer/">
+                    <img src="https://travels.toa.st/wp-content/uploads/2017/06/Midsummer_4-300x212.jpg" class="img-responsive" />
+                    <h1>Walking through midsummer</h1>
+                    <p>Our long walk across the Lake District, marking the long days of midsummer, took us not between summits, but between seven trees.</p>
+                </a>
+            </div>
+            <div class="columnContentPadder col-xs-6 col-sm-4 tText">
+                <a href="https://www.toa.st/uk/content/test/post.htm">
+                   
+                    <h1>Lady Macbeth Film</h1>
+                    <p>As this spare and striking drama opens, the camera slowly pans around the veiled face of an anxious young bride.</p>
+                     <img src="https://travels.toa.st/wp-content/uploads/2017/06/Macbeth_3-300x212.jpg" class="img-responsive" />
+                </a>
+            </div>
+            <div class="columnContentPadder col-xs-6 col-sm-4 bText">
+                <a href="https://travels.toa.st/2017/06/21/walking-through-midsummer/">
+                    <img src="https://travels.toa.st/wp-content/uploads/2017/06/radishes_2-300x212.jpg" class="img-responsive" />
+                    <h1>Pink & Peppery</h1>
+                    <p>Like many children, I grew radishes in a tiny plot at the far end of our family garden.</p>
+                </a>
+            </div>
+            <div class="columnContentPadder col-xs-6 col-sm-4 tText">
+                <a href="https://travels.toa.st/2017/05/25/hotel-du-lac-book-club/">
+                    <h1>Hotel du Lac</h1>
+                    <p>When I said I was reviewing Hotel du Lac to someone in the bookshop today they said: ‘20 years too late!’ It’s a funny thing, returning to a book I read years ago.  </p>
+                    <img src="https://travels.toa.st/wp-content/uploads/2014/11/Taltsy-52-300x205.jpg" class="img-responsive" />
+                    </a>
+            </div>
+            <div class="columnContentPadder col-xs-6 col-sm-4 bText">
+                <a href="https://travels.toa.st/2017/03/30/the-summer-book-tove-jansson-book-club/">
+                 <img src="https://travels.toa.st/wp-content/uploads/2017/03/SummerBook-300x212.jpg" class="img-responsive" />
+                    <h1>The Summmer Book</h1>
+                    <p>First, a confession: I am a fan of Tove Jansson.  </p>
+                   
+                    </a>
+            </div>
+            <div class="columnContentPadder col-xs-6 col-sm-4 tText">
+                <a href="https://travels.toa.st/2017/01/26/the-golden-legend-book-club-by-nadeem-aslam/">
+                    <h1>The Golden Legend</h1>
+                    <p>In the opening pages of The Golden Legend, a mysterious presence has gripped the fictional city of Zamana.  </p>
+                    <img src="https://travels.toa.st/wp-content/uploads/2017/01/BOOKCLUB-300x212.jpg" class="img-responsive" />
+                    </a>
+            </div>
+            <div class="columnContentPadder col-xs-6 col-sm-4 bText">
+                <a href="https://travels.toa.st/2016/12/30/the-good-immigrant-book-club/">
+                 <img src="https://travels.toa.st/wp-content/uploads/2016/12/TheGoodImmigrant_1-300x212.jpg" class="img-responsive" />
+                    <h1>The Good Immigrant </h1>
+                    <p>Every immigrant has a story to tell. </p>
+                    
+                    </a>
+            </div>
+            <div class="columnContentPadder col-xs-6 col-sm-4 tText">
+                <a href="https://travels.toa.st/2016/09/29/sarah-perry-the-essex-serpent/">
+                    <h1>The Essex Serpent</h1>
+                    <p>Who doesn’t love a thing of beauty? </p>
+                    <img src="https://travels.toa.st/wp-content/uploads/2016/09/Bookclub_6-300x211.jpg" class="img-responsive" />
+                    </a>
+            </div>
+     
+            <div class="columnContentPadder col-xs-6 col-sm-4 bText">
+                <a href="https://travels.toa.st/2017/06/30/mirror-shoulder-signal/">
+                    <img src="https://travels.toa.st/wp-content/uploads/2015/12/indigohero-300x211.jpg" class="img-responsive" />
+                    <h1>The Story if Indigo</h1>
+                    <p>Can you name the colours of the rainbow? </p>
+                </a>
+            </div>
+            <div class="columnContentPadder col-xs-6 col-sm-4 tText">
+                  <a href="https://travels.toa.st/2016/05/26/baked-whole-fish-with-roasted-lemon-potato-dill/">
+                    
+                    <h1>Local Milk</h1>
+                    <p>My philosophy is that regarding the quotidian as art down to the detail renders so much more out of life.</p>
+                    <img src="https://travels.toa.st/wp-content/uploads/2015/03/interim2-300x200.jpg" class="img-responsive" />
+                </a>
+            </div>
+            <div class="columnContentPadder col-xs-6 col-sm-4 bText">
+                 <a href="https://travels.toa.st/2015/12/16/fig-earl-grey-victoria-sponge-recipe/">
+                    <img src="https://travels.toa.st/wp-content/uploads/2015/03/alicegaolingeredupon-300x200.jpg" class="img-responsive" />
+                    <h1>Lingered Upon</h1>
+                    <p>Do you have a favourite blog? </p>
+                </a>
+            </div>
+            <div class="columnContentPadder col-xs-6 col-sm-4 tText">
+                 <a href="https://travels.toa.st/2015/09/25/beetroot-cream-cheese-tart/">
+                   
+                    <h1>Beetroot & Creamcheese Tart</h1>
+                    <p>Fern Verrow is a biodynamic farm at the foothills of the Black Mountains in Herefordshire.</p>
+                     <img src="https://travels.toa.st/wp-content/uploads/2015/08/beetroottart-300x211.jpg" class="img-responsive" />
+                </a>
+            </div>
+            <div class="columnContentPadder col-xs-6 col-sm-4 bText">
+                <a href="https://travels.toa.st/2015/08/26/blackberry-and-anise-shrub/">
+                    <img src="https://travels.toa.st/wp-content/uploads/2015/08/blackberry-anise-shrub-300x211.jpg" class="img-responsive" />
+                    <h1>Blackberry and Anise Shrub</h1>
+                    <p>I love to make cordials when soft fruit is seasonal and in full force.</p>
+                </a>
+            </div>
+    
+            <div class="columnContentPadder col-xs-6 col-sm-4 tText">
+                <a href="https://travels.toa.st/2016/10/25/the-land-gardeners/">
+                    <h1>The Land Gardeners</h1>
+                    <p>The desire to connect, the need to produce healthy food which was good for our families, and the joy we felt being amongst plants or in a greenhouse.</p>
+                    <img src="https://travels.toa.st/wp-content/uploads/2016/10/LANDGARDENERS-300x211.jpg" class="img-responsive" />
+                </a>
+            </div>
+
+          
+            <div class="columnContentPadder col-xs-6 col-sm-4 bText">
+                <a href="https://travels.toa.st/2016/03/24/a-brief-history-of-the-waterlily/">
+                <img src="https://travels.toa.st/wp-content/uploads/2015/05/grace-and-me-bircher-300x154.jpg" class="img-responsive" />
+                    <h1>Victoria amazonica</h1>
+                    <p>Waterlily’s reign as ‘Queen of the Aquatics’ in the British pond stems from victorian times.</p>
+                    
+                </a>
+            </div>
+    
+            <div class="columnContentPadder col-xs-6 col-sm-4 tText">
+                  <a href="https://travels.toa.st/2017/05/11/the-huipil/">
+                  
+                    <h1>The Huipil</h1>
+                    <p>Huipils are traditional garments worn by the indigenous Mayan women of the Guatemalan highlands.</p>
+                      <img src="https://travels.toa.st/wp-content/uploads/2016/08/TheMakiokaSisters-300x211.jpg" class="img-responsive" />
+                </a>
+            </div>
+           <div class="columnContentPadder col-xs-6 col-sm-4 bText">
+                <a href="https://travels.toa.st/2016/12/01/the-christmas-tree/">
+                        <img src="https://travels.toa.st/wp-content/uploads/2016/11/Chrsitmastree-300x212.jpg" class="img-responsive" />
+                        <h1>The Christmas Tree</h1>
+                        <p>The tradition of bringing an evergreen coniferous tree into the house and decorating it for Christmas is of surprisingly recent origin. </p>
+                </a>
+            </div>
+            <div class="columnContentPadder col-xs-6 col-sm-4 tText">
+                  <a href="https://travels.toa.st/2016/07/22/workspace-temple-cycles/">
+                   
+                    <h1>Temple Cycles</h1>
+                    <p>Our workshop (which also doubles as a showroom) is in South West Bristol. It’s a modern building with a lot of sustainable features such as its grass roof, solar panels and louvre heat exchangers.</p>
+                     <img src="https://travels.toa.st/wp-content/uploads/2015/08/blackberry-and-anise-shrub-300x218.jpg" class="img-responsive" />
+                </a>
+            </div>
+            <div class="columnContentPadder col-xs-6 col-sm-4 bText">
+                  <a href="https://travels.toa.st/2016/03/22/oas-by-toast/">
+                    <img src="https://travels.toa.st/wp-content/uploads/2016/03/OAS_by@styleNylo_2-300x211.jpg" class="img-responsive" />
+                    <h1>Julia Rebaudo</h1>
+                    <p>My favourite piece from the new OAS collection has to be the cotton twill olive shirt. So soft to touch, but boldly holding its own shape.</p>
+                </a>
+            </div>
+            <div class="columnContentPadder col-xs-6 col-sm-4 tText">
+                  <a href="https://travels.toa.st/2015/11/13/herb-succulent-wreath-tutorial-grace-thorn/">
+                  
+                    <h1>Grace & Thorn</h1>
+                    <p>Grace & Thorn are florist and plant purveyors based in Hackney and Soho. Founded by Nik Southern in 2011.</p>
+                      <img src="https://travels.toa.st/wp-content/uploads/2015/11/succulent-wreath-300x199.jpg" class="img-responsive" />
+                </a>
+            </div>
+    
+           <div class="columnContentPadder col-xs-6 col-sm-4 bText">
+                  <a href="https://travels.toa.st/2017/05/31/swifts/">
+                   <img src="https://travels.toa.st/wp-content/uploads/2017/01/Lucymayscholfield-300x212.jpg" class="img-responsive" />
+                    <h1>Swifts</h1>
+                    <p>One of my lengthier commutes while living in London consumed the better part of an hour and a half each way. </p>
+                   
+                </a>
+            </div>
+            <div class="columnContentPadder col-xs-6 col-sm-4 tText">
+                  <a href="https://travels.toa.st/2015/12/28/abandoned-spaces/">
+                    <h1>Abandoned Spaces</h1>
+                    <p>There is something deeply fascinating yet unnerving about stepping into an abandoned space. </p>
+                    <img src="https://travels.toa.st/wp-content/uploads/2017/01/hangings-300x212.jpg" class="img-responsive" />
+                </a>
+            </div>
+             
+            <div class="columnContentPadder col-xs-6 col-sm-4 bText">
+                <a href="https://travels.toa.st/2016/03/24/a-brief-history-of-the-waterlily/">
+                    <img src="https://travels.toa.st/wp-content/uploads/2017/01/black-ice-300x212.jpg" class="img-responsive" />
+                    <h1>Victoria amazonica</h1>
+                    <p>Waterlily’s reign as ‘Queen of the Aquatics’ in the British pond stems from victorian times, during a period when Queen Victoria herself was a just small princess.</p>
+                
+                </a>
+            </div>
+      
+           <div class="columnContentPadder col-xs-6 col-sm-4 tText">
+                  <a href="https://travels.toa.st/2017/05/11/the-huipil/">
+                   
+                    <h1>James Howes</h1>
+                    <p>Huipils are traditional garments worn by the indigenous Mayan women of the Guatemalan highlands.</p>
+                     <img src="https://travels.toa.st/wp-content/uploads/2017/03/EsterFreud-300x212.jpg" class="img-responsive" />
+                </a>
+            </div>
+           <div class="columnContentPadder col-xs-6 col-sm-4 bText">
+                <a href="https://travels.toa.st/2016/12/01/the-christmas-tree/">
+                        <img src="https://travels.toa.st/wp-content/uploads/2017/05/Spring_LTB_2-300x212.jpg" class="img-responsive" />
+                        <h1>The Only Ones</h1>
+                        <p>It seems to have started in Livonia (now Latvia and Estonia) on the Baltic coast in the fifteenth century. </p>
+                </a>
+            </div>
+            <div class="columnContentPadder col-xs-6 col-sm-4 tText">
+                  <a href="https://travels.toa.st/2016/07/22/workspace-temple-cycles/">
+                   
+                    <h1>A day in the life</h1>
+                    <p>Our workshop (which also doubles as a showroom) is in South West Bristol. It’s a modern building with a lot of sustainable features such as its grass roof, solar panels and louvre heat exchangers.</p>
+                     <img src="https://travels.toa.st/wp-content/uploads/2017/05/Spring_LTB-300x212.jpg" class="img-responsive" />
+                </a>
+            </div>
+            <div class="columnContentPadder col-xs-6 col-sm-4 bText">
+                  <a href="https://travels.toa.st/2016/03/22/oas-by-toast/">
+                    <img src="https://travels.toa.st/wp-content/uploads/2016/03/OAS_by@styleNylo_2-300x211.jpg" class="img-responsive" />
+                    <h1>Julia Rebaudo</h1>
+                    <p>My favourite piece from the new OAS collection has to be the cotton twill olive shirt. So soft to touch.</p>
+                </a>
+            </div>
+            <div class="columnContentPadder col-xs-6 col-sm-4 tText">
+                  <a href="https://travels.toa.st/2015/11/13/herb-succulent-wreath-tutorial-grace-thorn/">
+                  
+                    <h1>Levelling</h1>
+                    <p>Grace & Thorn are florist and plant purveyors based in Hackney and Soho. Founded by Nik Southern in 2011, the business was born from her desire to create florals that defied all traditions and rules.</p>
+                      <img src="https://travels.toa.st/wp-content/uploads/2016/10/istanbul-300x211.jpg" class="img-responsive" />
+                </a>
+            </div>
+
+</div>
+
+<script>
+
+    $( document ).ready(function() {
+      
+        setTimeout( function(){
+          triggerEmailPopup()
+        }, 6000);
+
+        addTitles()
+    })
+          
+    function closeemailBox() {
+        $(".magazineLightbox").remove()
+    }
+
+    function triggerEmailPopup() {
+        marginTopPusher = $(window).scrollTop() + 120;
+        $(".magazineLightbox").height($(document).height())
+        $(".magazinePopupContent").css("margin-top", marginTopPusher)
+        
+
+        $(".magazineLightbox").on("click", function(e) {
+            e.target == this && closeemailBox()
+        })
+          
+        $(".magazineLightbox").fadeIn()
+
+    }
+
+
+
+
+</script>
+
+
+​
