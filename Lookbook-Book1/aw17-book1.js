@@ -1,13 +1,19 @@
 aw17book1 = [{
   products: [{
-  prodId: "C7IAE",
+  prodId: "C7IBK",
   skuColor: "putty"
   },{
-  prodId: "C3ICB",
+  prodId: "C4IAH",
   skuColor: "slate"
+  },{
+  prodId: "FFIAC",
+  skuColor: "slate"
+  },{
+  prodId: "FCIAB",
+  skuColor: "black"
   }],
-  imgThumbSrc: "//d117fiyhpld8f9.cloudfront.net/content-images/aw17/900/TOAST_PreCollection_Lookbook_1.jpg",
-  imgSrc: "//d117fiyhpld8f9.cloudfront.net/content-images/aw17/700/TOAST_PreCollection_Lookbook_1.jpg",
+  imgThumbSrc: "//d117fiyhpld8f9.cloudfront.net/content-images/aw17/1200/TOAST_EarlyAutumn_Lookbook_3b.jpg",
+  imgSrc: "//d117fiyhpld8f9.cloudfront.net/content-images/aw17/1200/TOAST_EarlyAutumn_Lookbook_3b.jpg",
   orientation: "portrait",
   percentWidth: "50",
   lookbookID: "1",
